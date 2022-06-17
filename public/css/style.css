@@ -1,0 +1,28 @@
+body {
+    padding-top: 80px!important;
+    font-family: 'Mono', sans-serif!important;
+    font-size: 18px!important;
+}
+
+.logintag a,
+.headerlink>li>a {
+    color: rgb(51, 50, 50);
+    margin: 15px;
+}
+
+.logintag>span:hover a,
+.headerlink>li:hover a {
+    color: orange;
+    text-shadow: 0px 0px 2px grey;
+    text-shadow: 0px 0px 1px yellow;
+    transform: scale(1.2, 1.1);
+    transition: 0.5s;
+    transition-timing-function: ease;
+}
+
+.headerlink>li:hover,
+.logintag>span:hover {
+    background-color: antiquewhite;
+    box-shadow: 0px 0px 1px grey;
+    border-radius: 15px;
+}
