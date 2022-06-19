@@ -1,3 +1,44 @@
+<!-- Register panel Modal -->
+<div style=" box-shadow: 0px 0px 15px black;" class="container-fluid py-3 register-panel">
+    <div class="row align-content-center w-50 m-auto">
+        <div class="col-md-9 text-left h3">
+            REGISTER NOW
+            <h5>For Experiencing <span class="text-white font-weight-bold h3"> 3-Days Trial-Pass </span></h5>
+        </div>
+        <button type="button" class="col-md-3 mb-4 mt-2 btn btn-primary font-weight-bolder " data-toggle="modal" data-target="#staticBackdrop">
+            REGISTER</button>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-secondary text-warning">
+            <div class="modal-header bg-dark bg-image" style="background-image: url('images/logo.png');background-size: contain; background-repeat: no-repeat;">
+                <button type="button" class="close text-warning" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <form action="" method="get">
+                <div class="modal-body row">
+                    <picture class="col"><img src="images/home/sport.jpg" class="img-fluid img-thumbnail bg-transparent border-0 shadow rounded" alt=""></picture>
+                    <div class="col">
+                        <h5>Bring your friends to extend a full-week</h5>
+                        <hr>
+                        <input class="form-control" type="text" class="name" id="name" placeholder="Your Name" required autocomplete="off" minlength="6" maxlength="30">
+                        <br>
+                        <input type="tel" class="form-control" autocomplete="off" name="telNo" id="telNo" placeholder="Your Phone Number" minlength="9" maxlength="12" pattern="[0-9]{}" required>
+                        <br>
+                        <input type="email" class="form-control" id="email" placeholder="Your email">
+                        <br>
+                        <input type="text" class="form-control" id="address" placeholder="Your Address">
+                    </div>
+                </div>
+                <div class="modal-footer bg-dark">
+                    <button type="submit" class="btn btn-danger">REGISTER</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- End of Modal -->
 <!-- Footer -->
 <div class="container">
     <footer class="mt-5 border-0 sticky-bottom">

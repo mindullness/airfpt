@@ -6,7 +6,7 @@
 
     <div class="container-fluid">
 
-        <div id="indexCarousel" class="z-depth-5 carousel carousel-fade slide overflow-hidden" data-pause="false" data-ride="carousel" data-interval="5000">
+        <div id="indexCarousel" class="carousel carousel-fade slide overflow-hidden" data-pause="false" data-ride="carousel" data-interval="5000">
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img src="{{asset('./img/carousel1.jpg')}}" height="800px" alt="">
@@ -105,27 +105,43 @@
                             <span class="input-group-text"> &NonBreakingSpace; Inbound &NegativeThinSpace;</span>
                         </div>
                     </div>
-                    <script>
 
-
-                    </script>
                     <!-- Input Passenger -->
                     <label class="mt-2 font-weight-bolder pax " for="destination">Passenger</label>
                     <div class="input-group input-group-lg pax ">
 
                         <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            <span class="input-group-text"><i class="fas fa-user-friends"></i></span>
                         </div>
-                        <input name="" id="" type="text" class="form-control" placeholder="Passenger">
+
+                        <!-- Input Adult Children Infant -->
+                        <div class="form-control">
+                            <select name="paxCount" id="paxCount">
+                                <optgroup label="Adult">
+
+                                </optgroup>
+                                <optgroup label="Children">
+                                    <option value="">Mercedes</option>
+                                </optgroup>
+                                <optgroup label="Infant">
+                                    <option value="">Mercedes</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                        <!-- End Adult Children Infant -->
+                        <div class="input-group-append d-lg-flex d-none">
+                            <span class="input-group-text bg-light border-light mx-0 px-auto">Economy-Fare</span>
+                        </div>
+                        <div class="input-group-append d-md-flex d-none">
+                            <span class="input-group-text rounded-right"><i class="fa fa-ticket-alt"></i></span>
+                        </div>
                         <div class="input-group-append">
-                            <span class="input-group-text"><i class="fa fa-calendar-alt"></i></span>
+                            <span class="input-group-text border-0 bg-transparent "> &nbsp;</span>
                         </div>
-                        <!-- Input return_date -->
-                        <input name="return_date" id="return_date" type="text" class="form-control" placeholder="Day-Month-Year" onfocus="(this.type='date')" onblur="(this.type='text')">
-                        <div class="input-group-append">
-                            <span class="input-group-text"> &NonBreakingSpace; Inbound &NegativeThinSpace;</span>
-                        </div>
+                        <input type="submit" value="SEARCH FLIGHTS" class="btn btn-primary  rounded font-weight-bolder">
                     </div>
+
+
                 </form>
 
                 <!-- End form "booking"-->
@@ -209,145 +225,6 @@
         </div>
     </div>
 </div>
-<!-- Register panel Modal -->
-<div style=" box-shadow: 0px 0px 15px black;" class="container-fluid py-3 register-panel">
-    <div class="row align-content-center w-50 m-auto">
-        <div class="col-md-9 text-left h3">
-            REGISTER NOW
-            <h5>For Experiencing <span class="text-white font-weight-bold h3"> 3-Days Trial-Pass </span></h5>
-        </div>
-        <button type="button" class="col-md-3 mb-4 mt-2 btn btn-primary font-weight-bolder " data-toggle="modal" data-target="#staticBackdrop">
-            REGISTER</button>
-    </div>
-</div>
-<!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content bg-secondary text-warning">
-            <div class="modal-header bg-dark bg-image" style="background-image: url('images/logo.png');background-size: contain; background-repeat: no-repeat;">
-                <button type="button" class="close text-warning" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            </div>
-            <form action="" method="get">
-                <div class="modal-body row">
-                    <picture class="col"><img src="images/home/sport.jpg" class="img-fluid img-thumbnail bg-transparent border-0 shadow rounded" alt=""></picture>
-                    <div class="col">
-                        <h5>Bring your friends to extend a full-week</h5>
-                        <hr>
-                        <input class="form-control" type="text" class="name" id="name" placeholder="Your Name" required autocomplete="off" minlength="6" maxlength="30">
-                        <br>
-                        <input type="tel" class="form-control" autocomplete="off" name="telNo" id="telNo" placeholder="Your Phone Number" minlength="9" maxlength="12" pattern="[0-9]{}" required>
-                        <br>
-                        <input type="email" class="form-control" id="email" placeholder="Your email">
-                        <br>
-                        <input type="text" class="form-control" id="address" placeholder="Your Address">
-                    </div>
-                </div>
-                <div class="modal-footer bg-dark">
-                    <button type="submit" class="btn btn-danger">REGISTER</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
-<!-- End of Modal -->
 
 
-<script>
-    $(document).ready(function() {
-
-        var roundtrip = true;
-        beforeFullFill();
-
-        $("#indexFormTab > li > .nav-link").click(function() {
-            $(this).toggleClass("active");
-        });
-
-        // Check radio button "roundtrip" or "oneway" is checked
-        $('input:radio[name="isRoundTrip"]').change(function() {
-            changeRadioBtn();
-            displayPaxField();
-        });
-
-        $('#origin, #depart_date, #destination, #return_date').on('input', function() {
-            displayPaxField();
-        });
-        $('#origin, #depart_date, #destination, #return_date').blur(function() {
-            displayPaxField();
-        });
-
-        function displayPaxField() {
-            isFullFill() ? beforeFullFill() : afterFullFill();
-        }
-
-        function isFullFill() {
-            let isOriginFill = $('#origin').val();
-            let isDestinationFill = $('#destination').val();
-            let isDepart_dateFill = $('#depart_date').val();
-            let isReturn_dateFill = isRoundTrip() ? ($('#return_date').val()) : true;
-
-            if (!isOriginFill || !isDestinationFill || !isDepart_dateFill || !isReturn_dateFill) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-
-        function beforeFullFill() {
-            $('.indexForm').css({
-                'height': '280px',
-                'transition': '0.5s',
-                'transition-timing-function': 'ease-in-out'
-            });
-            $('.pax').css({
-                'visibility': 'hidden',
-                'transition': '0.5s',
-                'transition-timing-function': 'ease-in-out'
-            });
-        }
-
-        function afterFullFill() {
-            $('.indexForm').css({
-                'height': '368px',
-                'transition': '0.5s',
-                'transition-timing-function': 'ease-in-out'
-            });
-            $('.pax').css({
-                'visibility': 'visible',
-                'transition': '0.5s',
-                'transition-timing-function': 'ease-in-out'
-            });
-        }
-
-        function isRoundTrip() {
-            $('.oneway').is(':checked') ? roundtrip = false : roundtrip = true;
-            return roundtrip;
-        }
-
-        function changeRadioBtn() {
-            isRoundTrip();
-            if (!roundtrip) {
-                $('.oneway').parent().toggleClass("text-warning");
-                $('.roundtrip').parent().toggleClass("text-warning");
-
-                $("#return_date").prop({
-                    'disabled': true,
-                    'value': ''
-                });
-
-            } else {
-                $("#return_date").prop('disabled', false);
-                $('.oneway').parent().toggleClass("text-warning");
-                $('.roundtrip').parent().toggleClass("text-warning");
-
-            }
-        }
-
-        // Script to toggle Active Tab between "Booking", "Manage Booking" and "Flight Status" Tabs
-        $("#indexFormTab > li > .nav-link").click(function() {
-            $(this).toggleClass("active");
-
-        });
-    });
-</script>
 @endsection

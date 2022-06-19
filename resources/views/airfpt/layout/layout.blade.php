@@ -44,16 +44,18 @@
     <!-- page script -->
     @yield('script-section')
 </body>
+<script src="js/userIndex.js"></script>
 
-<script>
-    $('.indexForm').on('focus', function() {
-        $('body').addClass('dark');
+<!-- <script>
+    $('.indexForm').click(function() {
+        $('body').toggleClass('dark');
     });
 
-    $('.indexForm').on('blur', function() {
-        $('body').removeClass('dark');
+    $('.indexForm)').mouseout(function() {
+        $('body').toggleClass('dark');
     });
-</script>
+
+</script> -->
 
 
 </html>
