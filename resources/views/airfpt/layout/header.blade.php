@@ -1,25 +1,41 @@
-
-
-<header class="container ">
-    <div class="navbar d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-1 my-2">
-
+<header class="navbar navbar-expand-lg navbar-light bg-light fixed-top font-weight-bold" role="navigation">
+    <div class="container">
         <a class="navbar-brand" href="{{Route('airfpt.index')}}"><img width="200" src="{{ asset('img/logo/prj_logo.png') }}" alt=""></a>
-
-        <ul class="nav col-12 col-md-auto justify-content-center headerlink">
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 ">Destinations</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 ">News</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 ">FAQs</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 ">About</a></li>
-        </ul>
-
-        <div class="logintag nav text-end justify-content-end">
-            <span class="nav-item"><a class="text-decoration-none pr-2 nav-link" href="">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person" viewBox="0 0 18 18">
-                    <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
-                </svg> Login</a></span><span class="pt-4"> | </span>
-                <span class="nav-item"><a class="text-decoration-none p-2 nav-link" href="">Agency</a></span>
-            
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#header_menu">
+            &#9776;
+        </button>
+        <div class="collapse navbar-collapse" id="header_menu">
+            <ul class="headerlink nav navbar-nav text-light">
+                <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Destinations</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">News</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+            </ul>
+            <ul class="nav navbar-nav flex-row justify-content-between ml-auto">
+                <li class="nav-item order-2 order-md-1"><i class="fa fa-user-circle nav-link" style="font-size:24px"></i></li>
+                <li class="dropdown order-1">
+                    <button type="button" id="dropdownMenu1" data-toggle="dropdown" class="btn btn-outline-secondary dropdown-toggle">Login <span class="caret"></span></button>
+                    <ul class="dropdown-menu dropdown-menu-right mt-1">
+                      <li class="p-3">
+                            <form class="form" role="form">
+                                <div class="form-group">
+                                    <input id="emailInput" placeholder="Email" class="form-control form-control-sm" type="text" required="">
+                                </div>
+                                <div class="form-group">
+                                    <input id="passwordInput" placeholder="Password" class="form-control form-control-sm" type="text" required="">
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary btn-block">Login</button>
+                                </div>
+                                <div class="form-group text-xs-center">
+                                    <small><a href="#">Forgot password?</a></small>
+                                </div>
+                            </form>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
         </div>
     </div>
 </header>

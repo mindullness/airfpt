@@ -15,7 +15,7 @@ use App\Http\Controllers\PhucDuyController;
 */
 
 Route::get('airfpt/', [HomeController::class, 'index'])->name('airfpt.index');
-
+Route::get('airfpt/faqs', [HomeController::class, 'faqs'])->name('airfpt.faqs');
 
 Route::group(['prefix'=>'phucduy'], function(){
     Route::get('/', [PhucDuyController::class, 'index'])->name('phucduy.index');
