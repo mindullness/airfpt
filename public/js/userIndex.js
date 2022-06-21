@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+    // SEARCH FLIGHTS ZONE //
 
     var roundtrip = true;
     beforeFullFill();
@@ -94,6 +95,8 @@ $(document).ready(function() {
     // Script to toggle Active Tab between "Booking", "Manage Booking" and "Flight Status" Tabs
     $("#indexFormTab > li > .nav-link").click(function() {
         $(this).toggleClass("active");
-
     });
+
+    // .END SEARCH FLIGHTS ZONE //
+
 });

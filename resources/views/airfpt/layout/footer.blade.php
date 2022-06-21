@@ -1,11 +1,11 @@
 <!-- Register panel Modal -->
-<div style=" box-shadow: 0px 0px 15px black;" class="container-fluid py-3 register-panel">
+<div class="container-fluid py-3 register-panel">
     <div class="row align-content-center w-50 m-auto">
-        <div class="col-md-9 text-left h3">
+        <div class="col-md-9 text-left h3" >
             REGISTER NOW
             <h5>For Experiencing <span class="text-white font-weight-bold h3"> 3-Days Trial-Pass </span></h5>
         </div>
-        <button type="button" class="col-md-3 mb-4 mt-2 btn btn-primary font-weight-bolder " data-toggle="modal" data-target="#staticBackdrop">
+        <button type="button" class="col-md-3 text-white mb-4 mt-2 btn btn-outline-primary font-weight-bolder shadow-light rounded" data-toggle="modal" data-target="#staticBackdrop">
             REGISTER</button>
     </div>
 </div>
@@ -40,9 +40,9 @@
 </div>
 <!-- End of Modal -->
 <!-- Footer -->
-<div class="container">
-    <footer class="mt-5 border-0 sticky-bottom">
-        <!-- Class .footer -->
+<footer class="container mt-5 border-0 sticky-bottom">
+
+        <!-- Class .footer Information -->
         <div class="row m-auto footer">
 
             <div class="col-md-6 col-lg-3 "><br>
@@ -73,31 +73,31 @@
             <div class="col-md-6 col-lg-3"><br>
                 <h4>CONTACT</h4>
                 <hr class="bg-primary w-25 ml-0">
-                <p><a href="#">Contact</a></p>    
+                <p><a href="#">Contact</a></p>
             </div>
             <div class="col-md-6 col-lg-3"><br>
                 <h4>SUPPORT</h4>
                 <hr class="bg-primary w-25 ml-0">
                 <p><a href="">Terms & Conditions</a></p>
                 <p><a href="#">FAQs</a></p>
-                <p><a href="#">Irregular Flight</a></p>   
+                <p><a href="#">Irregular Flight</a></p>
             </div>
         </div>
-        <hr class="bg-primary d-block w-25 mr-auto mb-4 mt-0">
+        <hr class="bg-primary d-block w-25 mx-auto mb-4 mt-0">
 
-    </footer>
-
-</div>
-<div class="py-3 container-fluid bg-light">
-    <div class="container d-flex">
-        <div class="logo pr-3 mr-3">
-            <a href="{{Route('airfpt.index')}}"><img width="200" src="{{ asset('img/logo/prj_logo.png') }}" alt=""></a>
+    <!-- Footer -->
+</footer>
+<!-- Footer  -->
+<div class="py-3 container-fluid bg-light mx-0 px-0">
+    <div class="container d-md-flex">
+        <div class="d-block d-md-flex">
+            <a class="mx-2" href="{{Route('airfpt.index')}}"><img width="180" src="{{ asset('img/logo/prj_logo.png') }}" alt=""></a>
         </div>
         <div class="flex-grow-1 text-secondary text-muted ">
             <p>VIET NAM AIR FPT JOINT STOCK COMPANY <br>
                 Business Registration Certificate, No. 030622180722, first time registration on 03 June 2022, revised for the third time on 18 Junly 2022, issued by Department of Planning Investment of Ho Chi Minh City</p>
 
-            <h6 class="d-flex justify-content-between font-weight-bolder">
+            <h6 class="d-flex flex-wrap justify-content-between font-weight-bolder">
                 <span>TERMS OF USE &copy; 2022 <a class="text-secondary" href="http://aptech.fpt.edu.vn/">FPT Aptech</a></span>
                 &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
                 <span><a class="text-secondary" href="{{route('airfpt.index')}}">WWW.AIRFPT.VN</a></span>
@@ -108,4 +108,3 @@
         </div>
     </div>
 </div>
-<!-- Footer -->

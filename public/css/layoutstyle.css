@@ -1,8 +1,21 @@
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+* {
+    position: relative;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
-    padding-top: 68px;
+    padding: 68px 0px 0px 0px;
     font-family: 'Mono', sans-serif!important;
     font-size: 18px;
-    background-color: rgba(209, 230, 245, 0.9);
+    background: -webkit-linear-gradient(100deg, rgba(1, 131, 243, 0.4), rgba(1, 131, 243, 0.4), rgba(1, 131, 243, 0.4), rgba(1, 131, 243, 0.4), rgba(1, 131, 243, 0.35), rgba(243, 112, 34, 0.3), rgba(243, 112, 34, 0.35), rgba(243, 112, 34, 0.3), rgba(255, 127, 39, 0.3), rgba(77, 183, 72, 0.3), rgba(77, 183, 72, 0.3), rgba(109, 233, 27, 0.3), rgba(109, 233, 27, 0.3));
+    background: linear-gradient(100deg, rgba(1, 131, 243, 0.4), rgba(1, 131, 243, 0.4), rgba(1, 131, 243, 0.4), rgba(1, 131, 243, 0.4), rgba(1, 131, 243, 0.35), rgba(243, 112, 34, 0.3), rgba(243, 112, 34, 0.35), rgba(243, 112, 34, 0.3), rgba(255, 127, 39, 0.3), rgba(77, 183, 72, 0.3), rgba(77, 183, 72, 0.3), rgba(109, 233, 27, 0.3), rgba(109, 233, 27, 0.3));
 }
 
 .headerlink>.nav-item>.nav-link {
@@ -32,6 +45,8 @@ body {
     object-fit: cover;
     width: 100%;
     height: 800px;
+    margin: 0;
+    padding: 0;
 }
 
 .carousel-control-prev:hover {
@@ -44,7 +59,7 @@ body {
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-    padding: 28px;
+    padding: 20px;
 }
 
 .carousel-control-prev-icon:hover,
@@ -71,7 +86,7 @@ body {
 .indexForm {
     z-index: 4;
     position: absolute;
-    margin-top: 30px;
+    margin: 68px 0px 0px 0px;
     height: 290px;
     background: -webkit-linear-gradient(100deg, rgba(1, 131, 243, 0.9), rgba(1, 131, 243, 0.8), rgba(1, 131, 243, 0.8), rgba(1, 131, 243, 0.6), rgba(243, 112, 34, 0.9), rgba(243, 112, 34, 0.8), rgba(243, 112, 34, 0.7), rgba(255, 127, 39, 0.6), rgba(77, 183, 72, 0.9), rgba(77, 183, 72, 0.8), rgba(109, 233, 27, 0.6), rgba(109, 233, 27, 0.6));
     background: linear-gradient(100deg, rgba(1, 131, 243, 0.9), rgba(1, 131, 243, 0.8), rgba(1, 131, 243, 0.8), rgba(1, 131, 243, 0.6), rgba(243, 112, 34, 0.9), rgba(243, 112, 34, 0.8), rgba(243, 112, 34, 0.7), rgba(255, 127, 39, 0.6), rgba(77, 183, 72, 0.9), rgba(77, 183, 72, 0.8), rgba(109, 233, 27, 0.6), rgba(109, 233, 27, 0.6));
@@ -118,10 +133,16 @@ body {
     position: relative;
     color: rgb(255, 199, 9);
     text-shadow: 1px 0px 2px black;
-    background-color: lightskyblue;
+    text-shadow: 0px 0px 3px black;
+    box-shadow: 0px 2px 2px rgba(12, 77, 161, 0.3);
+    box-shadow: 0px 2px 3px rgba(255, 254, 254, 0.3);
+    box-shadow: 0px 4px 4px rgba(12, 77, 161, 0.6);
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+    background-color: rgba(12, 77, 161, 0.88);
     height: 100%;
     font-size: larger;
-    font-weight: 900;
+    font-weight: 800;
     border: none;
     padding: auto;
 }
@@ -130,16 +151,52 @@ body {
 /* Tabpane */
 
 .newsContainer {
-    margin: 100px auto auto auto;
-    display: block;
-    border: cadetblue 1px solid;
+    margin: 30px auto 50px auto;
+    border: blue 1px solid;
+    display: flex;
+    justify-content: center;
 }
 
-.register-panel {
-    background-image: repeating-linear-gradient(100deg, rgba(1, 131, 243, 0.9), rgba(1, 131, 243, 0.8), rgba(1, 131, 243, 0.8), rgba(1, 131, 243, 0.6), rgba(243, 112, 34, 0.9), rgba(243, 112, 34, 0.8), rgba(243, 112, 34, 0.7), rgba(255, 127, 39, 0.6), rgba(77, 183, 72, 0.9), rgba(77, 183, 72, 0.8), rgba(109, 233, 27, 0.6), rgba(109, 233, 27, 0.6));
-    color: whitesmoke;
-    font-weight: bolder;
-    font-size: 20px;
+.newsContainer>div>a {
+    position: relative;
+    text-align: center;
+}
+
+h3.newsTitle {
+    width: 100%;
+    text-align: left;
+    position: absolute;
+    bottom: 20px;
+    top: -160px;
+    left: 10px;
+    color: white;
+    font-size: larger;
+    font-weight: 800;
+    text-shadow: 0 1px 2px black;
+    padding: 20px 20px 0px 20px
+}
+
+.newsJumpArrow {
+    z-index: 2;
+    position: absolute;
+    bottom: 20px;
+    right: 38px;
+}
+
+.newsJumpArrow>a {
+    text-decoration: none;
+    text-shadow: 0px 1px 2px black;
+}
+
+.newsJumpArrow>a>li {
+    bottom: 8px;
+    right: 2px;
+}
+
+.newsJumpArrow:hover>a>li {
+    right: -39px;
+    transition: 1.2s;
+    transition-timing-function: 'ease-in-out';
 }
 
 
@@ -147,6 +204,25 @@ body {
 
 
 /* Footer */
+
+.register-panel {
+    background-color: rgb(28, 55, 93);
+    color: whitesmoke;
+    box-shadow: 0px 0px 5px rgb(23, 74, 146);
+    box-shadow: 0px 0px 15px rgb(23, 74, 146);
+    font-weight: bolder;
+    font-size: 20px;
+    margin: 20px 0px 10px 0px;
+    padding: 0px
+}
+
+.register-panel>div>button {
+    background-color: rgb(47, 74, 113)!important;
+}
+
+.register-panel>div>button:hover {
+    background-color: rgb(23, 74, 146)!important;
+}
 
 .footer>div>p>a {
     color: rgba(27, 26, 26, 0.87);
@@ -160,6 +236,77 @@ body {
     padding: 0px;
 }
 
-footer li a {
-    text-decoration: none;
+
+/*  */
+
+
+/*  */
+
+
+/*  */
+
+#gender {
+    height: 196px;
+    position: relative;
+    border: none;
+    background: -webkit-linear-gradient(100deg, rgba(1, 131, 243, 0.3), rgba(1, 131, 243, 0.3), rgba(1, 131, 243, 0.3), rgba(1, 131, 243, 0.4), rgba(243, 112, 34, 0.6), rgba(243, 112, 34, 0.3), rgba(243, 112, 34, 0.3), rgba(255, 127, 39, 0.3), rgba(77, 183, 72, 0.4), rgba(77, 183, 72, 0.4), rgba(109, 233, 27, 0.3), rgba(109, 233, 27, 0.3));
+    background: linear-gradient(100deg, rgba(1, 131, 243, 0.3), rgba(1, 131, 243, 0.3), rgba(1, 131, 243, 0.3), rgba(1, 131, 243, 0.4), rgba(243, 112, 34, 0.6), rgba(243, 112, 34, 0.3), rgba(243, 112, 34, 0.3), rgba(255, 127, 39, 0.3), rgba(77, 183, 72, 0.4), rgba(77, 183, 72, 0.4), rgba(109, 233, 27, 0.3), rgba(109, 233, 27, 0.3));
+}
+
+.box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    padding: 5px;
+    margin: 4px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    border: 1px solid;
+    border-image-slice: 1;
+    border-image-source: -webkit-linear-gradient(100deg, rgba(1, 131, 243, 0.3), rgba(1, 131, 243, 0.3), rgba(1, 131, 243, 0.3), rgba(1, 131, 243, 0.4), rgba(243, 112, 34, 0.6), rgba(243, 112, 34, 0.3), rgba(243, 112, 34, 0.3), rgba(255, 127, 39, 0.3), rgba(77, 183, 72, 0.4), rgba(77, 183, 72, 0.4), rgba(109, 233, 27, 0.3), rgba(109, 233, 27, 0.3));
+    border-image-source: linear-gradient(100deg, rgba(1, 131, 243, 0.3), rgba(1, 131, 243, 0.3), rgba(1, 131, 243, 0.3), rgba(1, 131, 243, 0.4), rgba(243, 112, 34, 0.6), rgba(243, 112, 34, 0.3), rgba(243, 112, 34, 0.3), rgba(255, 127, 39, 0.3), rgba(77, 183, 72, 0.4), rgba(77, 183, 72, 0.4), rgba(109, 233, 27, 0.3), rgba(109, 233, 27, 0.3));
+}
+
+.box>label {
+    justify-content: start;
+    align-items: center;
+    margin-right: auto;
+    font-weight: 900;
+    padding: 8px 0px 0px 6px;
+    color: white;
+    text-shadow: 0px 1px 2px black;
+}
+
+.box>button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 33px;
+    border: 1px solid #c6c6c6;
+    border-radius: 5px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.box>button:hover {
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.4);
+    font-size: 24px;
+    background-color: #c8c8c8;
+}
+
+.box>button:active {
+    background-color: #ccc;
+}
+
+.box>input {
+    width: 50px;
+    height: 33px;
+    padding: 5px 10px;
+    border: 1px solid #c6c6c6;
+    border-radius: 5px;
+    font-size: 22px;
+    margin: 0px 5px;
 }

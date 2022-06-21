@@ -42,7 +42,7 @@
 
 
     <!-- page script -->
-    @yield('script-section')
+
 </body>
 <script src="js/userIndex.js"></script>
 
