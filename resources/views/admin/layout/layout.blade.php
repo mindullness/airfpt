@@ -33,7 +33,7 @@
         <!-- Header -->
         @include('admin.layout.header')
         <!-- /.header -->
-
+@include('admin.layout.main-sidebar')
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             @yield('content')

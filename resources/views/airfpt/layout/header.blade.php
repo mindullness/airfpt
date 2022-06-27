@@ -1,4 +1,4 @@
-<header class="navbar navbar-expand-md py-2 navbar-light bg-light fixed-top font-weight-bold" role="navigation">
+<header class="navbar navbar-expand-md py-2 navbar-light bg-light fixed-top font-weight-bold border-bottom border-secondary" role="navigation">
     <div class="container">
         <a class="navbar-brand" href="{{Route('airfpt.index')}}"><img width="200" src="{{ asset('img/logo/prj_logo.png') }}" alt=""></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#header_menu">
@@ -45,8 +45,11 @@
                             <button type="submit" class="btn btn-primary">Sign in</button>
                         </form>
                         <div class="dropdown-divider pb-0 my-0"></div>
-                        <a class="dropdown-item alert alert-primary mt-0 d-flex justify-content-between align-items-center" href="#"><span class="">New around here?</span> <span class="pr-3 alert-link font-weight-bolder h4">Sign up</span></a>
-                        <a class="dropdown-item alert alert-light my-0 pt-0" href="#">Forgot password?</a>
+                        <a class="dropdown-item alert alert-primary mt-0 mb-1 pt-2 pb-0 d-flex justify-content-between align-items-center" href="#">
+                            <span class="pb-1">New around here?</span> 
+                            <span class="pr-3 alert-link font-weight-bolder py-2 h4">Sign up</span>
+                        </a>
+                        <a class="dropdown-item alert alert-light my-0 pt-1 pb-0 align-self-stretch" href="#">Forgot password?</a>
                     </div>
                 </li>
             </ul>

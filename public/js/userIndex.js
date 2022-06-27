@@ -1,16 +1,20 @@
 $(document).ready(function() {
 
+    // Script to toggle Active Tab between "Booking", "Manage Booking" and "Flight Status" Tabs
+    $("#indexFormTab > li > .nav-link").click(function() {
+        $(this).toggleClass("active");
+    });
+    $("#indexFormTab > li > .nav-link").click(function() {
+        $(this).toggleClass("active");
+    });
     // SEARCH FLIGHTS ZONE //
 
     var roundtrip = true;
     beforeFullFill();
 
-    $("#indexFormTab > li > .nav-link").click(function() {
-        $(this).toggleClass("active");
-    });
 
     // Check radio button "roundtrip" or "oneway" is checked
-    $('input:radio[name="isRoundTrip"]').change(function() {
+    $('#booking input:radio[name="isRoundTrip"]').change(function() {
         changeRadioBtn();
         displayPaxField();
     });
@@ -88,14 +92,10 @@ $(document).ready(function() {
             $("#return_date").prop('disabled', false);
             $('.oneway').parent().toggleClass("text-warning");
             $('.roundtrip').parent().toggleClass("text-warning");
-
         }
     }
 
-    // Script to toggle Active Tab between "Booking", "Manage Booking" and "Flight Status" Tabs
-    $("#indexFormTab > li > .nav-link").click(function() {
-        $(this).toggleClass("active");
-    });
+
 
     // .END SEARCH FLIGHTS ZONE //
 

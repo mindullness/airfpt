@@ -1,21 +1,21 @@
 @extends('airfpt.layout.layout')
-@section('title', 'Elequent Products Site')
+@section('title', 'AirFPT')
 @section('content')
 
-<div class="row justify-content-center ">
+<div class="row justify-content-center pt-5 mt-4">
 
     <div class="container-fluid">
 
         <div id="indexCarousel" class="carousel carousel-fade slide " data-pause="false" data-ride="carousel" data-interval="5000">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="{{asset('./img/carousel1.jpg')}}" height="800px" alt="">
+                    <img src="{{asset('./img/carousel1.jpg')}}" alt="">
                 </div>
                 <div class="carousel-item ">
-                    <img src="{{asset('./img/carousel2.jpg')}}" height="800px" alt="">
+                    <img src="{{asset('./img/carousel2.jpg')}}" alt="">
                 </div>
                 <div class="carousel-item ">
-                    <img src="{{asset('./img/carousel3.jpg')}}" height="800px" alt="">
+                    <img src="{{asset('./img/carousel3.jpg')}}" alt="">
                 </div>
             </div>
 
@@ -51,7 +51,7 @@
         <div class="tab-content  text-white font-weight-bolder p-2" id="indexFormContent">
 
             <!-- Start Form Booking -->
-            <form class="tab-pane fade show active " role="tabpanel" aria-labelledby="booking-tab" id="booking">
+            <form class="tab-pane fade show active" role="tabpanel" aria-labelledby="booking-tab" id="booking"  enctype="multipart/form-data" action="{{Route('airfpt.booking.flightList')}}">
 
                 <!-- Label departure -->
                 <label class="mt-3 d-flex justify-content-between" for="origin">
@@ -76,7 +76,13 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-plane-departure"></i></span>
                     </div>
-                    <input name="origin" id="origin" type="text" class="form-control is-valid" required placeholder="From">
+                    <select  name="origin" id="origin" class="form-control ">
+                        <option value="">From</option>
+                        @foreach($origins as $origin)
+                        <option value="{{$origin->origin}}">{{$origin->origin}}</option>
+                        @endforeach
+                    </select>
+                    <!-- <input name="origin" id="origin" type="text" class="form-control is-valid" required placeholder="From"> -->
                     <div class="input-group-append">
                         <span class="input-group-text"><i class="fa fa-calendar-alt"></i></span>
                     </div>
@@ -192,7 +198,6 @@
 
 </div>
 
-<!--  -->
 <div class="row container newsContainer">
 
     @foreach($news as $n)
@@ -212,10 +217,54 @@
 
     @endforeach
 </div>
-<!-- <td>{{$n -> id}}</td>
-            <td>{{$n -> title}}</td>
-            <td>{{$n -> content}}</td>
-            <td><img src="{{$n -> image}}" width="300" alt=""></td>
-            <td>{{$n -> created_at}}</td> -->
+<!-- Register panel Modal -->
+<div class="container-fluid py-4 register-panel row">
+    <div class="container">
+        <h3 class="d-block align-content-center text-left">
+            Do not miss out best offers from <b>Air FPT</b> 
+        </h3>
+        <div class="form-group input-group input-group-lg pt-2">
+            <small class="input-group-prepend">
+                <span class="input-group-text">Email</span>
+            </small>
+            <input name="email" id="email" type="email" class="form-control rounded-right" required placeholder="Enter your email address to receive our newsletters">
 
+            <small class="input-group-append">
+                <span class="input-group-text border-0 bg-transparent "> &nbsp;</span>
+</small>
+            <button type="button" class=" text-white w-25 btn btn-outline-warning font-weight-bolder shadow-light rounded" data-toggle="modal" data-target="#staticBackdrop">
+                SUBSCRIBE</button>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-secondary text-warning">
+            <div class="modal-header bg-dark bg-image" style="background-image: url('images/logo.png');background-size: contain; background-repeat: no-repeat;">
+                <button type="button" class="close text-warning" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <form action="" method="get">
+                <div class="modal-body row">
+                    <picture class="col"><img src="images/home/sport.jpg" class="img-fluid img-thumbnail bg-transparent border-0 shadow rounded" alt=""></picture>
+                    <div class="col">
+                        <h5>Bring your friends to extend a full-week</h5>
+                        <hr>
+                        <input class="form-control" type="text" class="name" id="name" placeholder="Your Name" required autocomplete="off" minlength="6" maxlength="30">
+                        <br>
+                        <input type="tel" class="form-control" autocomplete="off" name="telNo" id="telNo" placeholder="Your Phone Number" minlength="9" maxlength="12" pattern="[0-9]{}" required>
+                        <br>
+                        <input type="email" class="form-control" id="email" placeholder="Your email">
+                        <br>
+                        <input type="text" class="form-control" id="address" placeholder="Your Address">
+                    </div>
+                </div>
+                <div class="modal-footer bg-dark">
+                    <button type="submit" class="btn btn-danger">REGISTER</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- End of Modal -->
 @endsection

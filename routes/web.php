@@ -1,8 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserHomepageController;
 use App\Http\Controllers\PhucDuyController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,10 +23,17 @@ Route::group(['prefix'=>'airfpt'], function(){
 
     Route::get('/faqs', [UserHomepageController::class, 'faqs'])->name('airfpt.faqs');
 
-}
+    Route::any('/booking/searchFlight', [UserHomepageController::class, 'searchFlight'])->name('airfpt.booking.searchFlight');
+    Route::any('/booking/flightList', [UserHomepageController::class, 'flightList'])->name('airfpt.booking.flightList');
 
+});
+// End of group airfpt
 
+Route::group(['prefix'=>'admin'], function(){
+    Route::get('/', [AdminController::class, 'index'])->name('admin.index');
 
+});
+// End of group admin
 
 
 
@@ -43,6 +53,5 @@ Route::group(['prefix'=>'airfpt'], function(){
 //     Route::get('{id}/delete', [ProductController::class, 'delete'])->name('product.delete');
 //     Route::post('/search',[ProductController::class, 'search'])->name('product.search');
 //     Route::get('{id}/details', [ProductController::class, 'details'])->name('product.details');
-// }
+// });
 
-);

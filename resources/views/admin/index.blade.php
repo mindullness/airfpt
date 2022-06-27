@@ -10,10 +10,16 @@
     <title>Document</title>
 </head>
 <body>
+    <h1 ></h1><img data-src="sun.svg" class="iconic iconic-md" alt="sun">
     <h1>TOi LA TOANNNNNNNNNNNNNNNNNNNNNNNN</h1>
     <h1>TOi LA TOANNNNNNNNNNNNNNNNNNNNNNNN</h1>
     <h1>TOi LA TOANNNNNNNNNNNNNNNNNNNNNNNN</h1>
     <h1>TOi LA TOANNNNNNNNNNNNNNNNNNNNNNNN</h1>
+    <span class="iconic iconic-sun iconic-sm" title="sun" aria-hidden="true"></span>
+<span class="iconic iconic-sun iconic-md" title="sun" aria-hidden="true"></span>
+<span class="iconic iconic-sun iconic-lg" title="sun" aria-hidden="true"></span>
+Foundation Icon Font
+<span class="fi-sun iconic-sm" title="sun" aria-hidden="true"></span>
 </body>
 </html>
 @endsection

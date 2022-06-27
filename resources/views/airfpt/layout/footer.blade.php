@@ -1,94 +1,54 @@
-<!-- Register panel Modal -->
-<div class="container-fluid py-3 register-panel">
-    <div class="row align-content-center w-50 m-auto">
-        <div class="col-md-9 text-left h3" >
-            REGISTER NOW
-            <h5>For Experiencing <span class="text-white font-weight-bold h3"> 3-Days Trial-Pass </span></h5>
-        </div>
-        <button type="button" class="col-md-3 text-white mb-4 mt-2 btn btn-outline-primary font-weight-bolder shadow-light rounded" data-toggle="modal" data-target="#staticBackdrop">
-            REGISTER</button>
-    </div>
-</div>
-<!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content bg-secondary text-warning">
-            <div class="modal-header bg-dark bg-image" style="background-image: url('images/logo.png');background-size: contain; background-repeat: no-repeat;">
-                <button type="button" class="close text-warning" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            </div>
-            <form action="" method="get">
-                <div class="modal-body row">
-                    <picture class="col"><img src="images/home/sport.jpg" class="img-fluid img-thumbnail bg-transparent border-0 shadow rounded" alt=""></picture>
-                    <div class="col">
-                        <h5>Bring your friends to extend a full-week</h5>
-                        <hr>
-                        <input class="form-control" type="text" class="name" id="name" placeholder="Your Name" required autocomplete="off" minlength="6" maxlength="30">
-                        <br>
-                        <input type="tel" class="form-control" autocomplete="off" name="telNo" id="telNo" placeholder="Your Phone Number" minlength="9" maxlength="12" pattern="[0-9]{}" required>
-                        <br>
-                        <input type="email" class="form-control" id="email" placeholder="Your email">
-                        <br>
-                        <input type="text" class="form-control" id="address" placeholder="Your Address">
-                    </div>
-                </div>
-                <div class="modal-footer bg-dark">
-                    <button type="submit" class="btn btn-danger">REGISTER</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-<!-- End of Modal -->
+
 <!-- Footer -->
 <footer class="container mt-5 border-0 sticky-bottom">
 
-        <!-- Class .footer Information -->
-        <div class="row m-auto footer">
+    <!-- Class .footer Information -->
+    <div class="row m-auto footer">
 
-            <div class="col-md-6 col-lg-3 "><br>
-                <h4>INFORMATION</h4>
-                <hr class="bg-primary w-25 ml-0">
-                <p><i class="fas fa-map-marker-alt"></i> Headquater <br> 590 Cach Mang Thang Tam, District 3, HCM City </p>
-                <p><i class="fa fa-phone-alt"></i> Hotline: <a href="tel:(028)38460846" class="h2 font-weight-bold" style="color: rgb(255, 199, 9); text-shadow: 0px 0px 1px black">(028)38460846</a> </p>
-                <p><i class="fas fa-envelope "></i> Customer Service: <a href="mailto:info@pfg.com " class="btn btn-outline-warning text-monospace">customerservice@airfpt.vn</a></p>
-                <p>
-                <div class="d-block mt-3">
-                    <div class="d-inline-flex justify-content-between h3">
-                        <a href="# "> <i class="fa fa-facebook"></i> </a>&ThickSpace;
-                        <a href="# "> <i class="fa fa-twitter"></i> </a>&ThickSpace;
-                        <a href="# "> <i class="fa fa-instagram"></i> </a>&ThickSpace;
-                        <a href="# "> <i class="fa fa-youtube-play"></i> </a> &ThickSpace;
-                        <a href="#"> <i class="fa fa-github-square"></i> </a>
-                    </div>
+        <div class="col-md-6 col-lg-3 "><br>
+            <h4>INFORMATION</h4>
+            <hr class="bg-primary w-25 ml-0">
+            <p><i class="fas fa-map-marker-alt"></i> Headquater <br> 590 Cach Mang Thang Tam, District 3, HCM City </p>
+            <p><i class="fa fa-phone-alt"></i> Hotline: <a href="tel:(028)38460846" class="h2 font-weight-bold" style="color: rgb(0, 123, 255); text-shadow: 0px 0px 1px black">(028)38460846</a> </p>
+            <p><i class="fas fa-envelope "></i> Customer Service: <a href="mailto:info@pfg.com " class="btn btn-outline-primary text-monospace">customerservice@airfpt.vn</a></p>
+            <p>
+            <div class="d-block mt-3">
+                <div class="d-inline-flex justify-content-between h3">
+                    <a href="# "> <i class="fa fa-facebook"></i> </a>&ThickSpace;
+                    <a href="# "> <i class="fa fa-twitter"></i> </a>&ThickSpace;
+                    <a href="# "> <i class="fa fa-instagram"></i> </a>&ThickSpace;
+                    <a href="# "> <i class="fa fa-youtube-play"></i> </a> &ThickSpace;
+                    <a href="#"> <i class="fa fa-github-square"></i> </a>
                 </div>
-                </p>
             </div>
-            <div class="col-md-6 col-lg-3"><br>
-                <h4>AIR FPT</h4>
-                <hr class="bg-primary w-25 ml-0">
-                <p><a href="">About Us</a></p>
-                <p><a href="">News</a></p>
-                <p><a href="">Destinations</a></p>
-            </div>
-            <div class="col-md-6 col-lg-3"><br>
-                <h4>CONTACT</h4>
-                <hr class="bg-primary w-25 ml-0">
-                <p><a href="#">Contact</a></p>
-            </div>
-            <div class="col-md-6 col-lg-3"><br>
-                <h4>SUPPORT</h4>
-                <hr class="bg-primary w-25 ml-0">
-                <p><a href="">Terms & Conditions</a></p>
-                <p><a href="#">FAQs</a></p>
-                <p><a href="#">Irregular Flight</a></p>
-            </div>
+            </p>
         </div>
-        <hr class="bg-primary d-block w-25 mx-auto mb-4 mt-0">
+        <div class="col-md-6 col-lg-3"><br>
+            <h4>AIR FPT</h4>
+            <hr class="bg-primary w-25 ml-0">
+            <p><a href="">About Us</a></p>
+            <p><a href="">News</a></p>
+            <p><a href="">Destinations</a></p>
+        </div>
+        <div class="col-md-6 col-lg-3"><br>
+            <h4>CONTACT</h4>
+            <hr class="bg-primary w-25 ml-0">
+            <p><a href="#">Contact</a></p>
+        </div>
+        <div class="col-md-6 col-lg-3"><br>
+            <h4>SUPPORT</h4>
+            <hr class="bg-primary w-25 ml-0">
+            <p><a href="">Terms & Conditions</a></p>
+            <p><a href="#">FAQs</a></p>
+            <p><a href="#">Irregular Flight</a></p>
+        </div>
+    </div>
+    <hr class="bg-primary d-block w-25 mx-auto mb-4 mt-0">
 
     <!-- Footer -->
 </footer>
 <!-- Footer  -->
-<div class="py-3 container-fluid bg-light mx-0 px-0">
+<div class="py-3 sticky-bottom container-fluid bg-light mx-0 px-0">
     <div class="container d-md-flex">
         <div class="d-block d-md-flex">
             <a class="mx-2" href="{{Route('airfpt.index')}}"><img width="180" src="{{ asset('img/logo/prj_logo.png') }}" alt=""></a>
