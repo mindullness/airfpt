@@ -48,13 +48,13 @@
                                 <td>{{ $airport->city }}</td>
                                 <td class="mw-25 h-25"><img style="max-width: 128px;" src="#" /></td>
                                 <td class="text-right">
-                                    <a class="btn btn-primary btnsm" href="#">
+                                    <a class="btn btn-primary btn-sm" href="#">
                                         <i class="fas fa-folder"></i> View
                                     </a>
-                                    <a class="btn btn-info btnsm" href="#">
+                                    <a class="btn btn-info btn-sm" href="{{Route('admin.airports.update', $airport->iata_code)}}">
                                         <i class="fas fa-pencil-alt"></i> Edit
                                     </a>
-                                    <a class="btn btn-danger btnsm" href="{{Route('admin.airports.delete', $airport->iata_code)}}">
+                                    <a class="btn btn-danger btn-sm" href="{{Route('admin.airports.delete', $airport->iata_code)}}">
                                         <i class="fas fa-trash"></i> Delete
                                     </a>
                                 </td>

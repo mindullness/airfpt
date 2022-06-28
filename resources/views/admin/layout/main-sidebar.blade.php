@@ -44,7 +44,7 @@
                 <!-- Airports -->
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
-                        <img src="{{asset('img/airport-icon.jpg')}}" alt="" width="23" height="20" style="border-radius: 50%; padding-left:2px; opacity:0.8;">
+                        <img src="{{asset('img/airport-icon.jpg')}}" alt="" width="24" height="22" style="border-radius: 50%; padding-left:2px; opacity:0.8;">
                         <p>&nbsp; Airports<i class="right fas fa-angle-left"></i></p>
                     </a>
                     <ul class="nav nav-treeview">
@@ -55,9 +55,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{Route('admin.airports.create')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Create an airport</p>
+                                <p>Create New Airport</p>
                             </a>
                         </li>
                     </ul>
@@ -66,14 +66,14 @@
                  <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
                     
-                        <i class="nav-icon fas fa-route" ></i>
-                        <p>Routes<i class="right fas fa-angle-left"></i></p>
+                    <img src="{{asset('img/route-icon.jpg')}}" alt="" width="24" height="22" style="border-radius: 50%; padding-left:2px; opacity:0.8;">
+                        <p>&nbsp; Routes<i class="right fas fa-angle-left"></i></p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{Route('admin.routes.index')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>View Passengers</p>
+                                <p>View Routes</p>
                             </a>
                         </li>
                         <li class="nav-item">

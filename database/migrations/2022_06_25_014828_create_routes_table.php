@@ -20,6 +20,8 @@ return new class extends Migration
             $table->time('depart_time');
             $table->unsignedSmallInteger('duration');
             $table->timestamps();
+            $table->foreign('origin')->references('iata_code')->on('airports');
+            $table->foreign('destination')->references('iata_code')->on('airports');
         });
     }
 

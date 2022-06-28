@@ -1,13 +1,14 @@
 <!-- Lưu tại resources/views/product/index.blade.php -->
 @extends('admin.layout.layout')
-@section('title', 'AirFpt Airports')
+@section('title', 'AirFpt Routes')
 @section('content')
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Airport Management</h1>
+                
+                <h1><img src="{{asset('img/route-icon.jpg')}}" alt="" width="50" height="45" style="border-radius: 50%; padding-left:2px; opacity:0.8;"> &nbsp; Route Management</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -25,18 +26,19 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <a href="{{Route('admin.airports.create')}}" class="card-title btn btn-info shadow">Add New Airport</a>
+                    <a href="{{Route('admin.routes.create')}}" class="card-title btn btn-info shadow">Add New Route</a>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                    <table id="product" class="table table-bordered table-hover">
+                    <table id="routes" class="table table-bordered table-hover">
                         <thead>
                             <tr>
+                                <th>#</th>
                                 <th>FLIGHT NUMBER</th>
                                 <th>ORIGIN</th>
                                 <th>DESTINATION</th>
                                 <th>TIME OF DEPARTURE</th>
-                                <th>DURATION</th>
+                                <th>DURATION (Minutes)</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -49,14 +51,14 @@
                                 <td>{{ $r->destination }}</td>
                                 <td>{{ $r->depart_time }}</td>
                                 <td>{{ $r->duration }}</td>
-                               <td class="text-right">
-                                    <a class="btn btn-primary btnsm" href="#">
+                                <td class="text-right">
+                                    <a class="btn btn-primary btn-sm" href="#">
                                         <i class="fas fa-folder"></i> View
                                     </a>
-                                    <a class="btn btn-info btnsm" href="#">
+                                    <a class="btn btn-info btn-sm" href="{{Route('admin.routes.update', $r->id)}}">
                                         <i class="fas fa-pencil-alt"></i> Edit
                                     </a>
-                                    <a class="btn btn-danger btnsm" href="{{Route('admin.airports.delete', $airport->iata_code)}}">
+                                    <a class="btn btn-danger btn-sm" href="">
                                         <i class="fas fa-trash"></i> Delete
                                     </a>
                                 </td>
@@ -66,10 +68,11 @@
                         <tfoot>
                             <tr>
                                 <th>#</th>
-                                <th>IATA CODE</th>
-                                <th>AIRPORT NAME</th>
-                                <th>CITY/PROVINCE</th>
-                                <th></th>
+                                <th>FLIGHT NUMBER</th>
+                                <th>ORIGIN</th>
+                                <th>DESTINATION</th>
+                                <th>TIME OF DEPARTURE</th>
+                                <th>DURATION (Minutes)</th>
                                 <th></th>
                             </tr>
                         </tfoot>
@@ -87,7 +90,7 @@
 @section('script-section')
 <script>
     $(function() {
-        $('#airports').DataTable({
+        $('#routes').DataTable({
             "paging": true,
             "lengthChange": false,
             "searching": false,

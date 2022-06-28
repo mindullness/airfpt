@@ -8,8 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Routes extends Model
 {
     use HasFactory;
-    protected $table = 'route';
-    protected $fillable = ['origin','depart_time', 'duration'];
+    protected $table = 'routes';
     
-    public $timestamps = false;
+    protected $fillable = ['id', 'origin', 'destination','depart_time', 'duration'];
+    
+    public $timestamps = true;
 }

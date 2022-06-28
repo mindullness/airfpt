@@ -13,12 +13,12 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form role="form" action="{{ url('admin/airports/postUpdate', $airport->iata_code) }}" method="post" enctype="multipart/form-data">
+                    <form role="form" action="{{Route('admin.airports.postUpdate', $route->iata_code) }}" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="iata_code">IATA Code</label>
-                                <input value="{{$airport->iata_code}}" id="iata_code" name="iata_code" type="text" class="form-control">
+                                <input value="{{$airport->iata_code}}" id="iata_code" name="iata_code" type="text" class="form-control" placeholder="{{$airport->iata_code}}">
                             </div>
                             <div class="form-group">
                                 <label for="name">Airport Name</label>

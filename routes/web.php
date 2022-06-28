@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\AirportController;
+use App\Http\Controllers\AirportsController;
+use App\Http\Controllers\RoutesController;
 use App\Http\Controllers\UserHomepageController;
 use App\Http\Controllers\PhucDuyController;
 
@@ -34,12 +35,20 @@ Route::group(['prefix'=>'admin'], function(){
     Route::get('/', [AdminController::class, 'index'])->name('admin.index');
 
 
-    Route::get('/airports', [AirportController::class, 'index'])->name('admin.airports.index');
-    Route::get('/airports/create', [AirportController::class, 'create'])->name('admin.airports.create');
-    Route::post('/airports/postCreate', [AirportController::class, 'postCreate'])->name('admin.airports.postCreate');
-    Route::any('{iata_code}/update', [AirportController::class, 'update'])->name('admin.airports.update');
-    Route::post('{iata_code}/postUpdate', [AirportController::class, 'postUpdate'])->name('admin.airports.postUpdate');
-    Route::get('{iata_code}/delete', [AirportController::class, 'delete'])->name('admin.airports.delete');
+    Route::get('/routes', [RoutesController::class, 'index'])->name('admin.routes.index');
+    Route::get('/routes/create', [RoutesController::class, 'create'])->name('admin.routes.create');
+    Route::post('/routes/postCreate', [RoutesController::class, 'postCreate'])->name('admin.routes.postCreate');
+    Route::any('/routes/{id}update', [RoutesController::class, 'update'])->name('admin.routes.update');
+    Route::post('{id}/routes/postUpdate', [RoutesController::class, 'postUpdate'])->name('admin.routes.postUpdate');
+
+
+
+    Route::get('/airports', [AirportsController::class, 'index'])->name('admin.airports.index');
+    Route::get('/airports/create', [AirportsController::class, 'create'])->name('admin.airports.create');
+    Route::post('/airports/postCreate', [AirportsController::class, 'postCreate'])->name('admin.airports.postCreate');
+    Route::any('/airports/{iata_code}update', [AirportsController::class, 'update'])->name('admin.airports.update');
+    Route::post('{iata_code}/airports/postUpdate', [AirportsController::class, 'postUpdate'])->name('admin.airports.postUpdate');
+    Route::get('{iata_code}/delete', [AirportsController::class, 'delete'])->name('admin.airports.delete');
 });
 // End of group admin
 
