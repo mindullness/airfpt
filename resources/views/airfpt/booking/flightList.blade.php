@@ -12,19 +12,12 @@
         display: none;
     }
 
-    /* .booking_step {
-        height: 15px;
-        width: 15px;
-        margin: 0 2px;
-        background-color: #bbbbbb;
-        border: none;
-        border-radius: 50%;
-        display: inline-block;
-        opacity: 0.68;
-    } */
+    .booking_step {
+        color: rgb(23, 74, 146) !important;
+    }
 
     .breadcrumb_item.booking_step.activated {
-        color: white;
+        color: white !important;
         font-weight: 800;
         background-color: rgb(23, 74, 146);
     }
@@ -76,20 +69,23 @@
 
     /* origin ----> plane ----> dest */
     .outbound_title,
-    .inbound_title {
+    .inbound_title,
+    .passenger_title {
         display: inline-flex;
         width: 100%;
         margin-bottom: 15px;
     }
 
     .outbound_title>span,
-    .inbound_title>span {
+    .inbound_title>span,
+    .passenger_title>span {
         display: flex;
         flex-direction: column;
         margin-bottom: 5px;
     }
 
-    .icon_plane {
+    .icon_plane,
+    .passenger_title>li {
         border-radius: 50%;
         background-color: rgb(23, 74, 146);
         padding: 10px;
@@ -142,18 +138,10 @@
     }
 </style>
 
-
 <div class="container bg-transparent" style="padding-top: 110px;">
 
     <!-- Start breadcrumb -->
 
-
-    <!-- <nav class="booking_head_nav_breadcrumb">
-        <div class="breadcrumb_item booking_step"><a href="#">1. Flights</a></div>
-        <div class="breadcrumb_item booking_step"><a href="#">Passengers</a></div>
-        <div class="breadcrumb_item booking_step"><a href="#">Add-ons</a></div>
-        <div class="breadcrumb_item booking_step" aria-current="page"><a href="#">Payment</a></div>
-    </nav> -->
     <nav class="booking_head_nav_breadcrumb">
         <a href="#" class="breadcrumb_item booking_step">1. Flights</a>
         <a href="#" class="breadcrumb_item booking_step">Passengers</a>
@@ -164,12 +152,9 @@
     <form id="booking_form">
 
         <div class="w-100 pr-2">
-
             <!-- One "booking_tab" for each booking_step in the form: -->
-
             <!-- 1. booking_tab 1: Select Flight -->
             <div class="booking_tab m-0 p-0">
-
                 <div class=" ml-0 pl-0 ">
 
                     <!-- Outbound Flight Information -->
@@ -373,14 +358,70 @@
                         </div>
                     </div>
                 </div>
-
             </div>
             <!-- .End booking_tab 1 -->
 
             <!-- 3. Passengers booking_tab -->
-            <div class="booking_tab m-0 p-0" id="passenger_tab">Passengers
-                <p><input placeholder="E-mail..." oninput="this.className = ''" name="email"></p>
-                <p><input placeholder="Phone..." oninput="this.className = ''" name="phone"></p>
+            <div class="booking_tab m-0 p-0" id="passenger_tab">
+                <div class="passenger_title bg-light rounded p-2">
+                    <li class="fa fa-user-friends "></li>
+                    <span class="">
+                        <h3 class="m-0 p-0">Passengers</h3>
+                        <h6 class="m-0 p-0">Enter passenger details</h6>
+                    </span>
+                </div>
+                <div class="passenger_detail bg-light p-2">
+                    <h5 class="font-weight-bold">Passenger</h5>
+                    <div class="form-row d-flex justify-content-between">
+                        <div class="col-md-2 mb-3">
+                            <label for="title">Title</label>
+                            <select name="title" id="title" class="form-control">
+                                <option value="Mr">Mr</option>
+                                <option value="Mrs">Mrs</option>
+                                <option value="Ms">Ms</option>
+                            </select>
+                        </div>
+                        <div class="col-md mb-3">
+                            <label for="validationCustom02">Last/Family name</label>
+                            <input type="text" class="form-control" name="last_name" id="last_name" placeholder="As given in passport/ID" value="" required>
+                            <div class="valid-"></div>
+                        </div>
+                        <div class="col-md mb-3">
+                            <label for="validationCustom02">Middle & First/Given name</label>
+                            <input type="text" class="form-control" name="first_name" id="first_name" placeholder="As given in passport/ID" value="" required>
+
+                        </div>
+                    </div>
+                    <div class="form-row d-flex justify-content-between">
+                        <div class="col-md ">
+                            <label for="dob">Date of birth</label>
+                            <div class="input-group">
+                            <label for="" class="input-group-prepend"><small class="input-group-text">Day</small> </label>
+                                <select name="day" id="day" class="form-control">
+                                    <option value='1' >01</option>
+                                </select>
+                                <label for="" class="input-group-prepend text-small"><small class="input-group-text">Month</small> </label>
+                                <!-- <strong>/</strong> -->
+                                <select name="month" id="month" class="form-control">
+
+                                    <option value=1 >01</option>
+                                </select>
+                                <!-- <strong>/</strong> -->
+                                <label for="" class="input-group-prepend"><small class="input-group-text">Year</small> </label>
+                                <select name="year" id="year" class="form-control">
+                                    <option value='1989' >1989</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md mb-3">
+                            <label for="mem_id">Member ID (Optional)</label>
+                            <input type="text" class="form-control" name="mem_id" id="mem_id" placeholder="Your member ID">
+                            <div class="valid-"></div>
+                        </div>
+                    
+                    </div>
+                </div>
+
             </div>
 
             <!-- 4. Add-ons -->
@@ -395,13 +436,13 @@
                 <p><input placeholder="Password..." oninput="this.className = ''" name="pword" type="password"></p>
             </div>
             <div class="overflow-hidden mt-2">
-                <div class="float-right">
+                <div class="d-flex justify-content-between">
                     <button onclick="nextPrev(-1)" class="btn btn-secondary  font-weight-bolder" type="button" id="booking_prevBtn">
-                        <li class="fa fa-less-than"></li> Previous
+                        <li class="	fas fa-chevron-circle-left"></li> Previous
                     </button>
 
-                    <button onclick="nextPrev(1)" class="btn btn-primary  font-weight-bolder" type="button" id="booking_nextBtn">
-                        Next <li class="fa fa-greater-than "></li>
+                    <button onclick="nextPrev(1)" class="btn btn-primary font-weight-bolder" type="button" id="booking_nextBtn">
+                        Next <li class="fa fa-chevron-circle-right"></li>
                     </button>
                 </div>
             </div>
@@ -454,8 +495,8 @@
         });
 
         // If index 0 => prev Btn display: none, else display: inline.
-        n == 0 ? ($('#booking_prevBtn').css('display', 'none')) : ($('#booking_prevBtn').css('display', 'inline'));
-        n == (tabs_arr.length - 1) ? ($('#booking_nextBtn').html('Confirmed & Pay Now')) : ($('#booking_nextBtn').html('Next >'));
+        n == 0 ? ($('#booking_prevBtn').css('visibility', 'hidden')) : ($('#booking_prevBtn').css('visibility', 'visible'));
+        n == (tabs_arr.length - 1) ? ($('#booking_nextBtn').html('Confirmed & Pay Now')) : ($('#booking_nextBtn').html('Next <li class="fa fa-chevron-circle-right"></li>'));
 
         fixStepIndicator(n);
     }
@@ -474,6 +515,109 @@
         }
 
     }
+
+
+
+    // DOB
+    // 
+    // 
+    var dayObj = document.getElementById("day");
+    var monthObj = document.getElementById("month");
+    var isLeap = false;
+
+    window.onload = function() {
+        setYear();
+        setMonth();
+    }
+    document.getElementById("year").onchange = function() {
+        checkLeapYear();
+        checkDay();
+    }
+
+    monthObj.onchange = function() {
+        checkDay();
+    }
+    dayObj.onfocus = function() {
+        setDay();
+    }
+
+    function checkDay() { // Check the day is valid or not
+        var month = monthObj.value;
+        var day = dayObj.value;
+        if (month == 2) {
+            if (isLeap) {
+                if (day > 29) {
+                    setDay();
+                }
+            } else {
+                if (day > 28) {
+                    setDay();
+                }
+            }
+        } else if (month == 4 || month == 6 || month == 9 || month == 11) {
+            if (day > 30) {
+                setDay();
+            }
+        }
+    }
+
+    function setDay() { // Set the day to the first day of the month
+        dayObj.innerHTML = "";
+        let month = monthObj.value;
+        let maxDay = 31;
+        if (month == 2) {
+            if (isLeap) {
+                maxDay = 29;
+            } else {
+                maxDay = 28;
+            }
+        } else if (month == 4 || month == 6 || month == 9 || month == 11) {
+            maxDay = 30;
+        }
+
+        for (let i = 1; i <= maxDay; i++)
+            if (i < 10) {
+                dayObj.innerHTML += "<option value='" + i + "'>0" + i + "</option>"
+            } else {
+                dayObj.innerHTML += "<option value='" + i + "'>" + i + "</option>";
+            }
+    }
+
+    function setMonth() {
+        for (let i = 1; i <= 12; i++) {
+            if (i < 10) {
+                monthObj.innerHTML += "<option value='" + i + "'>0" + i + "</option>"
+            } else {
+                monthObj.innerHTML += "<option value='" + i + "'>" + i + "</option>";
+            }
+        }
+    }
+
+    function setYear() {
+
+        for (let i = 2022; i >= 1920; i--) {
+            document.getElementById("year").innerHTML += "<option value='" + i + "'>" + i + "</option>";
+        }
+    }
+
+    function checkLeapYear() {
+
+        var year = document.getElementById("year").value;
+        if (year % 4 == 0) {
+            if (year % 100 == 0) {
+                if (year % 400 == 0)
+                    isLeap = true;
+                else
+                    isLeap = false;
+            } else
+                isLeap = true;
+        } else {
+            isLeap = false;
+        }
+    }
+        // 
+        // 
+        // End DOB
 </script>
 
 @endsection

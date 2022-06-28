@@ -21,20 +21,65 @@
                 <!-- Add icons to the links using the .nav-icon class with fontawesome or any other icon font library -->
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>Products<i class="right fas fa-angle-left"></i></p>
+                    
+                        <i class="nav-icon fas fa-user-friends"></i>
+                        <p>Passengers<i class="right fas fa-angle-left"></i></p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>View Products</p>
+                                <p>View Passengers</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Create a Product</p>
+                                <p> . . .</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- Airports -->
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <img src="{{asset('img/airport-icon.jpg')}}" alt="" width="23" height="20" style="border-radius: 50%; padding-left:2px; opacity:0.8;">
+                        <p>&nbsp; Airports<i class="right fas fa-angle-left"></i></p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{Route('admin.airports.index')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>View Airports</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Create an airport</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                 <!-- Routes -->
+                 <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                    
+                        <i class="nav-icon fas fa-route" ></i>
+                        <p>Routes<i class="right fas fa-angle-left"></i></p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>View Passengers</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p> . . .</p>
                             </a>
                         </li>
                     </ul>

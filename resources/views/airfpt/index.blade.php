@@ -78,8 +78,8 @@
                     </div>
                     <select  name="origin" id="origin" class="form-control ">
                         <option value="">From</option>
-                        @foreach($origins as $origin)
-                        <option value="{{$origin->origin}}">{{$origin->origin}}</option>
+                        @foreach($airports as $a)
+                        <option value="{{$a->iata_code}}">{{$a->iata_code}} - {{$a->name}}</option>
                         @endforeach
                     </select>
                     <!-- <input name="origin" id="origin" type="text" class="form-control is-valid" required placeholder="From"> -->
@@ -100,7 +100,12 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-plane-arrival"></i></span>
                     </div>
-                    <input name="destination" id="destination" type="text" class="form-control is-valid" placeholder="To">
+                    <select  name="destination" id="destination" class="form-control ">
+                        <option value="">To</option>
+                        @foreach($airports as $a)
+                        <option value="{{$a->iata_code}}">{{$a->iata_code}} - {{$a->name}}</option>
+                        @endforeach
+                    </select>
                     <div class="input-group-append">
                         <span class="input-group-text"><i class="fa fa-calendar-alt"></i></span>
                     </div>

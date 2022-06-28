@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AirportController;
 use App\Http\Controllers\UserHomepageController;
 use App\Http\Controllers\PhucDuyController;
 
@@ -32,6 +33,13 @@ Route::group(['prefix'=>'airfpt'], function(){
 Route::group(['prefix'=>'admin'], function(){
     Route::get('/', [AdminController::class, 'index'])->name('admin.index');
 
+
+    Route::get('/airports', [AirportController::class, 'index'])->name('admin.airports.index');
+    Route::get('/airports/create', [AirportController::class, 'create'])->name('admin.airports.create');
+    Route::post('/airports/postCreate', [AirportController::class, 'postCreate'])->name('admin.airports.postCreate');
+    Route::any('{iata_code}/update', [AirportController::class, 'update'])->name('admin.airports.update');
+    Route::post('{iata_code}/postUpdate', [AirportController::class, 'postUpdate'])->name('admin.airports.postUpdate');
+    Route::get('{iata_code}/delete', [AirportController::class, 'delete'])->name('admin.airports.delete');
 });
 // End of group admin
 
