@@ -57,7 +57,7 @@
                         <li class="nav-item">
                             <a href="{{Route('admin.airports.create')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Create New Airport</p>
+                                <p>Add New Airport</p>
                             </a>
                         </li>
                     </ul>
@@ -77,9 +77,31 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{Route('admin.routes.create')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p> . . .</p>
+                                <p>Add New Route</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                 <!-- Aircrafts -->
+                 <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                    
+                    <img src="{{asset('img/aircraft-icon.jpg')}}" alt="" width="25" height="23" style="border-radius: 50%; opacity:0.8;">
+                        <p>&nbsp; Aircrafts<i class="right fas fa-angle-left"></i></p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{Route('admin.aircrafts.index')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>View Routes</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{Route('admin.aircrafts.create')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add New Route</p>
                             </a>
                         </li>
                     </ul>

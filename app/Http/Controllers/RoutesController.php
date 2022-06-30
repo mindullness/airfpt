@@ -11,11 +11,13 @@ class RoutesController extends Controller
     //
     public function index(){
         $routes = Routes::all();
-        return view('admin.routes.index', ['routes'=>$routes]);
+        $dest = DB::table('airports')->select('iata_code')->get();
+        return view('admin.routes.index', ['routes'=>$routes, 'dest'=>$dest]);
     }
 
     public function create(){
-        return view('admin.routes.create');
+        $dest = DB::table('airports')->get();
+        return view('admin.routes.create', ['dest'=>$dest]);
     }
 
     public function postCreate(Request $request){

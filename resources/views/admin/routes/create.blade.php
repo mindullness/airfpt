@@ -21,31 +21,38 @@
                                 <input type="text" class="form-control" id="id" name="id" placeholder="Flight number">
                             </div>
                             <div class="form-group">
-                                <label for="origin">Origin</label>
-                                <input type="text" class="form-control" id="origin" name="origin" placeholder="Origin">
-                                @error('origin')
-                                    <div class="text-danger">{{ $message }}</div>
-                                @enderror
+                                <label for="Destination">Origin</label>
+                                <select name="origin" id="origin" class="form-control ">
+                                    <option value="">From</option>
+                                    @foreach($dest as $d)
+                                    <option value="{{$d->iata_code}}">{{$d->iata_code}} - {{$d->name}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="Destination">Destination</label>
-                                <input type="text" class="form-control" id="destination" name="destination" placeholder="Destination">
+                                <select name="destination" id="destination" class="form-control ">
+                                    <option value="">To</option>
+                                    @foreach($dest as $d)
+                                    <option value="{{$d->iata_code}}">{{$d->iata_code}} - {{$d->name}}</option>
+                                    @endforeach
+                                </select>
                                 @error('destination')
-                                    <div class="text-danger">{{ $message }}</div>
+                                <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="form-group">
                                 <label for="depart_time">Time of Departure</label>
                                 <input type="text" class="form-control" id="depart_time" name="depart_time" placeholder="Time of Departure">
                                 @error('depart_time')
-                                    <div class="text-danger">{{ $message }}</div>
+                                <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="form-group">
                                 <label for="duration">Duration</label>
                                 <input type="text" class="form-control" id="duration" name="duration" placeholder="Duration">
                                 @error('duration')
-                                    <div class="text-danger">{{ $message }}</div>
+                                <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                         </div>

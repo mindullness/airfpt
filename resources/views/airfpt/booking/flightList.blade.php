@@ -270,7 +270,7 @@
 
                     <div class="inbound_flight mt-5">
                         <div class="inbound_title bg-light rounded p-2">
-                            <li class="fa fa-plane-departure icon_plane "></li>
+                            <li class="fa fa-plane-departure fa-flip-horizontal icon_plane "></li>
                             <span class="">
                                 <h3 class="m-0 p-0">Inbound Flight</h3>
                                 <h6 class="m-0 p-0">{{$flight_list['destination']}} () To {{$flight_list['origin']}} ()</h6>

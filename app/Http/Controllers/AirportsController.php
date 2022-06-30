@@ -47,9 +47,10 @@ class AirportsController extends Controller
     }
 
     public function delete($iata_code){
+
         $airport = Airports::find($iata_code);
         $airport->delete();
 
-        return redirect()->action([AirportController::class, 'index']);
+        return redirect()->action([AirportsController::class, 'index']);
     }
 }
