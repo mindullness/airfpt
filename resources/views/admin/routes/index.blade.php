@@ -12,8 +12,8 @@
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Air-FPT</a></li>
-                    <li class="breadcrumb-item active">Airport List</li>
+                    <li class="breadcrumb-item"><a href="#">Admin</a></li>
+                    <li class="breadcrumb-item active">Routes</li>
                 </ol>
             </div>
         </div>
@@ -59,9 +59,9 @@
                                 <td>{{ $r->depart_time }}</td>
                                 <td>{{ $r->duration }}</td>
                                 <td class="text-right">
-                                    <a class="btn btn-primary btn-sm" href="#">
+                                    <!-- <a class="btn btn-primary btn-sm" href="#">
                                         <i class="fas fa-folder"></i> View
-                                    </a>
+                                    </a> -->
                                     <a class="btn btn-info btn-sm" href="{{Route('admin.routes.update', $r->id)}}">
                                         <i class="fas fa-pencil-alt"></i> Edit
                                     </a>

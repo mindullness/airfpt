@@ -1,6 +1,6 @@
 <!-- lưu tại /resources/views/product/create.blade.php -->
 @extends('admin.layout.layout')
-@section('title', 'AirFpt Airports')
+@section('title', 'AirFpt routes')
 @section('content')
 <section class="content">
     <div class="container-fluid">
@@ -9,40 +9,42 @@
                 <!-- general form elements -->
                 <div class="card card-info mt-4">
                     <div class="card-header">
-                        <h3 class="card-title">Add New Aircraft</h3>
+                        <h3 class="card-title">Update  Flight Number AF{{$route->id}}</h3>
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form role="form" action="{{ url('admin/aircrafts/postCreate') }}" method="post" enctype="multipart/form-data">
+                    <form role="form" action="{{Route('admin.routes.postUpdate', $route->id) }}" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="reg">Aircraft Registration</label>
-                                <input type="text" class="form-control" id="reg" name="reg" value="VN-A">
+                                <label for="id">Flight Number</label>
+                                <input value="{{$route->id}}" id="id" name="id" type="text" class="form-control" placeholder="{{$route->id}}">
                             </div>
                             <div class="form-group">
-                                <label for="Configuration">Configuration</label>
-                                <input type="text" class="form-control" id="config" name="config" placeholder="Configuration">
-                                @error('config')
+                                <label for="origin">Origin</label>
+                                <input value="{{$route->origin}}" type="text" class="form-control" id="origin" name="origin" placeholder="Origin">
+                                @error('origin')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="type">Aircraft Type</label>
-                                <input type="text" class="form-control" id="type" name="type" placeholder="A/C Type">
-                                @error('type')
+                                <label for="destination">Destination</label>
+                                <input value="{{$route->destination}}" type="text" class="form-control" id="destination" name="destination" placeholder="Destination">
+                                @error('destination')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="image">Aircraft Image</label>
-                                <div class="input-group">
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="image" name="image">
-                                        <label class="custom-file-label" for="image">Choose Image</label>
-                                    </div>
-                                </div>
-                                @error('image')
+                                <label for="depart_time">Time of Departure</label>
+                                <input value="{{$route->depart_time}}" type="text" class="form-control" id="depart_time" name="depart_time" placeholder="Time of Departure">
+                                @error('depart_time')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="Duration">Duration</label>
+                                <input value="{{$route->duration}}" type="text" class="form-control" id="duration" name="duration" placeholder="Duration">
+                                @error('duration')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>

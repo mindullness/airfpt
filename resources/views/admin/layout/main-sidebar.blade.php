@@ -66,7 +66,7 @@
                  <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
                     
-                    <img src="{{asset('img/route-icon.jpg')}}" alt="" width="24" height="22" style="border-radius: 50%; padding-left:2px; opacity:0.8;">
+                    <img src="{{asset('img/route-icon.jpg')}}" alt="" width="25" height="23" style="border-radius: 50%; padding-left:2px; opacity:0.8;">
                         <p>&nbsp; Routes<i class="right fas fa-angle-left"></i></p>
                     </a>
                     <ul class="nav nav-treeview">
@@ -88,20 +88,20 @@
                  <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
                     
-                    <img src="{{asset('img/aircraft-icon.jpg')}}" alt="" width="25" height="23" style="border-radius: 50%; opacity:0.8;">
+                    <img src="{{asset('img/aircraft-icon.jpg')}}" alt="" width="24" height="22" style="border-radius: 50%; opacity:0.8;">
                         <p>&nbsp; Aircrafts<i class="right fas fa-angle-left"></i></p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="{{Route('admin.aircrafts.index')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>View Routes</p>
+                                <p>View Aircrafts</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{Route('admin.aircrafts.create')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Add New Route</p>
+                                <p>Add New Aircraft</p>
                             </a>
                         </li>
                     </ul>

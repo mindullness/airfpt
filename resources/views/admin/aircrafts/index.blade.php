@@ -11,8 +11,8 @@
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Air-FPT</a></li>
-                    <li class="breadcrumb-item active">Aircraft List</li>
+                    <li class="breadcrumb-item"><a href="#">Admin</a></li>
+                    <li class="breadcrumb-item active">Aircrafts</li>
                 </ol>
             </div>
         </div>
@@ -35,8 +35,9 @@
                                 <th>#</th>
                                 <th>A/C ID</th>
                                 <th>A/C REGISTRATION</th>
-                                <th>CONFIGURATION</th>
+                                <th>A/C CONFIGURATION</th>
                                 <th>A/C TYPE</th>
+                                <th>A/C IMAGE</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -48,10 +49,11 @@
                                 <td>{{ $acrt->reg }}</td>
                                 <td>{{ $acrt->config }}</td>
                                 <td>{{ $acrt->type }}</td>
+                                <td><img class="rounded" width="100px" src="{{ url('img/acrt/'.$acrt->image) }}" /></td>
                                 <td class="text-right">
-                                    <a class="btn btn-primary btn-sm" href="#">
+                                    <!-- <a class="btn btn-primary btn-sm" href="#">
                                         <i class="fas fa-folder"></i> View
-                                    </a>
+                                    </a> -->
                                     <a class="btn btn-info btn-sm" href="{{Route('admin.aircrafts.update', $acrt->id)}}">
                                         <i class="fas fa-pencil-alt"></i> Edit
                                     </a>
@@ -69,6 +71,7 @@
                                 <th>A/C REGISTRATION</th>
                                 <th>CONFIGURATION</th>
                                 <th>A/C TYPE</th>
+                                <th>A/C IMAGE</th>
                                 <th></th>
                             </tr>
                         </tfoot>
