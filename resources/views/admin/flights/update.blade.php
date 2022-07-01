@@ -9,49 +9,55 @@
                 <!-- general form elements -->
                 <div class="card card-info mt-4">
                     <div class="card-header">
-                        <h3 class="card-title">Update  Flight Number AF{{$route->id}}</h3>
+                        <h3 class="card-title">Update Flight AF{{$f->flight_number}} - {{$f->date}}</h3>
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form role="form" action="{{Route('admin.routes.postUpdate', $route->id) }}" method="post" enctype="multipart/form-data">
+                    <form role="form" action="{{ Route('admin.flights.postUpdate',$f->id) }}" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="id">Flight Number</label>
-                                <input value="{{$route->id}}" id="id" name="id" type="text" class="form-control" placeholder="{{$route->id}}">
+                                <label for="txt-id">ID</label>
+                                <input type="text" class="form-control" id="txt-id" name="id" value="{{ $f->id }}" readonly>
                             </div>
                             <div class="form-group">
-                                <label for="origin">Origin</label>
-                                <input value="{{$route->origin}}" type="text" class="form-control" id="origin" name="origin" placeholder="Origin">
-                                @error('origin')
-                                    <div class="text-danger">{{ $message }}</div>
-                                @enderror
+                                <label for="txt-number">Flight number</label>
+                                <select name="number" id="number" class="form-control ">
+                                    <option value="{{ $f->flight_num }}">{{ $f->flight_num }}</option>
+                                    @foreach($flight_num as $num)
+                                    <option value="{{$num->id}}">{{$num->id}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="form-group">
-                                <label for="destination">Destination</label>
-                                <input value="{{$route->destination}}" type="text" class="form-control" id="destination" name="destination" placeholder="Destination">
-                                @error('destination')
-                                    <div class="text-danger">{{ $message }}</div>
-                                @enderror
+                                <label for="txt-date">Date</label>
+                                <input type="date" class="form-control" id="txt-date" name="date" value="{{ $f->date }}">
                             </div>
                             <div class="form-group">
-                                <label for="depart_time">Time of Departure</label>
-                                <input value="{{$route->depart_time}}" type="text" class="form-control" id="depart_time" name="depart_time" placeholder="Time of Departure">
-                                @error('depart_time')
-                                    <div class="text-danger">{{ $message }}</div>
-                                @enderror
+                                <label for="txt-etd">ETD</label>
+                                <input type="text" class="form-control" id="txt-etd" name="etd" value="{{ $f->ETD }}">
                             </div>
                             <div class="form-group">
-                                <label for="Duration">Duration</label>
-                                <input value="{{$route->duration}}" type="text" class="form-control" id="duration" name="duration" placeholder="Duration">
-                                @error('duration')
-                                    <div class="text-danger">{{ $message }}</div>
-                                @enderror
+                                <label for="txt-gate">Gate</label>
+                                <input type="text" class="form-control" id="txt-gate" name="gate" value="{{ $f->gate }}">
+                            </div>
+                            <div class="form-group">
+                                <label for="txt-acid">AC ID</label>
+                                <input type="text" class="form-control" id="txt-acid" name="acid" value="{{ $f->ac_id }}">
+                            </div>
+                            <div class="form-group">
+                                <label for="txt-status">Flight status</label>
+                                <input type="text" class="form-control" id="txt-status" name="status" value="{{ $f->flight_status }}">
+                            </div>
+                            <div class="form-group">
+                                <label for="txt-price">Base Price</label>
+                                <input type="text" class="form-control" id="txt-price" name="price" value="{{ $f->base_price }}">
                             </div>
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-info">Submit</button>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <a href="{{url('admin/flights/index')}}" type="button" class="btn btn-primary">Back</a>
                         </div>
                     </form>
                 </div>

@@ -51,7 +51,7 @@
         <div class="tab-content  text-white font-weight-bolder p-2" id="indexFormContent">
 
             <!-- Start Form Booking -->
-            <form class="tab-pane fade show active" role="tabpanel" aria-labelledby="booking-tab" id="booking"  enctype="multipart/form-data" action="{{Route('airfpt.booking.flightList')}}">
+            <form class="tab-pane fade show active" role="tabpanel" aria-labelledby="booking-tab" id="booking"  enctype="multipart/form-data" action="{{Route('airfpt.booking.booking')}}">
 
                 <!-- Label departure -->
                 <label class="mt-3 d-flex justify-content-between" for="origin">

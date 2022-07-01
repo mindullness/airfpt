@@ -29,13 +29,53 @@
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>View Passengers</p>
+                                <p>Booking</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p> . . .</p>
+                                <p>Member</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Feedback</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Revenue</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Discount Rate</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- Flights -->
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <img src="{{asset('img/flight-icon.png')}}" alt="" width="25" height="24" style="border-radius: 5px; padding-left: 1px; opacity:0.8;">
+                        <p>&nbsp; Flights<i class="right fas fa-angle-left"></i></p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{Route('admin.flights.index')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>View Flights</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{Route('admin.flights.create')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add New Flight</p>
                             </a>
                         </li>
                     </ul>

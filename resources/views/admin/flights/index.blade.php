@@ -8,7 +8,7 @@
         <div class="row mb-2">
             <div class="col-sm-6">
 
-                <h1><img src="{{asset('img/flight-icon.jpg')}}" alt="" width="50" height="45" style="border-radius: 50%; padding-left:2px; opacity:0.8;"> &nbsp; Flight Management</h1>
+                <h1><img src="{{asset('img/flight-icon.png')}}" alt="" width="50" height="45" style="border-radius: 10px; padding-left:2px; opacity:0.8;"> &nbsp; Flight Management</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -34,33 +34,36 @@
                     <table id="flights" class="table table-bordered table-hover">
                         <thead>
                             <tr>
-                                <th>#</th>
+                                <th>ID</th>
                                 <th>FLIGHT NUMBER</th>
                                 <th>DEPARTURE DATE</th>
-                                <th>ETD (Estimated Time of Departure)</th>
+                                <th>ETD</th>
                                 <th>GATE</th>
+                                <th>A/C ID</th>
                                 <th>FLIGHT STATUS</th>
-                                
+                                <th>BASE PRICE</th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($flights as $key => $r)
+                            @foreach($flights as $key => $f)
                             <tr>
-                                <td>{{ ++$key }}</td>
-                                <td>{{ $r->id }}</td>
-                                <td>{{ $r->origin }}</td>
-                                <td>{{ $r->destination }}</td>
-                                <td>{{ $r->depart_time }}</td>
-                                <td>{{ $r->duration }}</td>
+                                <td>{{ $f->id }}</td>
+                                <td>{{ $f->flight_number }}</td>
+                                <td>{{ $f->date }}</td>
+                                <td>{{ $f->ETD }}</td>
+                                <td>{{ $f->gate }}</td>
+                                <td>{{ $f->ac_id }}</td>
+                                <td>{{ $f->flight_status }}</td>
+                                <td>{{ $f->base_price }}</td>
                                 <td class="text-right">
                                     <!-- <a class="btn btn-primary btn-sm" href="#">
                                         <i class="fas fa-folder"></i> View
                                     </a> -->
-                                    <a class="btn btn-info btn-sm" href="{{Route('admin.flights.update', $r->id)}}">
+                                    <a class="btn btn-info btn-sm" href="{{Route('admin.flights.update', $f->id)}}">
                                         <i class="fas fa-pencil-alt"></i> Edit
                                     </a>
-                                    <a class="btn btn-danger btn-sm" href="{{Route('admin.flights.delete', $r->id)}}">
+                                    <a class="btn btn-danger btn-sm" href="{{Route('admin.flights.delete', $f->id)}}">
                                         <i class="fas fa-trash"></i> Delete
                                     </a>
                                 </td>
@@ -69,12 +72,13 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th>#</th>
+                                <th>ID</th>
                                 <th>FLIGHT NUMBER</th>
-                                <th>ORIGIN</th>
-                                <th>DESTINATION</th>
-                                <th>TIME OF DEPARTURE</th>
-                                <th>DURATION (Minutes)</th>
+                                <th>DEPARTURE DATE</th>
+                                <th>ETD</th>
+                                <th>GATE</th>
+                                <th>FLIGHT STATUS</th>
+                                <th>BASE PRICE</th>
                                 <th></th>
                             </tr>
                         </tfoot>
@@ -94,11 +98,11 @@
     $(function() {
         $('#flights').DataTable({
             "paging": true,
-            "lengthChange": false,
-            "searching": false,
+            "lengthChange": true,
+            "searching": true,
             "ordering": true,
             "info": true,
-            "autoWidth": false,
+            "autoWidth": true,
         });
     });
 </script>
