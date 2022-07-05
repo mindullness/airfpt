@@ -2,7 +2,7 @@
 <!-- Footer -->
 <footer class="container mt-5 border-0 sticky-bottom">
 
-    <!-- Class .footer Information -->
+    <!-- Class .footer Contact Information -->
     <div class="row m-auto footer">
 
         <div class="col-md-6 col-lg-3 "><br>
@@ -47,7 +47,7 @@
 
     <!-- Footer -->
 </footer>
-<!-- Footer  -->
+<!-- Footer Company Info -->
 <div class="py-3 sticky-bottom container-fluid bg-light mx-0 px-0">
     <div class="container d-md-flex">
         <div class="d-block d-md-flex">

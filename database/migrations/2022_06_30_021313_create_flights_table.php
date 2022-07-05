@@ -22,7 +22,7 @@ return new class extends Migration
             $table->time('etd')->nullable();
             $table->unsignedTinyInteger('gate')->nullable();
             $table->string('flight_status');
-            $table->smallInteger('ac_id')->unsigned();
+            $table->smallInteger('ac_id')->unsigned()->references('id')->on('aircrafts');
             $table->string('current_seatmap')->nullable();
             $table->unsignedSmallInteger('avai_seat')->nullable();
             $table->unsignedDecimal('base_price', 11, 2);

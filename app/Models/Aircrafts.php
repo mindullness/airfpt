@@ -9,6 +9,6 @@ class Aircrafts extends Model
 {
     use HasFactory;
     protected $table = 'aircrafts';
-    protected $fillable = ['reg','config', 'type', 'image'];
+    protected $fillable = ['reg','config', 'type', 'seatmap', 'image'];
     public $timestamps = true;
 }

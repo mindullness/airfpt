@@ -95,8 +95,10 @@ $(document).ready(function() {
         }
     }
 
-
-
     // .END SEARCH FLIGHTS ZONE //
+
+
+
+
 
 });

@@ -5,6 +5,8 @@
         <h6 class="m-0 p-0">Enter passenger details</h6>
     </span>
 </div>
+
+<!-- foreach here -->
 <div class="passenger_detail bg-light p-2">
     <h5 class="font-weight-bold">Passenger</h5>
     <div class="form-row d-flex justify-content-between">
@@ -31,20 +33,19 @@
         <div class="col-md ">
             <label for="dob">Date of birth</label>
             <div class="input-group">
-                <label for="" class="input-group-prepend"><small class="input-group-text">Day</small> </label>
+                <label for="day" class="input-group-prepend"><i class="fa fa-calendar-alt input-group-text"></i></label>
                 <select name="day" id="day" class="form-control">
-                    <option value='1'>01</option>
+                    <option value="">Day</option>
                 </select>
-                <label for="" class="input-group-prepend text-small"><small class="input-group-text">Month</small> </label>
+                <label for="month" class="input-group-prepend"><i class="fa fa-calendar-alt input-group-text"></i></label>
                 <!-- <strong>/</strong> -->
                 <select name="month" id="month" class="form-control">
-
-                    <option value=1>01</option>
+                    <option value="">Month</option>
                 </select>
                 <!-- <strong>/</strong> -->
-                <label for="" class="input-group-prepend"><small class="input-group-text">Year</small> </label>
+                <label for="year" class="input-group-prepend"><i class="fa fa-calendar-alt input-group-text"></i></label>
                 <select name="year" id="year" class="form-control">
-                    <option value='1989'>1989</option>
+                    <option value=''>Year</option>
                 </select>
             </div>
         </div>
@@ -56,3 +57,4 @@
 
     </div>
 </div>
+<!-- End foreach here -->

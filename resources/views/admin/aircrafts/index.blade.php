@@ -33,6 +33,7 @@
                         <thead>
                             <tr>
                                 <th>#</th>
+                                <th>UPDATED AT</th>
                                 <th>A/C ID</th>
                                 <th>A/C REGISTRATION</th>
                                 <th>A/C CONFIGURATION</th>
@@ -45,6 +46,7 @@
                             @foreach($aircrafts as $key => $acrt)
                             <tr>
                                 <td>{{ ++$key }}</td>
+                                <td>{{ $acrt->updated_at->format('d/m/Y H:i:s A')}}</td>
                                 <td>{{ $acrt->id }}</td>
                                 <td>{{ $acrt->reg }}</td>
                                 <td>{{ $acrt->config }}</td>
@@ -67,6 +69,7 @@
                         <tfoot>
                             <tr>
                                 <th>#</th>
+                                <th>UPDATED AT</th>
                                 <th>A/C ID</th>
                                 <th>A/C REGISTRATION</th>
                                 <th>CONFIGURATION</th>

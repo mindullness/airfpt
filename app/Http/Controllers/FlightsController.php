@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Aircrafts;
 use App\Models\Flights;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 
 class FlightsController extends Controller
 {
@@ -21,12 +23,18 @@ class FlightsController extends Controller
     public function postCreate(Request $request)
     {
         $flights = $request->all();
+        $flt = Aircrafts::find($flights['acid']);
+
         $f = new Flights($flights);
-        $f->flight_num = $flights['number'];
+        $f->flight_number = $flights['number'];
         $f->date = $flights['date'];
-        $f->ETD = $flights['etd'];
+        $f->etd = $flights['etd'];
         $f->gate = $flights['gate'];
         $f->ac_id = $flights['acid'];
+        print_r($f->id);
+        File::copy(public_path('./sm/sm_aircrafts/'.$flt->seatmap), public_path('./sm/sm_flights/'.$flights['number'].'-'.$flights['date'].$flt->seatmap));
+        $f->current_seatmap = $flights['number'].'-'.$flights['date'].$flt->seatmap;
+
         $f->flight_status = $flights['status'];
         $f->base_price = $flights['price'];
         $f->save();
@@ -51,14 +59,14 @@ class FlightsController extends Controller
         $f->flight_status = $flights['status'];
         $f->base_price = $flights['price'];
         $f->save();
-        return redirect()->route('admin.flight.index');
+        return redirect()->route('admin.flights.index');
     }
     public function delete($id)
     {
 
         $f = Flights::find($id);
         $f->delete();
-        return redirect()->route('admin.flight.index');
+        return redirect()->route('admin.flights.index');
     }
     public function details($id)
     {

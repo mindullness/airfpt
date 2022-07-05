@@ -1,4 +1,6 @@
-<header class="navbar navbar-expand-md py-2 navbar-light bg-light fixed-top font-weight-bold border-bottom border-secondary" role="navigation">
+
+<!-- Header -->
+<header class="navbar navbar-expand-lg py-2 navbar-light bg-light fixed-top font-weight-bold border-bottom border-secondary" role="navigation">
     <div class="container">
         <a class="navbar-brand" href="{{Route('airfpt.index')}}"><img width="200" src="{{ asset('img/logo/prj_logo.png') }}" alt=""></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#header_menu">
@@ -18,10 +20,7 @@
                     <button type="button" id="dropdownMenu1" data-toggle="dropdown" class="btn btn-outline-secondary dropdown-toggle">Login <span class="caret"></span></button>
                     <div class="dropdown-menu dropdown-menu-right rounded" style="width: 300px;">
                         <form class="px-3 py-3 bg-light">
-                            <!-- <div class="form-group">
-                                <label for="exampleDropdownFormEmail1">Username</label>
-                                <input type="text" class="form-control" id="exampleDropdownFormEmail1" placeholder="Your username">
-                            </div> -->
+                            
                             <label for="username">Username</label>
                             <div class="form-group input-group input-group-md">
                                 <small class="input-group-prepend">

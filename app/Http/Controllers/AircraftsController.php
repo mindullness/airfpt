@@ -10,7 +10,7 @@ class AircraftsController extends Controller
 {
     //
     public function index(){
-        $aircrafts = Aircrafts::all();
+        $aircrafts = Aircrafts::all();       
         return view('admin.aircrafts.index', ['aircrafts'=>$aircrafts]);
     }
     public function create(){
@@ -24,13 +24,16 @@ class AircraftsController extends Controller
             $file = $request->file('image');
             $extension = $file->getClientOriginalExtension();
             if($extension != 'jpg' && $extension != 'png' && $extension != 'jpeg'){
-                return redirect('product.create', ['errors'=>'Only file with extension "jpg", "png", "jpeg" is allowed!']);
+                return redirect('admin.aircrafts.create', ['errors'=>'Only file with extension "jpg", "png", "jpeg" is allowed!']);
             }
             $imageName = $file->getClientOriginalName();
             $file->move('./img/acrt', $imageName);
         } else{
             $imageName = null;
         }
+
+        // Seatmap
+            
 
         $acrt = new Aircrafts($aircrafts);
         $acrt->image = $imageName;
@@ -52,7 +55,7 @@ class AircraftsController extends Controller
         $r->reg = $acrt['reg'];
         $r->config = $acrt['config'];
         $r->type = $acrt['type'];
-        
+        $r->touch();
         $r->save();
         return redirect()->route('admin.aircrafts.index');
     }

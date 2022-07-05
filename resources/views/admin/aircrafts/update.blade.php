@@ -28,13 +28,26 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="config">CONFIGURATION</label>
-                                <input value="{{$acrt->city}}" type="text" class="form-control" id="config" name="config" placeholder="Configuration">
+                                <label for="config">A/C CONFIGURATION</label>
+                                <input value="{{$acrt->config}}" type="text" class="form-control" id="config" name="config" placeholder="Configuration">
                                 @error('config')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
-     
+                            <div class="form-group">
+                                <label for="type">A/C TYPE</label>
+                                <input value="{{$acrt->type}}" type="text" class="form-control" id="type" name="type" placeholder="Aircraft Type">
+                                @error('type')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="image">A/C TYPE</label>
+                                <input value="{{$acrt->image}}" type="text" class="form-control" id="image" name="image" placeholder="Aircraft Image">
+                                @error('image')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer">

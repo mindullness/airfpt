@@ -13,52 +13,50 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form role="form" action="{{ url('admin/routes/postCreate') }}" method="post" enctype="multipart/form-data">
+                    <form role="form" action="{{ Route('admin.flights.postCreate') }}" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div class="card-body">
+                            <!-- <div class="form-group">
+                                <label for="txt-id">ID</label>
+                                <input type="text" class="form-control" id="txt-id" name="id">
+                            </div> -->
                             <div class="form-group">
-                                <label for="id">Flight Number</label>
-                                <input type="text" class="form-control" id="id" name="id" placeholder="Flight number">
-                            </div>
-                            <div class="form-group">
-                                <label for="Destination">Origin</label>
-                                <select name="origin" id="origin" class="form-control ">
-                                    <option value="">From</option>
-                                    @foreach($dest as $d)
-                                    <option value="{{$d->iata_code}}">{{$d->iata_code}} - {{$d->name}}</option>
+                                <label for="txt-number">Flight number</label>
+                                <select name="number" id="txt-number" class="form-control ">
+                                    <option value="">Select flight number</option>
+                                    @foreach($flight_num as $num)
+                                    <option value="{{$num->id}}">{{$num->id}}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="Destination">Destination</label>
-                                <select name="destination" id="destination" class="form-control ">
-                                    <option value="">To</option>
-                                    @foreach($dest as $d)
-                                    <option value="{{$d->iata_code}}">{{$d->iata_code}} - {{$d->name}}</option>
-                                    @endforeach
-                                </select>
-                                @error('destination')
-                                <div class="text-danger">{{ $message }}</div>
-                                @enderror
+                                <label for="txt-date">Date</label>
+                                <input type="date" class="form-control" id="txt-date" name="date">
                             </div>
                             <div class="form-group">
-                                <label for="depart_time">Time of Departure</label>
-                                <input type="text" class="form-control" id="depart_time" name="depart_time" placeholder="Time of Departure">
-                                @error('depart_time')
-                                <div class="text-danger">{{ $message }}</div>
-                                @enderror
+                                <label for="txt-etd">ETD</label>
+                                <input type="text" class="form-control" id="txt-etd" name="etd" placeholder="hh:mm">
                             </div>
                             <div class="form-group">
-                                <label for="duration">Duration</label>
-                                <input type="text" class="form-control" id="duration" name="duration" placeholder="Duration">
-                                @error('duration')
-                                <div class="text-danger">{{ $message }}</div>
-                                @enderror
+                                <label for="txt-gate">Gate</label>
+                                <input type="text" class="form-control" id="txt-gate" name="gate">
+                            </div>
+                            <div class="form-group">
+                                <label for="txt-acid">AC ID</label>
+                                <input type="text" class="form-control" id="txt-acid" name="acid">
+                            </div>
+                            <div class="form-group">
+                                <label for="txt-status">Flight status</label>
+                                <input type="text" class="form-control" id="txt-status" name="status">
+                            </div>
+                            <div class="form-group">
+                                <label for="txt-price">Price</label>
+                                <input type="text" class="form-control" id="txt-price" name="price">
                             </div>
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-info">Submit</button>
+                            <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </form>
                 </div>

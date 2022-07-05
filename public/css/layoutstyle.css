@@ -20,7 +20,7 @@ body {
 
 .headerlink>.nav-item>.nav-link {
     color: rgb(0, 123, 255);
-    margin: 10px;
+    margin: 8px;
 }
 
 .headerlink>.nav-item:hover>.nav-link {
@@ -72,16 +72,6 @@ body {
 
 
 /* Class để đặt cấu trúc của form khi nhập input */
-
-
-/* .dark {
-    z-index: 5;
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-    color: white;
-    background: -webkit-linear-gradient(100deg, rgba(1, 131, 243, 0.9), rgba(1, 131, 243, 0.8), rgba(1, 131, 243, 0.8), rgba(1, 131, 243, 0.6), rgba(243, 112, 34, 0.9), rgba(243, 112, 34, 0.8), rgba(243, 112, 34, 0.7), rgba(255, 127, 39, 0.6), rgba(77, 183, 72, 0.9), rgba(77, 183, 72, 0.8), rgba(109, 233, 27, 0.6), rgba(109, 233, 27, 0.6));
-    background: linear-gradient(100deg, rgba(1, 131, 243, 0.9), rgba(1, 131, 243, 0.8), rgba(1, 131, 243, 0.8), rgba(1, 131, 243, 0.6), rgba(243, 112, 34, 0.9), rgba(243, 112, 34, 0.8), rgba(243, 112, 34, 0.7), rgba(255, 127, 39, 0.6), rgba(77, 183, 72, 0.9), rgba(77, 183, 72, 0.8), rgba(109, 233, 27, 0.6), rgba(109, 233, 27, 0.6));
-} */
 
 .indexForm {
     z-index: 4;
@@ -312,4 +302,162 @@ h3.newsTitle {
     border-radius: 5px;
     font-size: 22px;
     margin: 0px 5px;
+}
+
+
+/* -------------- Booking CSS --------------- */
+
+
+/* CSS for all form tabs */
+
+#booking_form {
+    display: flex;
+    justify-content: space-between;
+}
+
+#bookingsummary {
+    width: 25%;
+    background-color: #c8c8c8;
+}
+
+.booking_tab {
+    display: none;
+}
+
+.booking_step {
+    color: rgb(23, 74, 146);
+}
+
+.breadcrumb_item.booking_step.activated {
+    color: white;
+    font-weight: 800;
+    background-color: rgb(23, 74, 146);
+}
+
+@media screen and (max-width: 720px) {
+    .shortNav {
+        display: none!important;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #booking_form {
+        display: block;
+        width: 100%;
+    }
+    #bookingsummary {
+        margin-top: 10px;
+        width: 100%;
+        display: block;
+        height: 80px;
+    }
+}
+
+
+/*  */
+
+.booking_head_nav_breadcrumb {
+    display: flex;
+    overflow: hidden;
+    align-self: stretch;
+    justify-content: space-between;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.booking_head_nav_breadcrumb>.breadcrumb_item {
+    position: relative;
+    margin: auto 0;
+    border-radius: 5px;
+    width: 24%;
+    word-wrap: break-word;
+    background: #fff;
+    color: #333;
+    text-align: center;
+    text-decoration: none;
+    transition: background 0.2s linear;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.breadcrumb_item.booking_step.activated:hover {
+    color: rgb(255, 199, 9);
+}
+
+.booking_head_nav_breadcrumb>.breadcrumb_item:hover:after,
+.booking_head_nav_breadcrumb>.breadcrumb_item:hover {
+    background-color: rgba(38, 99, 184, 0.644);
+}
+
+
+/* origin ----> plane ----> dest */
+
+.outbound_title,
+.inbound_title,
+.passenger_title {
+    display: inline-flex;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.outbound_title>span,
+.inbound_title>span,
+.passenger_title>span {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5px;
+}
+
+.icon_plane,
+.passenger_title>li {
+    border-radius: 50%;
+    background-color: rgb(23, 74, 146);
+    padding: 10px;
+    margin-top: 8px;
+    height: 40px;
+    color: white;
+    margin-right: 5px;
+}
+
+
+/* End origin ----> plane ----> dest */
+
+.obFlight_tabcontent,
+.ibFlight_tabcontent {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 5px;
+}
+
+.flt_Info {
+    padding-right: 15px;
+    margin: 0;
+    border-right: lightgrey 1px solid;
+}
+
+.flt_Info>div {
+    display: flex;
+    justify-content: space-between;
+    align-self: stretch;
+}
+
+.flt_price {
+    justify-content: center;
+    align-self: center;
+    display: flex;
+    align-content: center;
+}
+
+.line {
+    display: flex;
+    justify-content: space-between;
+    color: grey;
+    padding-top: 8px;
+    font-size: 14px;
+}
+
+.line>small {
+    height: 1px;
+    padding-top: 5px;
 }

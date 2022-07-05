@@ -1,157 +1,21 @@
 @extends('airfpt.layout.layout')
-@section('title', 'Select Flight')
+@section('title', 'Book A Ticket')
 @section('content')
-<style>
-    /* CSS for all form tabs */
-    #booking_form {
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .booking_tab {
-        display: none;
-    }
-
-    .booking_step {
-        color: rgb(23, 74, 146) !important;
-    }
-
-    .breadcrumb_item.booking_step.activated {
-        color: white !important;
-        font-weight: 800;
-        background-color: rgb(23, 74, 146);
-    }
-
-    /*  */
-
-    .booking_head_nav_breadcrumb {
-        display: flex;
-        overflow: hidden;
-        align-self: stretch;
-        justify-content: space-between;
-        padding: 0;
-        margin-bottom: 20px;
-    }
-
-    .booking_head_nav_breadcrumb>.breadcrumb_item {
-        position: relative;
-        margin: auto 0;
-        border-radius: 5px;
-        width: 24%;
-        word-wrap: break-word;
-        background: #fff;
-        color: #333;
-        text-align: center;
-        text-decoration: none;
-        transition: background 0.2s linear;
-        padding-top: 10px;
-        padding-bottom: 10px;
-    }
-
-    /* .booking_head_nav_breadcrumb>.breadcrumb_item:not(:first-child) {
-        padding-left: 2px;
-    }
-
-    .booking_head_nav_breadcrumb>.breadcrumb_item:not(:last-child) {
-        padding-right: 2px;
-    } */
-
-    /* .booking_head_nav_breadcrumb>.breadcrumb_item>a {
-        border: #04AA6D 1px solid;
-        margin: auto;
-    } */
-
-    .booking_head_nav_breadcrumb>.breadcrumb_item:hover:after,
-    .booking_head_nav_breadcrumb>.breadcrumb_item:hover {
-        background-color: #edf1f5;
-    }
-
-
-    /* origin ----> plane ----> dest */
-    .outbound_title,
-    .inbound_title,
-    .passenger_title {
-        display: inline-flex;
-        width: 100%;
-        margin-bottom: 15px;
-    }
-
-    .outbound_title>span,
-    .inbound_title>span,
-    .passenger_title>span {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 5px;
-    }
-
-    .icon_plane,
-    .passenger_title>li {
-        border-radius: 50%;
-        background-color: rgb(23, 74, 146);
-        padding: 10px;
-        margin-top: 8px;
-        height: 40px;
-        color: white;
-        margin-right: 5px;
-    }
-
-    /* End origin ----> plane ----> dest */
-
-    .obFlight_tabcontent,
-    .ibFlight_tabcontent {
-        display: flex;
-        justify-content: space-between;
-        position: relative;
-        margin-bottom: 5px;
-    }
-
-    .flt_Info {
-        padding-right: 15px;
-        margin: 0;
-        border-right: lightgrey 1px solid;
-    }
-
-    .flt_Info>div {
-        display: flex;
-        justify-content: space-between;
-        align-self: stretch;
-    }
-
-    .flt_price {
-        justify-content: center;
-        align-self: center;
-        display: flex;
-        align-content: center;
-    }
-
-    .line {
-        display: flex;
-        justify-content: space-between;
-        color: grey;
-        padding-top: 8px;
-        font-size: 14px;
-    }
-
-    .line>small {
-        height: 1px;
-        padding-top: 5px;
-    }
-</style>
 
 <div class="container bg-transparent" style="padding-top: 110px;">
 
     <!-- Start breadcrumb -->
 
     <nav class="booking_head_nav_breadcrumb">
-        <a href="#" class="breadcrumb_item booking_step">1. Flights</a>
-        <a href="#" class="breadcrumb_item booking_step">Passengers</a>
-        <a href="#" class="breadcrumb_item booking_step">Add-ons</a>
-        <a href="#" class="breadcrumb_item booking_step">Payment</a>
+        <a href="#" class="breadcrumb_item booking_step">1<span class="shortNav">. Flights</span></a>
+        <a href="#" class="breadcrumb_item booking_step">2<span class="shortNav">. Passengers</span></a>
+        <a href="#" class="breadcrumb_item booking_step">3<span class="shortNav">. Add-ons</span></a>
+        <a href="#" class="breadcrumb_item booking_step">4<span class="shortNav">. Payment</span></a>
     </nav>
     <!-- End breadcrumb -->
     <form id="booking_form" action="#" method="POST" enctype="multipart/form-data">
 
-        <div class="w-100 pr-2">
+        <div class="w-100 pr-sm-2">
             <!-- One "booking_tab" for each booking_step in the form: -->
 
             <!-- 1. booking_tab 1: Select Flight -->
@@ -166,12 +30,12 @@
             </div>
 
             <!-- 3. booking_tab: Add-ons -->
-            <div class="booking_tab m-0 p-0"> Add-ons 
-                @include('airfpt.booking.tab3_add_ons')            
+            <div class="booking_tab m-0 p-0"> Add-ons
+                @include('airfpt.booking.tab3_add_ons')
             </div>
             <!-- 4. Payment -->
             <div class="booking_tab m-0 p-0">Payment
-                @include('airfpt.booking.tab4_payment')   
+                @include('airfpt.booking.tab4_payment')
             </div>
 
             <div class="overflow-hidden mt-2">
@@ -193,7 +57,7 @@
                 <span class="booking_step"></span>
             </div> -->
         </div>
-        <div class="bookingsummary w-25" style="height: 500px;background-color:lightslategray;">
+        <div id="bookingsummary">
             <h3 class="font-weight-light">Booking Summary</h3>
         </div>
 
@@ -255,34 +119,33 @@
 
     }
 
-
-
     // DOB
     // 
     // 
-    var dayObj = document.getElementById("day");
-    var monthObj = document.getElementById("month");
-    var isLeap = false;
-
+    let isLeap = false;
     window.onload = function() {
-        setYear();
-        setMonth();
+        $("#booking_form").ready(function() {
+            setYear();
+            setMonth();
+            alert($("#month").val());
+        });
     }
-    document.getElementById("year").onchange = function() {
+    $("#year").change(function() {
         checkLeapYear();
         checkDay();
-    }
+    });
 
-    monthObj.onchange = function() {
+    $("#month").change(function() {
         checkDay();
-    }
-    dayObj.onfocus = function() {
+    });
+
+    $("#day").focus(function() {
         setDay();
-    }
+    });
 
     function checkDay() { // Check the day is valid or not
-        var month = monthObj.value;
-        var day = dayObj.value;
+        let month = $("#month").val();
+        let day = $("#day").val();
         if (month == 2) {
             if (isLeap) {
                 if (day > 29) {
@@ -301,8 +164,10 @@
     }
 
     function setDay() { // Set the day to the first day of the month
-        dayObj.innerHTML = "";
-        let month = monthObj.value;
+        $("#day").html("");
+
+        let month = $("#month").val();
+        console.log(month);
         let maxDay = 31;
         if (month == 2) {
             if (isLeap) {
@@ -316,18 +181,22 @@
 
         for (let i = 1; i <= maxDay; i++)
             if (i < 10) {
-                dayObj.innerHTML += "<option value='" + i + "'>0" + i + "</option>"
+                $("#day").append("<option value='" + i + "'>0" + i + "</option>");
+                // dayObj.innerHTML += "<option value='" + i + "'>0" + i + "</option>"
             } else {
-                dayObj.innerHTML += "<option value='" + i + "'>" + i + "</option>";
+                $("#day").append("<option value='" + i + "'>" + i + "</option>");
+                // dayObj.innerHTML += "<option value='" + i + "'>" + i + "</option>";
             }
     }
 
     function setMonth() {
         for (let i = 1; i <= 12; i++) {
             if (i < 10) {
-                monthObj.innerHTML += "<option value='" + i + "'>0" + i + "</option>"
+                $("#month").append("<option value='" + i + "'>0" + i + "</option>");
+                // monthObj.innerHTML += "<option value='" + i + "'>0" + i + "</option>"
             } else {
-                monthObj.innerHTML += "<option value='" + i + "'>" + i + "</option>";
+                $("#month").append("<option value='" + i + "'>" + i + "</option>");
+                // monthObj.innerHTML += "<option value='" + i + "'>" + i + "</option>";
             }
         }
     }
@@ -354,9 +223,9 @@
             isLeap = false;
         }
     }
-        // 
-        // 
-        // End DOB
+    // 
+    // 
+    // End DOB
 </script>
 
 @endsection

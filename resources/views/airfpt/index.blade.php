@@ -6,6 +6,7 @@
 
     <div class="container-fluid">
 
+        <!-- Image Homepage Carousel -->
         <div id="indexCarousel" class="carousel carousel-fade slide " data-pause="false" data-ride="carousel" data-interval="5000">
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -26,9 +27,8 @@
             <a href="#indexCarousel" class="carousel-control-next" data-slide="next">
                 <span class="carousel-control-next-icon"></span>
             </a>
-
         </div>
-
+        <!-- End Image Homepage Carousel -->
     </div>
 
     <!-- Start form -->
@@ -51,7 +51,7 @@
         <div class="tab-content  text-white font-weight-bolder p-2" id="indexFormContent">
 
             <!-- Start Form Booking -->
-            <form class="tab-pane fade show active" role="tabpanel" aria-labelledby="booking-tab" id="booking"  enctype="multipart/form-data" action="{{Route('airfpt.booking.booking')}}">
+            <form class="tab-pane fade show active" role="tabpanel" aria-labelledby="booking-tab" id="booking" enctype="multipart/form-data" action="{{Route('airfpt.booking.booking')}}">
 
                 <!-- Label departure -->
                 <label class="mt-3 d-flex justify-content-between" for="origin">
@@ -76,10 +76,10 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-plane-departure"></i></span>
                     </div>
-                    <select  name="origin" id="origin" class="form-control ">
+                    <select name="origin" id="origin" class="form-control ">
                         <option value="">From</option>
                         @foreach($airports as $a)
-                        <option value="{{$a->iata_code}}">{{$a->iata_code}} - {{$a->name}}</option>
+                        <option value="{{$a->iata_code}}">{{$a->city}} ({{$a->iata_code}}) - {{$a->name}}</option>
                         @endforeach
                     </select>
                     <!-- <input name="origin" id="origin" type="text" class="form-control is-valid" required placeholder="From"> -->
@@ -100,10 +100,10 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-plane-arrival"></i></span>
                     </div>
-                    <select  name="destination" id="destination" class="form-control ">
+                    <select name="destination" id="destination" class="form-control ">
                         <option value="">To</option>
                         @foreach($airports as $a)
-                        <option value="{{$a->iata_code}}">{{$a->iata_code}} - {{$a->name}}</option>
+                        <option value="{{$a->iata_code}}">{{$a->city}} ({{$a->iata_code}}) - {{$a->name}}</option>
                         @endforeach
                     </select>
                     <div class="input-group-append">
@@ -226,7 +226,7 @@
 <div class="container-fluid py-4 register-panel row">
     <div class="container">
         <h3 class="d-block align-content-center text-left">
-            Do not miss out best offers from <b>Air FPT</b> 
+            Do not miss out best offers from <b>Air FPT</b>
         </h3>
         <div class="form-group input-group input-group-lg pt-2">
             <small class="input-group-prepend">
@@ -236,7 +236,7 @@
 
             <small class="input-group-append">
                 <span class="input-group-text border-0 bg-transparent "> &nbsp;</span>
-</small>
+            </small>
             <button type="button" class=" text-white w-25 btn btn-outline-warning font-weight-bolder shadow-light rounded" data-toggle="modal" data-target="#staticBackdrop">
                 SUBSCRIBE</button>
         </div>
