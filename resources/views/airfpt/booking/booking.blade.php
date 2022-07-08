@@ -15,7 +15,7 @@
     <!-- End breadcrumb -->
     <form id="booking_form" action="#" method="POST" enctype="multipart/form-data">
 
-        <div class="w-100 pr-sm-2">
+        <div class="w-75">
             <!-- One "booking_tab" for each booking_step in the form: -->
 
             <!-- 1. booking_tab 1: Select Flight -->
@@ -57,7 +57,7 @@
                 <span class="booking_step"></span>
             </div> -->
         </div>
-        <div id="bookingsummary">
+        <div id="bookingsummary" class="d-block d-sm-block">
             <h3 class="font-weight-light">Booking Summary</h3>
         </div>
 
@@ -126,8 +126,6 @@
     window.onload = function() {
         $("#booking_form").ready(function() {
             setYear();
-            setMonth();
-            alert($("#month").val());
         });
     }
     $("#year").change(function() {
@@ -167,7 +165,6 @@
         $("#day").html("");
 
         let month = $("#month").val();
-        console.log(month);
         let maxDay = 31;
         if (month == 2) {
             if (isLeap) {
@@ -178,8 +175,9 @@
         } else if (month == 4 || month == 6 || month == 9 || month == 11) {
             maxDay = 30;
         }
-
+        $("#day").append("<option value=''>Day</option>");
         for (let i = 1; i <= maxDay; i++)
+            
             if (i < 10) {
                 $("#day").append("<option value='" + i + "'>0" + i + "</option>");
                 // dayObj.innerHTML += "<option value='" + i + "'>0" + i + "</option>"
@@ -189,17 +187,6 @@
             }
     }
 
-    function setMonth() {
-        for (let i = 1; i <= 12; i++) {
-            if (i < 10) {
-                $("#month").append("<option value='" + i + "'>0" + i + "</option>");
-                // monthObj.innerHTML += "<option value='" + i + "'>0" + i + "</option>"
-            } else {
-                $("#month").append("<option value='" + i + "'>" + i + "</option>");
-                // monthObj.innerHTML += "<option value='" + i + "'>" + i + "</option>";
-            }
-        }
-    }
 
     function setYear() {
 

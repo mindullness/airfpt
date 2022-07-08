@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FlightsController;
 use App\Http\Controllers\AirportsController;
 use App\Http\Controllers\AircraftsController;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\RoutesController;
 use App\Http\Controllers\UserHomepageController;
 use App\Http\Controllers\PhucDuyController;
@@ -26,9 +27,7 @@ Route::group(['prefix' => 'airfpt'], function () {
     Route::get('/', [UserHomepageController::class, 'index'])->name('airfpt.index');
 
     Route::get('/faqs', [UserHomepageController::class, 'faqs'])->name('airfpt.faqs');
-
-    Route::any('/booking/searchFlight', [UserHomepageController::class, 'searchFlight'])->name('airfpt.booking.searchFlight');
-    Route::any('/booking/booking', [UserHomepageController::class, 'book'])->name('airfpt.booking.booking');
+    Route::get('/booking/booking', [BookingController::class, 'book'])->name('airfpt.booking.booking');
 });
 // End of group airfpt
 

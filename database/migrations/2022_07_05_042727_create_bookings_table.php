@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->enum('gender', array('adl', 'chd', 'inf'));
+            $table->unsignedInteger('inf_id')->references('id')->on('infants')->nullable();
             $table->string('seat_no', 3)->nullable();
             $table->enum('status', array('confirmed', 'check-in', 'void'));
             $table->string('mobile');

@@ -14,7 +14,7 @@ $(document).ready(function() {
 
 
     // Check radio button "roundtrip" or "oneway" is checked
-    $('#booking input:radio[name="isRoundTrip"]').change(function() {
+    $(' input:radio[name="isRoundTrip"]').change(function() {
         changeRadioBtn();
         displayPaxField();
     });
@@ -98,7 +98,59 @@ $(document).ready(function() {
     // .END SEARCH FLIGHTS ZONE //
 
 
+    $(".inc").click(function() {
 
+        let current_qty = parseInt($(this).prev('input').val());;
+        let id = $(this).prev('input').attr('id');
+
+        if (checkIncrementPax(id)) {
+            // Increment value only when ADL + CHD not over 6 passengers && INF <= ADL.
+            $(this).prev('input').val(current_qty + 1);
+        }
+    });
+
+
+    $(".dec").click(function() {
+        // These code check there's at least 01 Adult, other fields can be zero when click 'decrement button'
+        // get current passenger quantity
+        let current_qty = parseInt($(this).next('input').val());
+
+        if (!isNaN(current_qty)) {
+
+            if (current_qty > 1) {
+                return $(this).next('input').val(current_qty - 1);
+            } else {
+                if ($(this).next('input').attr('id') == 'adl') {
+                    return $(this).next('input').val(1);
+                } else {
+                    current_qty <= 0 ? $(this).next('input').val(0) : $(this).next('input').val(current_qty - 1);
+                }
+            }
+        } else {
+            alert('Passenger field must be numeric!');
+        }
+    });
+
+    function checkIncrementPax(id) {
+
+        let adl_qty = parseInt($("#adl").val());
+        let chd_qty = parseInt($("#chd").val());
+        let inf_qty = parseInt($("#inf").val());
+
+        if (id != 'inf') {
+            if (adl_qty + chd_qty >= 6) {
+                alert('Maximum 6 passengers per booking');
+                return false;
+            }
+        } else {
+            if (inf_qty >= adl_qty) {
+                alert('Allowed just one "Infant" per an "Adult"');
+                return false;
+            }
+        }
+
+        return true;
+    }
 
 
 });

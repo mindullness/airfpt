@@ -19,12 +19,7 @@ class UserHomepageController extends Controller
         return view('airfpt.faqs');
     }
 
-    public function book(Request $request){
-        $bookings = $request->all();
-        return view('airfpt.booking.booking', ['bookings'=>$bookings]);
-    }
+   
 
-    public function searchFlight(){
-        return view('airfpt.booking.searchFlight');
-    }
+
 }

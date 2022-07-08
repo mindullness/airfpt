@@ -37,7 +37,7 @@
         <!-- Tab navbar -->
         <ul id="indexFormTab" class="nav nav-tabs row text-center border-0" role="tablist">
             <li class="nav-item col-4 m-0 p-0 border-0">
-                <a class="nav-link active" id="booking-tab" data-toggle="tab" href="#booking" role="tab" aria-controls="booking" aria-selected="true">Booking Now</a>
+                <a class="nav-link active" id="searchFlight-tab" data-toggle="tab" href="#searchFlight" role="tab" aria-controls="searchFlight" aria-selected="true">Booking Now</a>
             </li>
             <li class="nav-item col-4 m-0 p-0 border-0">
                 <a class="nav-link border-none" id="manage_my_booking-tab" data-toggle="tab" href="#manage_my_booking" role="tab" aria-controls="manage_my_booking" aria-selected="false">Manage Booking</a>
@@ -49,9 +49,9 @@
 
         <!-- Tab content -->
         <div class="tab-content  text-white font-weight-bolder p-2" id="indexFormContent">
-
+<div  role="tabpanel" aria-labelledby="searchFlight-tab" class="tab-pane fade show active" id="searchFlight">
             <!-- Start Form Booking -->
-            <form class="tab-pane fade show active" role="tabpanel" aria-labelledby="booking-tab" id="booking" enctype="multipart/form-data" action="{{Route('airfpt.booking.booking')}}">
+            <form  method="get" role="form" id="searchFlightForm" enctype="multipart/form-data" action="{{Route('airfpt.booking.booking')}}">
 
                 <!-- Label departure -->
                 <label class="mt-3 d-flex justify-content-between" for="origin">
@@ -125,7 +125,7 @@
                     </div>
 
                     <!-- select zone-->
-                    <select class="form-control" multiple data-toggle="collapse" data-target="#gender">
+                    <select class="form-control" data-toggle="collapse" data-target="#genderPopup">
                     </select>
                     <!-- End select zone -->
 
@@ -138,32 +138,33 @@
                     <div class="input-group-append">
                         <span class="input-group-text border-0 bg-transparent "> &nbsp;</span>
                     </div>
-                    <input type="submit" value="SEARCH FLIGHTS" class="btn btn-primary  rounded font-weight-bolder">
+                    <input type="submit" value="SEARCH FLIGHTS" class="btn btn-primary rounded font-weight-bolder">
                 </div>
                 <!-- End Input Passenger -->
-                <div id="gender" class="collapse form-control input-group input-group-md w-50">
+                <div id="genderPopup" class="collapse form-control input-group input-group-md w-50">
                     <div class="box  " style="background-color:rgba(1, 131, 243, 0.3);">
                         <label for="adl">Adults:</label>
-                        <button class="dec">-</button>
-                        <input value="1" min="1" max="9" type="number" name="adl" id="adl">
-                        <button class="inc">+</button>
+                        <div class="dec btn">-</div>
+                        <input value="1" type="number" name="adl" id="adl" require readonly>
+                        <div class="inc btn">+</div>
                     </div>
 
                     <div class="box  " style="background-color: rgba(243, 112, 34, 0.3);">
                         <label for="chd">Children:</label>
-                        <button class="dec">-</button>
-                        <input value="0" min="0" max="9" class="" type="number" name="chd" id="chd">
-                        <button class="inc">+</button>
+                        <div class="dec btn">-</div>
+                        <input value="0" class="" type="number" name="chd" id="chd" readonly>
+                        <div class="inc btn">+</div>
                     </div>
 
                     <div class="box  " style="background-color: rgba(109, 233, 27, 0.3);">
                         <label class="" for="">Infants:</label>
-                        <button class="dec">-</button>
-                        <input value="0" min="0" max="" class="" type="number" name="inf" id="inf">
-                        <button class="inc">+</button>
+                        <div class="dec btn">-</div>
+                        <input value="0" type="number" name="inf" id="inf" readonly>
+                        <div class="inc btn">+</div>
                     </div>
                 </div>
             </form>
+            </div>
             <!-- End form "booking"-->
 
             <!-- Start Form Manage My Booking -->
@@ -219,57 +220,7 @@
             </div>
         </a>
     </div>
-
     @endforeach
 </div>
-<!-- Register panel Modal -->
-<div class="container-fluid py-4 register-panel row">
-    <div class="container">
-        <h3 class="d-block align-content-center text-left">
-            Do not miss out best offers from <b>Air FPT</b>
-        </h3>
-        <div class="form-group input-group input-group-lg pt-2">
-            <small class="input-group-prepend">
-                <span class="input-group-text">Email</span>
-            </small>
-            <input name="email" id="email" type="email" class="form-control rounded-right" required placeholder="Enter your email address to receive our newsletters">
-
-            <small class="input-group-append">
-                <span class="input-group-text border-0 bg-transparent "> &nbsp;</span>
-            </small>
-            <button type="button" class=" text-white w-25 btn btn-outline-warning font-weight-bolder shadow-light rounded" data-toggle="modal" data-target="#staticBackdrop">
-                SUBSCRIBE</button>
-        </div>
-    </div>
-</div>
-<!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content bg-secondary text-warning">
-            <div class="modal-header bg-dark bg-image" style="background-image: url('images/logo.png');background-size: contain; background-repeat: no-repeat;">
-                <button type="button" class="close text-warning" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            </div>
-            <form action="" method="get">
-                <div class="modal-body row">
-                    <picture class="col"><img src="images/home/sport.jpg" class="img-fluid img-thumbnail bg-transparent border-0 shadow rounded" alt=""></picture>
-                    <div class="col">
-                        <h5>Bring your friends to extend a full-week</h5>
-                        <hr>
-                        <input class="form-control" type="text" class="name" id="name" placeholder="Your Name" required autocomplete="off" minlength="6" maxlength="30">
-                        <br>
-                        <input type="tel" class="form-control" autocomplete="off" name="telNo" id="telNo" placeholder="Your Phone Number" minlength="9" maxlength="12" pattern="[0-9]{}" required>
-                        <br>
-                        <input type="email" class="form-control" id="email" placeholder="Your email">
-                        <br>
-                        <input type="text" class="form-control" id="address" placeholder="Your Address">
-                    </div>
-                </div>
-                <div class="modal-footer bg-dark">
-                    <button type="submit" class="btn btn-danger">REGISTER</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-<!-- End of Modal -->
+@include('airfpt.subcribe_panel')
 @endsection
