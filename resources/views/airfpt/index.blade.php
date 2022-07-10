@@ -87,7 +87,7 @@
                         <span class="input-group-text"><i class="fa fa-calendar-alt"></i></span>
                     </div>
                     <!-- Input depart_date -->
-                    <input name="depart_date" id="depart_date" class="form-control" type="text" placeholder="Day-Month-Year" onfocus="(this.type='date')" onblur="(this.type='text')">
+                    <input name="depart_date" id="depart_date" class="form-control" type="text" placeholder="Day-Month-Year" onfocus="(this.type='date')" onblur="(this.type='date')">
                     <div class="input-group-append">
                         <span class="input-group-text">Outbound</span>
                     </div>
@@ -110,24 +110,24 @@
                         <span class="input-group-text"><i class="fa fa-calendar-alt"></i></span>
                     </div>
                     <!-- Input return_date -->
-                    <input name="return_date" id="return_date" type="text" class="form-control" placeholder="Day-Month-Year" onfocus="(this.type='date')" onblur="(this.type='text')">
+                    <input name="return_date" id="return_date" type="text" class="form-control" placeholder="Day-Month-Year" onfocus="(this.type='date')" onblur="(this.type='date')">
                     <div class="input-group-append">
                         <span class="input-group-text"> &NonBreakingSpace; Inbound &NegativeThinSpace;</span>
                     </div>
                 </div>
 
                 <!-- Input Passenger -->
-                <label class="mt-2 font-weight-bolder pax " for="destination">Passenger</label>
+                <label class="mt-2 font-weight-bolder pax " for="destination">Passengers</label>
                 <div class="input-group input-group-lg pax ">
 
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-user-friends"></i></span>
                     </div>
 
-                    <!-- select zone-->
-                    <select class="form-control" data-toggle="collapse" data-target="#genderPopup">
-                    </select>
-                    <!-- End select zone -->
+                    <!-- select passenger-->
+                    <input class="form-control bg-light" id="totalPax" readonly data-toggle="collapse" data-target="#genderPopup" type="text" >
+                        
+                    <!-- End select passenger -->
 
                     <div class="input-group-append d-lg-flex d-none">
                         <span class="input-group-text bg-light border-light mx-0 px-auto">Economy-Fare</span>
@@ -145,21 +145,21 @@
                     <div class="box  " style="background-color:rgba(1, 131, 243, 0.3);">
                         <label for="adl">Adults:</label>
                         <div class="dec btn">-</div>
-                        <input value="1" type="number" name="adl" id="adl" require readonly>
+                        <input value="1" placeholder="1 Adult" type="number" name="adl" id="adl" require class="text-center" readonly>
                         <div class="inc btn">+</div>
                     </div>
 
                     <div class="box  " style="background-color: rgba(243, 112, 34, 0.3);">
                         <label for="chd">Children:</label>
                         <div class="dec btn">-</div>
-                        <input value="0" class="" type="number" name="chd" id="chd" readonly>
+                        <input value="0" class="text-center" type="number" name="chd" id="chd" readonly>
                         <div class="inc btn">+</div>
                     </div>
 
                     <div class="box  " style="background-color: rgba(109, 233, 27, 0.3);">
                         <label class="" for="">Infants:</label>
                         <div class="dec btn">-</div>
-                        <input value="0" type="number" name="inf" id="inf" readonly>
+                        <input value="0" type="number" name="inf" id="inf" class="text-center" readonly>
                         <div class="inc btn">+</div>
                     </div>
                 </div>

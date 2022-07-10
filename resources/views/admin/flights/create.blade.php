@@ -9,7 +9,7 @@
                 <!-- general form elements -->
                 <div class="card card-info mt-4">
                     <div class="card-header">
-                        <h3 class="card-title">Add New Route</h3>
+                        <h3 class="card-title">Add New Flight</h3>
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->

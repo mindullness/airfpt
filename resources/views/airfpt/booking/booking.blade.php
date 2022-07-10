@@ -57,10 +57,10 @@
                 <span class="booking_step"></span>
             </div> -->
         </div>
-        <div id="bookingsummary" class="d-block d-sm-block">
-            <h3 class="font-weight-light">Booking Summary</h3>
+        <!-- Show Booking price Summary -->
+        <div id="bookingsummary" class="d-block d-sm-block text-center">
+            @include('airfpt.booking.summary')
         </div>
-
     </form>
 </div>
 <script>
