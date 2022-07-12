@@ -11,6 +11,8 @@
             </span>
         </div>
 
+
+
         @if(sizeof($obFlights)!=0)
         <!-- panel to show Date & Lowest Price -->
         <nav class="d-flex align-content-stretch justify-content-between p-2 bg-light rounded">
@@ -58,7 +60,7 @@
             </div>
             <div class="w-25 flt_price p-2 d-block text-center">
                 <div>VND {{number_format("$ob->base_price", 0, "," , ".")}}</div>
-                <input required type="radio" name="ob_chosen_flight" value="{{$ob->id}}" onclick="show_ob_price('{{$ob->base_price}}');">
+                <input required type="radio" name="txt_ob_flight" value="{{$ob->id}}" onclick="show_ob_price('{{$ob->base_price}}');">
             </div>
         </div>
         @endforeach
@@ -135,7 +137,7 @@
             </div>
             <div class="w-25 flt_price p-2 d-block text-center">
                 <div>VND {{number_format("$ib->base_price",0, "," , ".")}}</div>
-                <input required type="radio" name="ib_chosen_flight" value="{{$ib->id}}" onclick="show_ib_price('{{$ib->base_price}}');">
+                <input required type="radio" name="txt_ib_flight" value="{{$ib->id}}" onclick="show_ib_price('{{$ib->base_price}}');">
             </div>
         </div>
         

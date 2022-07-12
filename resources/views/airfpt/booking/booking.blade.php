@@ -12,7 +12,7 @@
         <a href="#" class="breadcrumb_item booking_step">4<span class="shortNav">. Payment</span></a>
     </nav>
     <!-- End breadcrumb -->
-    <form id="booking_form" action="#" method="POST" enctype="multipart/form-data">
+    <form id="booking_form" action="{{Route('airfpt.index')}}" method="GET" enctype="multipart/form-data">
 
         <div class="w-75 pr-2">
             <!-- One "booking_tab" for each booking_step in the form: -->
@@ -59,6 +59,7 @@
 
 <script>
     $(document).ready(function() {
+        
         let adl = sessionStorage.getItem("adl");
         let chd = sessionStorage.getItem("chd");
         let inf = sessionStorage.getItem("inf");
@@ -289,6 +290,7 @@
     //     }
     // }
     // End DOB
+
 
     // 
     // 

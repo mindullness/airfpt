@@ -32,8 +32,9 @@ class FlightsController extends Controller
         $f->gate = $flights['gate'];
         $f->ac_id = $flights['acid'];
         print_r($f->id);
-        File::copy(public_path('./sm/sm_aircrafts/'.$flt->seatmap), public_path('./sm/sm_flights/'.$flights['number'].'-'.$flights['date'].$flt->seatmap));
-        $f->current_seatmap = $flights['number'].'-'.$flights['date'].$flt->seatmap;
+        
+        File::copy(public_path('./sm/sm_aircrafts/'.$flt->seatmap), public_path('./sm/sm_flights/'.$flights['date'].'-'.$flights['number'].$flt->seatmap));
+        $f->current_seatmap = $flights['date'].'-'.$flights['number'].'-'.$flt->seatmap;
 
         $f->flight_status = $flights['status'];
         $f->base_price = $flights['price'];

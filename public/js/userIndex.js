@@ -203,7 +203,4 @@ $(document).ready(function() {
         $('#return_date').attr('min', depart_date);
     });
 
-
 });
-
-$('#')

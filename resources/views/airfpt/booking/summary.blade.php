@@ -44,8 +44,8 @@
  <!-- .End inside summary div-->
 
  <script>
+    
      function show_ob_price(base_ob_price) {
-        
          let adl = parseInt(sessionStorage.getItem("adl"));
          let chd = parseInt(sessionStorage.getItem("chd"));
          let inf = parseInt(sessionStorage.getItem("inf"));
