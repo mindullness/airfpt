@@ -70,6 +70,7 @@ $(document).ready(function() {
             'transition': '0.3s',
             'transition-timing-function': 'ease-in-out'
         });
+        show_totalPax();
     }
 
     function isRoundTrip() {
@@ -182,10 +183,27 @@ $(document).ready(function() {
     }
 
     function show_totalPax() {
+        sessionStorage.removeItem('adl');
+        sessionStorage.removeItem('chd');
+        sessionStorage.removeItem('inf');
+
         let adl = parseInt($("#adl").val());
         let chd = parseInt($("#chd").val());
         let inf = parseInt($("#inf").val());
 
+        sessionStorage.setItem("adl", adl);
+        sessionStorage.setItem("chd", chd);
+        sessionStorage.setItem("inf", inf);
         $("#totalPax").val((adl > 1 ? (adl + " Adults") : (adl + " Adult")) + (chd > 1 ? (", " + chd + " Children") : (chd == 1 ? (", " + chd + " Child") : "")) + (inf != 0 ? (", " + inf + " Infant" + (inf > 1 ? "s" : "")) : ""));
     }
+
+    $('#return_date').focus(function() {
+
+        let depart_date = ($("#depart_date").val());
+        $('#return_date').attr('min', depart_date);
+    });
+
+
 });
+
+$('#')
