@@ -87,7 +87,7 @@
                         <span class="input-group-text"><i class="fa fa-calendar-alt"></i></span>
                     </div>
                     <!-- Input depart_date -->
-                    <input name="depart_date" id="depart_date" class="form-control" type="text" placeholder="Day-Month-Year" onfocus="(this.type='date')" onblur="(this.type='date')">
+                    <input name="depart_date" min="{{date('Y-m-d')}}" max="" id="depart_date" class="form-control" type="text" placeholder="Day-Month-Year" onfocus="(this.type='date')" onblur="(this.type='date')">
                     <div class="input-group-append">
                         <span class="input-group-text">Outbound</span>
                     </div>
@@ -110,7 +110,7 @@
                         <span class="input-group-text"><i class="fa fa-calendar-alt"></i></span>
                     </div>
                     <!-- Input return_date -->
-                    <input name="return_date" id="return_date" type="text" class="form-control" placeholder="Day-Month-Year" onfocus="(this.type='date')" onblur="(this.type='date')">
+                    <input name="return_date" min="" max="" id="return_date" type="text" class="form-control" placeholder="Day-Month-Year" onfocus="(this.type='date')" onblur="(this.type='date')">
                     <div class="input-group-append">
                         <span class="input-group-text"> &NonBreakingSpace; Inbound &NegativeThinSpace;</span>
                     </div>
@@ -142,21 +142,21 @@
                 </div>
                 <!-- End Input Passenger -->
                 <div id="genderPopup" class="collapse form-control input-group input-group-md w-50">
-                    <div class="box  " style="background-color:rgba(1, 131, 243, 0.3);">
+                    <div class="gender_box  " style="background-color:rgba(1, 131, 243, 0.3);">
                         <label for="adl">Adults:</label>
                         <div class="dec btn">-</div>
                         <input value="1" placeholder="1 Adult" type="number" name="adl" id="adl" require class="text-center" readonly>
                         <div class="inc btn">+</div>
                     </div>
 
-                    <div class="box  " style="background-color: rgba(243, 112, 34, 0.3);">
+                    <div class="gender_box  " style="background-color: rgba(243, 112, 34, 0.3);">
                         <label for="chd">Children:</label>
                         <div class="dec btn">-</div>
                         <input value="0" class="text-center" type="number" name="chd" id="chd" readonly>
                         <div class="inc btn">+</div>
                     </div>
 
-                    <div class="box  " style="background-color: rgba(109, 233, 27, 0.3);">
+                    <div class="gender_box  " style="background-color: rgba(109, 233, 27, 0.3);">
                         <label class="" for="">Infants:</label>
                         <div class="dec btn">-</div>
                         <input value="0" type="number" name="inf" id="inf" class="text-center" readonly>

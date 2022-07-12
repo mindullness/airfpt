@@ -22,7 +22,7 @@
             <button class="obFlight_tab">Sat</button>
             <button class="obFlight_tab">Sun</button>
         </nav>
-        @foreach($obFlights as $ob)
+        @foreach($obFlights as $key => $ob)
         <!-- Foreach flight id -->
 
         <div id="Tue" class="obFlight_tabcontent bg-light my-3">
@@ -35,7 +35,7 @@
 
 
                     <span>Date:</span>
-                    <span><b>{{date("l, dMY", strtotime("$ob->date"))}}</b></span>
+                    <span><b id="ob_date">{{date("l, dMY", strtotime("$ob->date"))}}</b></span>
 
                 </div>
                 <div>
@@ -57,8 +57,8 @@
                 </div>
             </div>
             <div class="w-25 flt_price p-2 d-block text-center">
-                <div>VND {{number_format("$ob->base_price",0,",",".")}}</div>
-                <input type="radio" name="ob_chosen_flight_id" value="{{$ob->id}}">
+                <div>VND {{number_format("$ob->base_price", 0, "," , ".")}}</div>
+                <input required type="radio" name="ob_chosen_flight" value="{{$ob->id}}" onclick="show_ob_price('{{$ob->base_price}}');">
             </div>
         </div>
         @endforeach
@@ -134,11 +134,13 @@
                 </div>
             </div>
             <div class="w-25 flt_price p-2 d-block text-center">
-                <div>VND {{number_format("$ib->base_price",0,",",".")}}</div>
-                <input type="radio" name="ib_chosen_flight_id" value="{{$ib->id}}">
+                <div>VND {{number_format("$ib->base_price",0, "," , ".")}}</div>
+                <input required type="radio" name="ib_chosen_flight" value="{{$ib->id}}" onclick="show_ib_price('{{$ib->base_price}}');">
             </div>
         </div>
+        
         @endforeach
+        <a href="{{ url()->previous() }}" class="btn btn-secondary">Back to search</a>
         @else
         <h4 class="text-center bg-light rounded p-3">
             Sorry! There's none of flights matched your needs!
