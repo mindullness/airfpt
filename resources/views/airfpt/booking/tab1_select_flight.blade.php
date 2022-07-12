@@ -11,7 +11,7 @@
             </span>
         </div>
 
-
+        @if(!empty($obFlights))
 
         @if(sizeof($obFlights)!=0)
         <!-- panel to show Date & Lowest Price -->
@@ -72,14 +72,14 @@
         <a href="{{ url()->previous() }}" class="btn btn-secondary">Back to search</a>
         @endif
     </div>
-
+    @endif
     <!-- End Outbound Flights -->
 
     <!-- Inbound Flight Information -->
     <!-- oneway or roundtrip CHECK -->
     <!-- empty(ibFlights) means this is a oneway flight -->
     @if(!empty($ibFlights))
-    
+
     <div class="inbound_flight mt-5">
         <div class="inbound_title bg-light rounded p-2">
             <li class="fa fa-plane-departure fa-flip-horizontal icon_plane "></li>
@@ -107,7 +107,7 @@
         <div id="Tue" class="ibFlight_tabcontent bg-light my-3">
 
             <div class="w-75 flt_Info p-2">
-            <div>
+                <div>
                     Flight Number: <b>AF{{$ib->flight_number}}</b>
                 </div>
                 <div>
@@ -140,7 +140,7 @@
                 <input required type="radio" name="txt_ib_flight" value="{{$ib->id}}" onclick="show_ib_price('{{$ib->base_price}}');">
             </div>
         </div>
-        
+
         @endforeach
         <a href="{{ url()->previous() }}" class="btn btn-secondary">Back to search</a>
         @else

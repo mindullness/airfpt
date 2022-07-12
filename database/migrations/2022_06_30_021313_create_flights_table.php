@@ -32,10 +32,18 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        DB::table('flights')->insert(['flight_number' => 120, 'date' => '2022-07-10', 'gate' => 10, 'flight_status'=>'open', 'ac_id'=>1, 'base_price'=>'600000']);
-        DB::table('flights')->insert(['flight_number' => 121, 'date' => '2022-07-10', 'gate' => 12, 'flight_status'=>'open', 'ac_id'=>1, 'base_price'=>'800000']);
-        DB::table('flights')->insert(['flight_number' => 206, 'date' => '2022-07-10', 'gate' => 15, 'flight_status'=>'open', 'ac_id'=>1, 'base_price'=>'600680']);
-        DB::table('flights')->insert(['flight_number' => 207, 'date' => '2022-07-10', 'gate' => 16, 'flight_status'=>'open', 'ac_id'=>1, 'base_price'=>'800860']);
+        DB::table('flights')->insert(['flight_number' => 120, 'date' => '2022-07-28', 'gate' => 10, 'flight_status'=>'open', 'ac_id'=>1, 'base_price'=>'600000']);
+        DB::table('flights')->insert(['flight_number' => 121, 'date' => '2022-07-28', 'gate' => 12, 'flight_status'=>'open', 'ac_id'=>1, 'base_price'=>'800000']);
+        DB::table('flights')->insert(['flight_number' => 206, 'date' => '2022-07-28', 'gate' => 15, 'flight_status'=>'open', 'ac_id'=>1, 'base_price'=>'600680']);
+        DB::table('flights')->insert(['flight_number' => 207, 'date' => '2022-07-28', 'gate' => 16, 'flight_status'=>'open', 'ac_id'=>1, 'base_price'=>'800860']);
+        DB::table('flights')->insert(['flight_number' => 120, 'date' => '2022-07-29', 'gate' => 10, 'flight_status'=>'open', 'ac_id'=>1, 'base_price'=>'600000']);
+        DB::table('flights')->insert(['flight_number' => 121, 'date' => '2022-07-29', 'gate' => 12, 'flight_status'=>'open', 'ac_id'=>1, 'base_price'=>'800000']);
+        DB::table('flights')->insert(['flight_number' => 206, 'date' => '2022-07-29', 'gate' => 15, 'flight_status'=>'open', 'ac_id'=>1, 'base_price'=>'600680']);
+        DB::table('flights')->insert(['flight_number' => 207, 'date' => '2022-07-29', 'gate' => 16, 'flight_status'=>'open', 'ac_id'=>1, 'base_price'=>'800860']);
+        DB::table('flights')->insert(['flight_number' => 120, 'date' => '2022-07-30', 'gate' => 10, 'flight_status'=>'open', 'ac_id'=>1, 'base_price'=>'600000']);
+        DB::table('flights')->insert(['flight_number' => 121, 'date' => '2022-07-30', 'gate' => 12, 'flight_status'=>'open', 'ac_id'=>1, 'base_price'=>'800000']);
+        DB::table('flights')->insert(['flight_number' => 206, 'date' => '2022-07-30', 'gate' => 15, 'flight_status'=>'open', 'ac_id'=>1, 'base_price'=>'600680']);
+        DB::table('flights')->insert(['flight_number' => 207, 'date' => '2022-07-30', 'gate' => 16, 'flight_status'=>'open', 'ac_id'=>1, 'base_price'=>'800860']);
     }
 
     /**

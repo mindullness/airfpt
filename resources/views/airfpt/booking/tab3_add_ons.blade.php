@@ -20,7 +20,7 @@
     // });
     var ob_flight_id = 11;
 </script>
-
+@if(sizeof($obFlights)!=0)
 <input class="" type="text" value="{{date('Y-m-d', strtotime($obFlights[0]->date))}}-">
 
     <?php
@@ -98,7 +98,7 @@
             <!-- End modal ob_seat -->
         </div>
         <!-- End ob_seat <div> -->
-
+@endif
         @if(!empty($ibFlights))
         <div class="ib_seat border pb-2 ml-auto">
             <h6 class="m-0 p-2">{{$dest_airports->city}} <b>({{$dest_airports->iata_code}})</b> &nbsp; to &nbsp; {{$ori_airports->city}} <b>({{$ori_airports->iata_code}})</b></h6>

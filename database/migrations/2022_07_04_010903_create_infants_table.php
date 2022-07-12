@@ -22,9 +22,14 @@ return new class extends Migration
         });
 
         DB::table('infants')->insert([
-            'first_name' => 'Child',
-            'last_name'=>'Nguyen',
+            'first_name' => 'Tran',
+            'last_name'=>'Ha Bao',
             'dob'=>'2021-08-11'
+        ]);
+        DB::table('infants')->insert([
+            'first_name' => 'Nhut',
+            'last_name'=>'Vo Minh',
+            'dob'=>'2021-03-18'
         ]);
     }
 
