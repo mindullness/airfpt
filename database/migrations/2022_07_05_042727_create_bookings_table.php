@@ -32,9 +32,8 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        DB::table('bookings')->insert(['PNR' => 'F682RT', 'flight_id'=>1, 'title' => 'Mr', 'first_name' => 'Nguyen', 'last_name'=>'Toan', 'gender'=>'adl', 'status'=>'confirmed', 'mobile'=>'0908860688', 'price'=>1800000]);
-        DB::table('bookings')->insert(['PNR' => 'F682RT', 'flight_id'=>2, 'title' => 'Mr', 'first_name' => 'Nguyen', 'last_name'=>'Toan', 'gender'=>'adl', 'inf_id'=>'1', 'status'=>'confirmed', 'mobile'=>'0908860688', 'price'=>1800000]);
-
+        DB::table('bookings')->insert(['PNR' => 'F682RT', 'flight_id' => 1, 'title' => 'Mr', 'first_name' => 'Nguyen', 'last_name' => 'Toan', 'gender' => 'adl', 'status' => 'confirmed', 'mobile' => '0908860688', 'price' => 1800000]);
+        DB::table('bookings')->insert(['PNR' => 'F682RT', 'flight_id' => 2, 'title' => 'Mr', 'first_name' => 'Nguyen', 'last_name' => 'Toan', 'gender' => 'adl', 'inf_id' => '1', 'status' => 'confirmed', 'mobile' => '0908860688', 'price' => 1800000]);
     }
 
     /**

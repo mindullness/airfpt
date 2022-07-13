@@ -21,29 +21,11 @@
 <!-- Modal -->
 <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content bg-secondary text-warning">
-            <div class="modal-header bg-dark bg-image" style="background-image: url('images/logo.png');background-size: contain; background-repeat: no-repeat;">
+        <div class="modal-content bg-light text-success">
+            <div class="modal-header bg-success">
                 <button type="button" class="close text-warning" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
-            <form action="" method="get">
-                <div class="modal-body row">
-                    <picture class="col"><img src="images/home/sport.jpg" class="img-fluid img-thumbnail bg-transparent border-0 shadow rounded" alt=""></picture>
-                    <div class="col">
-                        <h5>Bring your friends to extend a full-week</h5>
-                        <hr>
-                        <input class="form-control" type="text" class="name" id="name" placeholder="Your Name" required autocomplete="off" minlength="6" maxlength="30">
-                        <br>
-                        <input type="tel" class="form-control" autocomplete="off" name="telNo" id="telNo" placeholder="Your Phone Number" minlength="9" maxlength="12" pattern="[0-9]{}" required>
-                        <br>
-                        <input type="email" class="form-control" id="email" placeholder="Your email">
-                        <br>
-                        <input type="text" class="form-control" id="address" placeholder="Your Address">
-                    </div>
-                </div>
-                <div class="modal-footer bg-dark">
-                    <button type="submit" class="btn btn-danger">REGISTER</button>
-                </div>
-            </form>
+            <h2 class="text-center">Congratulation!</h2>
         </div>
     </div>
 </div>

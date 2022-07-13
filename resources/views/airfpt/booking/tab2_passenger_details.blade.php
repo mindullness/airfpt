@@ -7,17 +7,83 @@
 </div>
 
 <!-- foreach here -->
-<div class="eachpax"></div>
+<div class="eachpax">
+    <div class="passenger_detail bg-light p-2 mb-2">
+        <h5 class="font-weight-bold mt-2">Passenger (primary passenger)</h5>
+        <div class="form-row d-flex justify-content-between">
+            <div class="col-md-2 mb-3">
+                <label for="title">Title</label>
+                <select required name="title1" id="title1" class="form-control">
+                    <option selected value="Mr">Mr</option>
+                    <option value="Mrs">Mrs</option>
+                    <option value="Ms">Ms</option>
+                </select>
+            </div>
+            <div class="col-md mb-3">
+                <label for="validationCustom02">Last name</label>
+                <input required type="text" class="form-control adl_last_name" name="last_name1" id="last_name1" placeholder="As given in passport/ID" value="" autocomplete="on">
+                <div class="valid-"></div>
+            </div>
+            <div class="col-md mb-3">
+                <label for="validationCustom02">Middle & First name</label>
+                <input required type="text" class="form-control adl_first_name" name="first_name1" id="first_name1" placeholder="As given in passport/ID" value="" autocomplete="on">
+            </div>
+        </div>
+        <div class="form-row d-flex justify-content-between">
+            <div class="col-md ">
+                <label for="dob">Date of birth</label>
+                <div class="input-group">
+                    <label for="day" class="input-group-prepend"><i class="fa fa-calendar-alt input-group-text"></i></label>
+                    <select required name="day1" id="day1" class="form-control">
+                        <option value="">Day</option>
+                    </select>
+                    <label for="month" class="input-group-prepend"><i class="fa fa-calendar-alt input-group-text"></i></label>
+                    <select required name="month1" id="month1" class="form-control" onfocus="setMonth(1);"></select>
+                    <label for="year" class="input-group-prepend"><i class="fa fa-calendar-alt input-group-text"></i></label>
+                    <select required name="year1" id="year1" class="form-control">
+                        <option value="">Year</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md mb-3">
+                <label for="mem_id">Member ID (Optional)</label>
+                <input type="text" class="form-control" name="mem_id1" id="mem_id1" placeholder="Your member ID" autocomplete="off">
+                <div class="valid-"></div>
+            </div>
+        </div>
+        <hr>
+        <h3 for="contact">Contact Information</h3>
+        <div class="form-row d-flex justify-content-between">
+            <div class="col-md mb-3">
+                <label for="contact">Mobile Phone</label>
+                <input required type="tel" class="form-control phone" name="phone1" id="phone1" placeholder="Your mobile number" value="" autocomplete="off">
+                <div class="valid-"></div>
+            </div>
+            <div class="col-md mb-3">
+                <label for="validationCustom02">Email</label>
+                <input required type="email" class="form-control email" name="email" id="email1" placeholder="Your email" value="" autocomplete="off">
+                <div class="valid-"></div>
+            </div>
+        </div>
+        <div class="form-row d-flex justify-content-between">
+            <div class="col-12 mb-3">
+                <label for="contact">Address</label>
+                <input  type="text" class="form-control address" name="address" id="address" placeholder="Your address" value="" autocomplete="off">
+                <div class="valid-"></div>
+                </div>
+        </div>
+    </div>
+
+</div>
 <!-- End foreach here -->
 
-<div id="test"></div>
 <script>
     let adl = parseInt(sessionStorage.getItem("adl"));
     let chd = parseInt(sessionStorage.getItem("chd"));
     let inf = parseInt(sessionStorage.getItem("inf"));
 
     // ADL
-    for (let p = 1; p <= adl; p++) {
+    for (let p = 2; p <= adl; p++) {
         $('.eachpax').append(
             '<div class="passenger_detail bg-light p-2 mb-2">' +
             '<h5 class="font-weight-bold mt-2">Passenger</h5>' +
@@ -32,12 +98,12 @@
             '</div>' +
             '<div class="col-md mb-3">' +
             '<label for="validationCustom02">Last name</label>' +
-            '<input required type="text" class="form-control adl_last_name" name="last_name' + p + '" id="last_name' + p + '" placeholder="As given in passport/ID" value="" required>' +
+            '<input required type="text" class="form-control adl_last_name" name="last_name' + p + '" id="last_name' + p + '" placeholder="As given in passport/ID" value="" autocomplete="on">' +
             '<div class="valid-"></div>' +
             '</div>' +
             '<div class="col-md mb-3">' +
             '<label for="validationCustom02">Middle & First name</label>' +
-            '  <input required type="text" class="form-control adl_first_name" name="first_name' + p + '" id="first_name' + p + '" placeholder="As given in passport/ID" value="" required>' +
+            '  <input required type="text" class="form-control adl_first_name" name="first_name' + p + '" id="first_name' + p + '" placeholder="As given in passport/ID" value="" autocomplete="on">' +
             ' </div>' +
             ' </div>' +
             ' <div class="form-row d-flex justify-content-between">' +
@@ -58,7 +124,7 @@
             ' </div>' +
             ' <div class="col-md mb-3">' +
             '  <label for="mem_id">Member ID (Optional)</label>' +
-            '  <input type="text" class="form-control" name="mem_id' + p + '" id="mem_id' + p + '" placeholder="Your member ID">' +
+            '  <input type="text" class="form-control" name="mem_id' + p + '" id="mem_id' + p + '" placeholder="Your member ID" autocomplete="off">' +
             '  <div class="valid-"></div>' +
             ' </div>' +
             ' </div>' +
@@ -74,8 +140,8 @@
             ' <div class="col-md-2 mb-3">' +
             '  <label for="title">Title</label>' +
             '   <select required name="title' + p + '"id="title' + p + '" class="form-control">' +
-            '    <option value="master">Master</option>' +
-            '    <option value="miss">Miss</option>' +
+            '    <option value="Mstr">Master</option>' +
+            '    <option value="Miss">Miss</option>' +
             '</select>' +
             '</div>' +
             '<div class="col-md mb-3">' +

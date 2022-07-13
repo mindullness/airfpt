@@ -12,8 +12,8 @@
         <a href="#" class="breadcrumb_item booking_step">4<span class="shortNav">. Payment</span></a>
     </nav>
     <!-- End breadcrumb -->
-    <form id="booking_form" action="{{Route('airfpt.index')}}" method="GET" enctype="multipart/form-data">
-
+    <form id="booking_form" role="form" action="{{Route('airfpt.booking.postBooking')}}" method="POST" enctype="multipart/form-data">
+    {{ csrf_field() }}
         <div class="w-75 pr-2">
             <!-- One "booking_tab" for each booking_step in the form: -->
 
@@ -33,7 +33,7 @@
                 @include('airfpt.booking.tab3_add_ons')
             </div>
             <!-- 4. Payment -->
-            <div class="booking_tab m-0 p-0">Payment
+            <div class="booking_tab m-0 p-0 last_tab_payment">
                 @include('airfpt.booking.tab4_payment')
             </div>
 
@@ -43,7 +43,7 @@
                         <li class="	fas fa-chevron-circle-left"></li> Previous
                     </button>
 
-                    <button onclick="nextPrev(1)" class="btn btn-primary font-weight-bolder" type="button" id="booking_nextBtn">
+                    <button  onclick="nextPrev(1)" class="btn btn-primary font-weight-bolder" type="button" id="booking_nextBtn">
                         Next <li class="fa fa-chevron-circle-right"></li>
                     </button>
                 </div>
@@ -51,7 +51,7 @@
         </div>
         <!-- Show Booking price Summary -->
         <div id="bookingsummary" class="rounded-top">
-            <h4 class="font-weight-light p-2 m-0 rounded-top text-light text-center" style="background-color:rgb(23, 74, 146);">Booking Summary</h4>
+            <h4 class="font-weight-bold p-2 m-0 rounded-top text-warning text-center" style="background-color:rgb(23, 74, 146);">Itinerary Summary</h4>
             @include('airfpt.booking.summary')
         </div>
     </form>
@@ -59,7 +59,7 @@
 
 <script>
     $(document).ready(function() {
-        
+
         let adl = sessionStorage.getItem("adl");
         let chd = sessionStorage.getItem("chd");
         let inf = sessionStorage.getItem("inf");
@@ -83,6 +83,12 @@
         // }
         let tabs_arr = $(".booking_tab");
 
+        if(!checkInputRequired(currentTab)){
+            // function alert
+            
+            return false;
+        }
+
         $(tabs_arr[currentTab]).css({
             'display': 'none'
         });
@@ -97,23 +103,6 @@
         showTab(currentTab);
     }
 
-    // function checkInputRequired(n) {
-
-    //     // $('.booking_tab:visible').find('name=ob_chosen_flight_id').each(function() {
-    //     //     if($(this).val() == '' ||  $(this).val()==0){
-    //     //         return false;
-    //     //     }
-    //     // });
-    //     if(!$("input:radio[name='ob_chosen_flight_id']").is(':checked')){
-
-    //         return false;
-    //     }
-    //     if(!$("input:radio[name='ib_chosen_flight_id']").is(':checked')){
-    //         return false;
-    //     }
-    //     return true;
-    // }
-
     function showTab(n) {
 
         let tabs_arr = $(".booking_tab");
@@ -127,8 +116,38 @@
         n == (tabs_arr.length - 1) ? ($('#booking_nextBtn').html('Confirmed & Pay Now')) : ($('#booking_nextBtn').html('Next <li class="fa fa-chevron-circle-right"></li>'));
 
         fixStepIndicator(n);
+        if(n == 3){
+            show_payment_tab();
+        }
     }
 
+    function checkInputRequired(n) {
+        switch (n) {
+            case 0:
+                if(!$("input:radio[name='txt_ob_flight']").is(':checked')){
+                    alert('Please choose your outbound flight!');
+                    return false;
+                }  
+                if($("input:radio[name='txt_ib_flight']").length ){
+                    if(!$("input:radio[name='txt_ib_flight']").is(':checked')){
+                        alert('Please choose your inbound flight!');
+                        return false;
+                    }
+                }
+                break;
+            case 1:
+
+                break;
+            case 2:
+
+                break;
+            case 3:
+               
+                break;
+            
+        }
+        return true;
+    }
     // This function removes the "active" class of all steps...
     function fixStepIndicator(n) {
 
@@ -140,8 +159,11 @@
             if (j > n) {
                 $(steps_arr[j]).removeClass('activated');
             }
+
+            $(steps_arr[i]).removeClass('text-warning');
         }
 
+        $(steps_arr[n]).addClass('text-warning');
     }
 
     // DOB

@@ -2,6 +2,10 @@
  <div class="pt-2 px-2 bg-light">
      <b>Passengers:</b>
      <div id="paxs"></div>
+     <input type="text" value="{{$adl}}" name="adl_quantity" class="d-none">
+     <input type="text" value="{{$chd}}" name="chd_quantity" class="d-none">
+     <input type="text" value="{{$inf}}" name="inf_quantity" class="d-none">
+
      <hr>
      <div class="d-flex justify-content-between">
          <b>{{$ori_airports->iata_code}} - {{$dest_airports->iata_code}}</b>
