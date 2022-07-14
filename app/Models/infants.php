@@ -10,5 +10,5 @@ class Infants extends Model
     use HasFactory;
     protected $table = 'infants';
     protected $fillable = ['first_name', 'last_name', 'dob'];
-    public $timestampe = false;
+    public $timestampe = true;
 }

@@ -11,8 +11,6 @@
             </span>
         </div>
 
-        @if(!empty($obFlights))
-
         @if(sizeof($obFlights)!=0)
         <!-- panel to show Date & Lowest Price -->
         <nav class="d-flex align-content-stretch justify-content-between p-2 bg-light rounded">
@@ -72,7 +70,7 @@
         <a href="{{ url()->previous() }}" class="btn btn-secondary">Back to search</a>
         @endif
     </div>
-    @endif
+
     <!-- End Outbound Flights -->
 
     <!-- Inbound Flight Information -->

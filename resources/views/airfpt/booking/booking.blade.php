@@ -6,10 +6,10 @@
     <!-- Start breadcrumb -->
 
     <nav class="booking_head_nav_breadcrumb">
-        <a href="#" class="breadcrumb_item booking_step">1<span class="shortNav">. Flights</span></a>
-        <a href="#" class="breadcrumb_item booking_step">2<span class="shortNav">. Passengers</span></a>
-        <a href="#" class="breadcrumb_item booking_step">3<span class="shortNav">. Add-ons</span></a>
-        <a href="#" class="breadcrumb_item booking_step">4<span class="shortNav">. Payment</span></a>
+        <a href="#" onclick="linkTabBackward(0);" class="breadcrumb_item booking_step">1<span class="shortNav">. Flights</span></a>
+        <a href="#" onclick="linkTabBackward(1);" class="breadcrumb_item booking_step">2<span class="shortNav">. Passengers</span></a>
+        <a href="#" onclick="linkTabBackward(2);" class="breadcrumb_item booking_step">3<span class="shortNav">. Add-ons</span></a>
+        <a href="#" onclick="linkTabBackward(3);" class="breadcrumb_item booking_step">4<span class="shortNav">. Payment</span></a>
     </nav>
     <!-- End breadcrumb -->
     <form id="booking_form" role="form" action="{{Route('airfpt.booking.postBooking')}}" method="POST" enctype="multipart/form-data">
@@ -18,7 +18,7 @@
             <!-- One "booking_tab" for each booking_step in the form: -->
 
             <!-- 1. booking_tab 1: Select Flight -->
-            <div class="booking_tab m-0 p-0">
+            <div class="booking_tab m-0 p-0" id="tab0">
                 @include('airfpt.booking.tab1_select_flight')
             </div>
             <!-- .End booking_tab 1 -->
@@ -73,6 +73,12 @@
     var currentTab = 0;
     showTab(currentTab);
 
+    function linkTabBackward(tab){
+        let i = currentTab - tab;
+        while(i-- > 0 ){
+            nextPrev(-1);
+        }
+    }
     // This function will figure out which tab to display
     function nextPrev(n) {
         // if (!checkInputRequired(n)) {

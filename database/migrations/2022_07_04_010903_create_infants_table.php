@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('first_name', 50);
             $table->string('last_name');
             $table->date('dob');
+            $table->timestamps();
         });
 
         DB::table('infants')->insert([

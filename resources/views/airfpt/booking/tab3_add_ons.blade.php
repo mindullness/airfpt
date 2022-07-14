@@ -22,7 +22,7 @@
         var ob_flight_id = 11;
     </script>
 
-    <!-- <input class="" type="text" value="{{date('Y-m-d', strtotime($obFlights[0]->date))}}-"> -->
+
 
     <?php
 

@@ -47,31 +47,25 @@
             </div>
             <div class="col-md mb-3">
                 <label for="mem_id">Member ID (Optional)</label>
-                <input type="text" class="form-control" name="mem_id1" id="mem_id1" placeholder="Your member ID" autocomplete="off">
+                <input type="text" class="form-control" name="mem_id1" id="mem_id1" placeholder="Your member ID" autocomplete="on">
                 <div class="valid-"></div>
             </div>
         </div>
         <hr>
-        <h3 for="contact">Contact Information</h3>
+        <h5 for="contact" class="font-weight-bold">Contact Information</h5>
         <div class="form-row d-flex justify-content-between">
             <div class="col-md mb-3">
                 <label for="contact">Mobile Phone</label>
-                <input required type="tel" class="form-control phone" name="phone1" id="phone1" placeholder="Your mobile number" value="" autocomplete="off">
+                <input required type="tel" class="form-control phone" name="phone" id="phone" placeholder="Your mobile number" value="" autocomplete="on">
                 <div class="valid-"></div>
             </div>
             <div class="col-md mb-3">
                 <label for="validationCustom02">Email</label>
-                <input required type="email" class="form-control email" name="email" id="email1" placeholder="Your email" value="" autocomplete="off">
+                <input required type="email" class="form-control email" name="email" id="email" placeholder="Your email" value="" autocomplete="on">
                 <div class="valid-"></div>
             </div>
         </div>
-        <div class="form-row d-flex justify-content-between">
-            <div class="col-12 mb-3">
-                <label for="contact">Address</label>
-                <input  type="text" class="form-control address" name="address" id="address" placeholder="Your address" value="" autocomplete="off">
-                <div class="valid-"></div>
-                </div>
-        </div>
+        
     </div>
 
 </div>
@@ -124,7 +118,7 @@
             ' </div>' +
             ' <div class="col-md mb-3">' +
             '  <label for="mem_id">Member ID (Optional)</label>' +
-            '  <input type="text" class="form-control" name="mem_id' + p + '" id="mem_id' + p + '" placeholder="Your member ID" autocomplete="off">' +
+            '  <input type="text" class="form-control" name="mem_id' + p + '" id="mem_id' + p + '" placeholder="Your member ID" autocomplete="on">' +
             '  <div class="valid-"></div>' +
             ' </div>' +
             ' </div>' +
@@ -246,4 +240,10 @@
             }
         }
     });
+
+    $('input[type=text]').blur(function() {
+        $(this).val($(this).val().toUpperCase());
+    })
+
+   
 </script>

@@ -29,6 +29,8 @@ Route::group(['prefix' => 'airfpt'], function () {
     Route::get('/faqs', [UserHomepageController::class, 'faqs'])->name('airfpt.faqs');
     Route::get('/booking/booking', [BookingController::class, 'book'])->name('airfpt.booking.booking');
     Route::post('/booking/postBooking', [BookingController::class, 'postBooking'])->name('airfpt.booking.postBooking');
+  
+    Route::get('/booking/{pnr}travelItinerary', [BookingController::class, 'travelItinerary'])->name('airfpt.booking.travelItinerary');
 });
 // End of group airfpt
 
