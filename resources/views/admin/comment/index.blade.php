@@ -33,10 +33,11 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Title</th>
-                                <th>Member id</th>
-                                <th>Reply id</th>
-                                <th>Content</th>
+                                
+                                <th>Member Id</th>
+                                <th>Member name</th>
+                                <th>Comment</th>
+                                <th>Reply</th>
                                 <th>Post date</th>
                                 <th>Update date</th>
 
@@ -47,16 +48,15 @@
                             @foreach($comments as $c)
                             <tr>
                                 <td>{{ $c->id }}</td>
-                                <td>{{ $c->title }}</td>
-                                <td>{{ $c->comment }}</td>
-                                <td>{{ $c->reply_userid }}</td>
-                                <td>{{ $c->comment }}</td>
                                 <td>{{ $c->mem_id }}</td>
-                                <td>{{ $c->created_at }}</td>
+                                <td>{{ $c->user_name }}</td>
+                                <td>{{ $c->comment }}</td>
+                                <td>{{ $c->reply }}</td>
+                                <td>{{ $c->created_at }}</td> 
                                 <td>{{ $c->updated_at }}</td>
 
                                 <td class="text-right">
-                                    <a class="btn btn-primary btn-sm" href="{{ Route('airfpt.user.postCreate_comment',$c->id) }}">
+                                    <a class="btn btn-primary btn-sm" href="{{ Route('admin.comment.reply',$c->id) }}">
                                         <i class="fas fa-folder"></i> Reply
                                     </a>
 

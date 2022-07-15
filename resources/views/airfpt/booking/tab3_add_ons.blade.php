@@ -60,7 +60,7 @@
     ?>
     @endforeach
     <?php
-    $ob_checkFile = './sm/sm_flights/123-2022-07-28Y180.json';
+    $ob_checkFile = './sm/sm_flights/2022-07-28-121-Y180.json';
     // is_file($checkFile) ? $seatmap_file = file_get_contents($checkFile) : $seatmap_file = file_get_contents('sm/sm_flights/'.preg_match(, $str) . '*.json');
     $seatmap_file = file_get_contents($ob_checkFile);
     $seatmap = json_decode($seatmap_file, true);

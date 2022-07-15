@@ -61,6 +61,13 @@
     <!-- AdminLTE for demo purposes -->
     <script src="{{ asset('dist/js/demo.js') }}"></script>
     <!-- page script -->
+    <script src="{{ asset('dist/js/demo.js') }}"></script>
+         <!-- ckeditor 4 -->
+         <script src="//cdn.ckeditor.com/4.19.0/full/ckeditor.js"></script>
+    <script >
+        CKEDITOR.replace('content');
+        CKEDITOR.replace('content1');
+    </script>
     @yield('script-section')
 </body>
 

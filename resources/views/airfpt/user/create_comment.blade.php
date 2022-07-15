@@ -54,19 +54,14 @@
                         <div class="form-group">
                             <label for="post_date">Post Date:</label>
                             <input type="date" id="created_at" name="created_at">
-
                         </div>
 
                         <div>
                             <button type="submit" class="btn btn-success" style=" margin-bottom: 3rem;">Send feedbacks</button>
-
                         </div>
-
                         <br>
 
                     </form>
-
-
 
                 </div>
                 <br>
@@ -76,6 +71,7 @@
                     <div class="row justify-content-center">
                         <div class="col-md-8">
                             <div class="card">
+                                <h1>All Feedbacks:</h1>
                                 <div class="card-body">
                                     @if(isset($comments))
                                     @foreach($comments as $c)
@@ -86,7 +82,6 @@
                                             <div class="media-body">
                                                 <h4 style="color: green;">@ {{ $c->user_name }} </h4>
                                                 <p>{{ $c->comment }}</p>
-
                                                 <div class="media p-3">
                                                     <img src=" {{ asset('./img/trucduy/comment2.png') }}" alt="Jane Doe" class="mr-3 mt-3 rounded-circle" style="width:45px;">
                                                     <div class="media-body">
@@ -105,7 +100,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </div>
 </div>

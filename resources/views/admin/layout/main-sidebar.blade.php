@@ -21,7 +21,7 @@
                 <!-- Add icons to the links using the .nav-icon class with fontawesome or any other icon font library -->
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
-                    
+
                         <i class="nav-icon fas fa-user-friends"></i>
                         <p>Passengers<i class="right fas fa-angle-left"></i></p>
                     </a>
@@ -33,13 +33,13 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{Route('admin.member.index')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Member</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ route('admin.comment.index') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Feedback</p>
                             </a>
@@ -58,7 +58,32 @@
                         </li>
                     </ul>
                 </li>
+                <!-- News -->
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            News
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
 
+                        <li class="nav-item">
+                            <a href="{{ route('admin.news.create') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Create a News</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('airfpt.user.homeNews') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>News Home</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 <!-- Flights -->
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
@@ -102,11 +127,11 @@
                         </li>
                     </ul>
                 </li>
-                 <!-- Routes -->
-                 <li class="nav-item has-treeview">
+                <!-- Routes -->
+                <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
-                    
-                    <img src="{{asset('img/route-icon.jpg')}}" alt="" width="25" height="23" style="border-radius: 50%; padding-left:2px; opacity:0.8;">
+
+                        <img src="{{asset('img/route-icon.jpg')}}" alt="" width="25" height="23" style="border-radius: 50%; padding-left:2px; opacity:0.8;">
                         <p>&nbsp; Routes<i class="right fas fa-angle-left"></i></p>
                     </a>
                     <ul class="nav nav-treeview">
@@ -124,11 +149,11 @@
                         </li>
                     </ul>
                 </li>
-                 <!-- Aircrafts -->
-                 <li class="nav-item has-treeview">
+                <!-- Aircrafts -->
+                <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
-                    
-                    <img src="{{asset('img/aircraft-icon.jpg')}}" alt="" width="24" height="22" style="border-radius: 50%; opacity:0.8;">
+
+                        <img src="{{asset('img/aircraft-icon.jpg')}}" alt="" width="24" height="22" style="border-radius: 50%; opacity:0.8;">
                         <p>&nbsp; Aircrafts<i class="right fas fa-angle-left"></i></p>
                     </a>
                     <ul class="nav nav-treeview">

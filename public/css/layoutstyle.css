@@ -144,10 +144,14 @@ body {
 /* News Zone */
 
 .newsContainer {
-    margin: 30px auto 50px auto;
-    border: blue 1px solid;
+    margin: 30px auto 10px auto;
     display: flex;
     justify-content: center;
+}
+
+.newsContainer>div:hover>a {
+    top: 5px;
+    transition: 1s;
 }
 
 .newsContainer>div>a {
@@ -159,14 +163,22 @@ h3.newsTitle {
     width: 100%;
     text-align: left;
     position: absolute;
-    bottom: 20px;
-    top: -160px;
-    left: 10px;
+    bottom: 10px;
+    top: -139px;
+    left: 8px;
     color: white;
     font-size: larger;
     font-weight: 800;
     text-shadow: 0 1px 2px black;
-    padding: 20px 20px 0px 20px
+    padding: 20px 20px 0px 10px;
+    background-color: #13609f58;
+}
+
+.newsTitle:hover,
+.newsJumpArrow:hover {
+    background-color: #13609fb1;
+    transition: 0.3s;
+    color: rgb(255, 199, 9);
 }
 
 .newsJumpArrow {
@@ -174,6 +186,9 @@ h3.newsTitle {
     position: absolute;
     bottom: 20px;
     right: 38px;
+    background-color: #13609f58;
+    padding: 10px;
+    border-radius: 15px;
 }
 
 .newsJumpArrow>a {
@@ -182,7 +197,7 @@ h3.newsTitle {
 }
 
 .newsJumpArrow>a>li {
-    bottom: 8px;
+    bottom: 5px;
     right: 2px;
 }
 

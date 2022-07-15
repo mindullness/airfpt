@@ -208,19 +208,21 @@
 
     @foreach($news as $n)
 
-    <div class="col-lg-6 border border-success m-0 p-2">
-        <a href="">
-            <img src="{{$n -> image}}" width="100%" class="z-depth-0" alt="">
-            <h3 class="newsTitle">{{$n->title}}</h3>
+    <div class="col-lg-6 mx-0 mb-2 p-2 eachIndexNews">
+        <a href="{{  route('airfpt.user.details',$n->id) }}">
+            <img src="{{ url('./img/trucduy/'.$n->image) }}" width="96%" class="z-depth-0 " alt="">
+            <h3 class="newsTitle" style="height: 60px;">{{$n->topic}}</h3>
             <div class="newsJumpArrow text-light font-weight-bold">
-                <a href="">
+                <a href="{{  route('airfpt.user.details',$n->id) }}">
                     <span class="d-block pb-2 text-light">Let's Go</span>
-                    <li class="far fa-arrow-alt-circle-right d-block m-1 p-0 text-light font-weight-bold"></li>
+                    <li class="far fa-arrow-alt-circle-right d-block m-1 p-0 text-warning font-weight-bold"></li>
                 </a>
             </div>
         </a>
     </div>
     @endforeach
 </div>
+
+
 @include('airfpt.subcribe_panel')
 @endsection

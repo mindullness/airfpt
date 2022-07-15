@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use App\Models\Comments;
 use App\Models\Member;
-
+use App\Http\Requests\CommentsRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,33 +19,56 @@ class CommentController extends Controller
 
 
     public function create_comment()
-    {
-        $comments = Comments::latest()->get();
-
+    {$comments = null;
+        if(Auth::guard('web')->check()){
+            $member = Auth::guard('web')->user();
+            $comments = Comments::where([
+                ['mem_id',$member->id],
+            ])->get();
+        }
+  
         return view('airfpt.user.create_comment', ['comments' => $comments]);
     }
 
-    public function postCreate_comment(Request $request)
+    public function postCreate_comment(CommentsRequest $request)
     {
-        if (!Auth::user()){
+        if (!Auth::user()) {
             return view('airfpt.mem_login');
-        }else{
-
+        } else {
+            $member = Auth::guard('web')->user();
             $comments = $request->all();
-
             $c = new Comments($comments);
-    
+            $c->mem_id = $member->id; // lấy được id của user ở auth phía trên, gán vô field user_id trong bảng comment
+            $c->user_name = $member->username;
             $c->save();
-    
+
             $comments = Comments::latest()->get();
-    
-            return view('airfpt.user.create_comment', ['comments' => $comments]);
+
+            return redirect()->back();
+           
         }
-    
-       
     }
 
-    
+
+    // public function postCreate_comment(Request $request)
+    // {
+    //     if (!Auth::user()){
+    //         return view('airfpt.mem_login');
+    //     }else{
+
+    //         $comments = $request->all();
+
+    //         $c = new Comments($comments);
+
+    //         $c->save();
+
+    //         $comments = Comments::latest()->get();
+
+    //         return view('airfpt.user.create_comment', ['comments' => $comments]);
+    //     }
+
+
+    // }
     // public function postReply_comment(Request $request)
     // {
     //     // request: cần lấy được 1. userid, 2. nội dung reply, 3. comment id (để biết reply cho comment nào)
@@ -76,19 +99,33 @@ class CommentController extends Controller
 -> Quan hệ giữa comment - reply: 1 - 1
 -> Cần thêm 1 bảng reply_comment
 */
+    public function reply($id)
+    {
+        $c = Comments::find($id);
+        return view('admin.comment.reply', ['c' => $c]);
+    }
+
+    public function addReply(Request $request, $id)
+    {
+        $comments = $request->all();
+        $c = Comments::find($id);
+        $c->mem_id = $comments['mem_id'];
+        $c->user_name = $comments['user_name'];
+        $c->comment = $comments['comment'];
+        $c->reply = $comments['reply'];
+        $c->created_at = $comments['created_at'];
+        $c->save();
+        return redirect()->back();
+    }
 
 
-    public function delete($id)
+    public function delete_cmt($id)
     {
         $c = Comments::find($id);
         $c->delete();
         return redirect()->route('admin.comment.index');
     }
-    public function show_comment($id)
-    {
-        $c = Comments::find($id);
-        return view('airfpt.user.create_comment', ['c' => $c]);
-    }
+
     // public function homeNews(){
     //     $allNews = Comment::latest()->paginate(4);
     //     return view('airfpt.user.homeNews',['allNews'=>$allNews]);

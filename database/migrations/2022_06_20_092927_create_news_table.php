@@ -18,7 +18,7 @@ return new class extends Migration
             $table->increments('id');
             $table->string('topic', 100);
             $table->string('title')->unique();
-            $table->string('content',200);
+            $table->text('content');
             $table->string('image', 255)->nullable();
             $table->timestamps();
         

@@ -48,7 +48,7 @@
                             <td>{{ $n->id }}</td>
                                 <td>{{ $n->topic }}</td>
                                 <td>{{ $n->title }}</td>
-                                <td>{{ $n->content }}</td>
+                                <td> {{ Str::limit($n->content, 200) }}</td>
                                 <td>{{ $n->created_at }}</td>
                                 <td>{{ $n->updated_at }}</td>
                                 <td><img width="100px" src="{{ url('./img/trucduy/'.$n->image) }}" /></td>

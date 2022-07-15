@@ -187,7 +187,8 @@ Route::prefix('admin')->middleware('auth', 'isAdmin')->group(function () {
     //feedback
     Route::get('/comment/index', [CommentController::class, 'index'])->name('admin.comment.index');
     Route::get('/comment/{id}/delete_cmt', [CommentController::class, 'delete_cmt'])->name('admin.comment.delete_cmt');
-
+    Route::post('/comment/{id}/addReply', [CommentController::class, 'addReply'])->name('admin.comment.addReply');
+    Route::get('/comment/{id}/reply', [CommentController::class, 'reply'])->name('admin.comment.reply');
     // ------------------------------ //
     // ***      LE QUOC TRUNG     *** //
     // ------------------------------ //
