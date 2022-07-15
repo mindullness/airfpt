@@ -17,7 +17,10 @@ return [
         'guard' => 'web',
         'passwords' => 'users',
     ],
-
+    'defaults2' => [
+        'guard' => 'guard_admin',
+        'passwords' => 'admins'
+    ],
     /*
     |--------------------------------------------------------------------------
     | Authentication Guards
@@ -40,7 +43,12 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'guard_admin' => [
+            'driver' => 'session',
+            'provider' => 'admins'
+        ]
     ],
+    
 
     /*
     |--------------------------------------------------------------------------
@@ -60,15 +68,19 @@ return [
     */
 
     'providers' => [
-        'users' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\User::class,
-        ],
-
         // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
+        //     'driver' => 'eloquent',
+        //     'model' => App\Models\User::class,
         // ],
+
+        'users' => [
+            'driver' => 'database',
+            'table' => 'member'
+        ],
+        'admins' => [
+            'driver' => 'database',
+            'table' => 'admin',
+        ],
     ],
 
     /*
@@ -93,6 +105,12 @@ return [
             'expire' => 60,
             'throttle' => 60,
         ],
+        'admins' => [
+            'provider' => 'admin',
+            'email' => 'auth.emails.password',
+            'table' => 'password_resets',
+            'expire' => 60
+        ]
     ],
 
     /*

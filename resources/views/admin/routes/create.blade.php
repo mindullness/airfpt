@@ -42,7 +42,7 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="depart_time">Time of Departure</label>
+                                <label for="depart_time">Schedule Time of Departure (STD)</label>
                                 <input type="text" class="form-control" id="depart_time" name="depart_time" placeholder="Time of Departure">
                                 @error('depart_time')
                                 <div class="text-danger">{{ $message }}</div>

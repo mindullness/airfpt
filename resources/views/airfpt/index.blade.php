@@ -49,154 +49,154 @@
 
         <!-- Tab content -->
         <div class="tab-content  text-white font-weight-bolder p-2" id="indexFormContent">
-<div  role="tabpanel" aria-labelledby="searchFlight-tab" class="tab-pane fade show active" id="searchFlight">
-            <!-- Start Form Booking -->
-            <form  method="get" role="form" id="searchFlightForm" enctype="multipart/form-data" action="{{Route('airfpt.booking.booking')}}">
+            <div role="tabpanel" aria-labelledby="searchFlight-tab" class="tab-pane fade show active" id="searchFlight">
 
-                <!-- Label departure -->
-                <label class="mt-3 d-flex justify-content-between" for="origin">
-                    <span class="font-weight-bolder">Departure</span>
-                    <span>
-                        <div class="input-group input-group-lg font-weight-bolder">
-                            <div class="form-check-inline  ">
-                                <label class="form-check-label text-warning">
-                                    <input type="radio" checked="checked" value="roundtrip" class="form-check-input roundtrip" name="isRoundTrip">Round-Trip
-                                </label>
+                <!-- Start Form Booking -->
+                <form method="get" role="form" id="searchFlightForm" enctype="multipart/form-data" action="{{Route('airfpt.booking.booking')}}">
+
+                    <!-- Label departure -->
+                    <label class="mt-3 d-flex justify-content-between" for="origin">
+                        <span class="font-weight-bolder">Departure</span>
+                        <span>
+                            <div class="input-group input-group-lg font-weight-bolder">
+                                <div class="form-check-inline  ">
+                                    <label class="form-check-label text-warning">
+                                        <input type="radio" checked="checked" value="roundtrip" class="form-check-input roundtrip" name="isRoundTrip">Round-Trip
+                                    </label>
+                                </div>
+                                <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input oneway" value="oneway" name="isRoundTrip">One-Way
+                                    </label>
+                                </div>
                             </div>
-                            <div class="form-check-inline">
-                                <label class="form-check-label">
-                                    <input type="radio" class="form-check-input oneway" value="oneway" name="isRoundTrip">One-Way
-                                </label>
-                            </div>
+                        </span>
+                    </label>
+                    <!-- Input Origin -->
+                    <div class="input-group input-group-lg">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-plane-departure"></i></span>
                         </div>
-                    </span>
-                </label>
-                <!-- Input Origin -->
-                <div class="input-group input-group-lg">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fa fa-plane-departure"></i></span>
-                    </div>
-                    <select name="origin" id="origin" class="form-control ">
-                        <option value="">From</option>
-                        @foreach($airports as $a)
-                        <option value="{{$a->iata_code}}">{{$a->city}} ({{$a->iata_code}}) - {{$a->name}}</option>
-                        @endforeach
-                    </select>
-                    <!-- <input name="origin" id="origin" type="text" class="form-control is-valid" required placeholder="From"> -->
-                    <div class="input-group-append">
-                        <span class="input-group-text"><i class="fa fa-calendar-alt"></i></span>
-                    </div>
-                    <!-- Input depart_date -->
-                    <input name="depart_date" min="{{date('Y-m-d')}}" max="" id="depart_date" class="form-control" type="text" placeholder="Day-Month-Year" onfocus="(this.type='date')" onblur="(this.type='date')">
-                    <div class="input-group-append">
-                        <span class="input-group-text">Outbound</span>
-                    </div>
-                </div>
-
-                <!-- Input Destination -->
-                <label class="mt-2 font-weight-bolder" for="destination">Arrival</label>
-                <div class="input-group input-group-lg">
-
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fas fa-plane-arrival"></i></span>
-                    </div>
-                    <select name="destination" id="destination" class="form-control ">
-                        <option value="">To</option>
-                        @foreach($airports as $a)
-                        <option value="{{$a->iata_code}}">{{$a->city}} ({{$a->iata_code}}) - {{$a->name}}</option>
-                        @endforeach
-                    </select>
-                    <div class="input-group-append">
-                        <span class="input-group-text"><i class="fa fa-calendar-alt"></i></span>
-                    </div>
-                    <!-- Input return_date -->
-                    <input name="return_date" min="" max="" id="return_date" type="text" class="form-control" placeholder="Day-Month-Year" onfocus="(this.type='date')" onblur="(this.type='date')">
-                    <div class="input-group-append">
-                        <span class="input-group-text"> &NonBreakingSpace; Inbound &NegativeThinSpace;</span>
-                    </div>
-                </div>
-
-                <!-- Input Passenger -->
-                <label class="mt-2 font-weight-bolder pax " for="destination">Passengers</label>
-                <div class="input-group input-group-lg pax ">
-
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fas fa-user-friends"></i></span>
+                        <select name="origin" id="origin" class="form-control ">
+                            <option value="">From</option>
+                            @foreach($airports as $a)
+                            <option value="{{$a->iata_code}}">{{$a->city}} ({{$a->iata_code}}) - {{$a->name}}</option>
+                            @endforeach
+                        </select>
+                        <!-- <input name="origin" id="origin" type="text" class="form-control is-valid" required placeholder="From"> -->
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fa fa-calendar-alt"></i></span>
+                        </div>
+                        <!-- Input depart_date -->
+                        <input name="depart_date" min="{{date('Y-m-d')}}" max="" id="depart_date" class="form-control" type="text" placeholder="Day-Month-Year" onfocus="(this.type='date')" onblur="(this.type='date')">
+                        <div class="input-group-append">
+                            <span class="input-group-text">Outbound</span>
+                        </div>
                     </div>
 
-                    <!-- select passenger-->
-                    <input class="form-control bg-light" id="totalPax" readonly data-toggle="collapse" data-target="#genderPopup" type="text" >
-                        
-                    <!-- End select passenger -->
+                    <!-- Input Destination -->
+                    <label class="mt-2 font-weight-bolder" for="destination">Arrival</label>
+                    <div class="input-group input-group-lg">
 
-                    <div class="input-group-append d-lg-flex d-none">
-                        <span class="input-group-text bg-light border-light mx-0 px-auto">Economy-Fare</span>
-                    </div>
-                    <div class="input-group-append d-md-flex d-none">
-                        <span class="input-group-text rounded-right"><i class="fa fa-ticket-alt"></i></span>
-                    </div>
-                    <div class="input-group-append">
-                        <span class="input-group-text border-0 bg-transparent "> &nbsp;</span>
-                    </div>
-                    <input type="submit" value="SEARCH FLIGHTS" class="btn btn-primary rounded font-weight-bolder">
-                </div>
-                <!-- End Input Passenger -->
-                <div id="genderPopup" class="collapse form-control input-group input-group-md w-50">
-                    <div class="gender_box  " style="background-color:rgba(1, 131, 243, 0.3);">
-                        <label for="adl">Adults:</label>
-                        <div class="dec btn">-</div>
-                        <input value="1" placeholder="1 Adult" type="number" name="adl" id="adl" require class="text-center" readonly>
-                        <div class="inc btn">+</div>
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-plane-arrival"></i></span>
+                        </div>
+                        <select name="destination" id="destination" class="form-control ">
+                            <option value="">To</option>
+                            @foreach($airports as $a)
+                            <option value="{{$a->iata_code}}">{{$a->city}} ({{$a->iata_code}}) - {{$a->name}}</option>
+                            @endforeach
+                        </select>
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fa fa-calendar-alt"></i></span>
+                        </div>
+                        <!-- Input return_date -->
+                        <input name="return_date" min="" max="" id="return_date" type="text" class="form-control" placeholder="Day-Month-Year" onfocus="(this.type='date')" onblur="(this.type='date')">
+                        <div class="input-group-append">
+                            <span class="input-group-text"> &NonBreakingSpace; Inbound &NegativeThinSpace;</span>
+                        </div>
                     </div>
 
-                    <div class="gender_box  " style="background-color: rgba(243, 112, 34, 0.3);">
-                        <label for="chd">Children:</label>
-                        <div class="dec btn">-</div>
-                        <input value="0" class="text-center" type="number" name="chd" id="chd" readonly>
-                        <div class="inc btn">+</div>
-                    </div>
+                    <!-- Input Passenger -->
+                    <label class="mt-2 font-weight-bolder pax " for="destination">Passengers</label>
+                    <div class="input-group input-group-lg pax ">
 
-                    <div class="gender_box  " style="background-color: rgba(109, 233, 27, 0.3);">
-                        <label class="" for="">Infants:</label>
-                        <div class="dec btn">-</div>
-                        <input value="0" type="number" name="inf" id="inf" class="text-center" readonly>
-                        <div class="inc btn">+</div>
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user-friends"></i></span>
+                        </div>
+
+                        <!-- select passenger-->
+                        <input class="form-control bg-light" id="totalPax" readonly data-toggle="collapse" data-target="#genderPopup" type="text">
+
+                        <!-- End select passenger -->
+
+                        <div class="input-group-append d-lg-flex d-none">
+                            <span class="input-group-text bg-light border-light mx-0 px-auto">Economy-Fare</span>
+                        </div>
+                        <div class="input-group-append d-md-flex d-none">
+                            <span class="input-group-text rounded-right"><i class="fa fa-ticket-alt"></i></span>
+                        </div>
+                        <div class="input-group-append">
+                            <span class="input-group-text border-0 bg-transparent "> &nbsp;</span>
+                        </div>
+                        <input type="submit" value="SEARCH FLIGHTS" class="btn btn-primary rounded font-weight-bolder">
                     </div>
-                </div>
-            </form>
+                    <!-- End Input Passenger -->
+                    <div id="genderPopup" class="collapse form-control input-group input-group-md w-50">
+                        <div class="gender_box  " style="background-color:rgba(1, 131, 243, 0.3);">
+                            <label for="adl">Adults:</label>
+                            <div class="dec btn">-</div>
+                            <input value="1" placeholder="1 Adult" type="number" name="adl" id="adl" require class="text-center" readonly>
+                            <div class="inc btn">+</div>
+                        </div>
+
+                        <div class="gender_box  " style="background-color: rgba(243, 112, 34, 0.3);">
+                            <label for="chd">Children:</label>
+                            <div class="dec btn">-</div>
+                            <input value="0" class="text-center" type="number" name="chd" id="chd" readonly>
+                            <div class="inc btn">+</div>
+                        </div>
+
+                        <div class="gender_box  " style="background-color: rgba(109, 233, 27, 0.3);">
+                            <label class="" for="">Infants:</label>
+                            <div class="dec btn">-</div>
+                            <input value="0" type="number" name="inf" id="inf" class="text-center" readonly>
+                            <div class="inc btn">+</div>
+                        </div>
+                    </div>
+                </form>
             </div>
             <!-- End form "booking"-->
 
             <!-- Start Form Manage My Booking -->
             <div class="tab-pane fade" id="manage_my_booking" role="tabpanel" aria-labelledby="manage_my_booking-tab">
 
-                <form class="row d-flex text-white font-weight-bolder border">
-                    <!-- Input origin -->
-                    <div class="col-md-4">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Booking Reference: </span>
+                <!-- TRUNG -->
+                <div class="container d-flex justify-content-center form-wrapper">
+                    <div class="form-container col-md-5">
+                        <form role="form" action="{{ Route('manageBooking.show') }}" method="POST" enctype="multipart/form-data">
+                            {{ csrf_field() }}
+                            <div class="form-box d-flex flex-column">
+                                <label for="" class="form-label">Booking reference</label>
+                                <input type="text" name="pnr" id="pnr" class="form-input">
+                                @if($errors->has('pnr'))
+                                <p class="form-error text-danger">{{$errors->first('pnr')}}</p>
+                                @endif
                             </div>
-                            <input type="text" class="form-control" aria-label="booking">
-                            <div class="input-group-append">
-                                <span class="input-group-text"><i class="fa fa-arrow-down"></i></span>
+                            <div class="form-box d-flex flex-column">
+                                <label for="" class="form-label">Last name</label>
+                                <input type="text" name="lastname" class="form-input">
+                                @if($errors->has('lastname'))
+                                <p class="form-error text-danger">{{$errors->first('lastname')}}</p>
+                                @endif
                             </div>
-                        </div>
+                            <div>
+                                <button type="submit" name="submit" class="btn btn-primary btn-md btn-block mt-3">Show booking</button>
+                            </div>
+                        </form>
                     </div>
-
-                    <div class="col-md-4">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">First Name</span>
-                            </div>
-                            <input type="text" class="form-control" aria-label="first name">
-                            <div class="input-group-append">
-                                <span class="input-group-text"><i class="fa fa-arrow-down"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-
+                </div>
+                <!-- END of TRUNG -->
             </div>
             <!-- End other tab -->
         </div>

@@ -44,7 +44,7 @@
                                 <th>FLIGHT NUMBER</th>
                                 <th>ORIGIN</th>
                                 <th>DESTINATION</th>
-                                <th>TIME OF DEPARTURE</th>
+                                <th>SCHEDULE TIME OF DEPARTURE</th>
                                 <th>DURATION (Minutes)</th>
                                 <th></th>
                             </tr>
@@ -78,7 +78,7 @@
                                 <th>FLIGHT NUMBER</th>
                                 <th>ORIGIN</th>
                                 <th>DESTINATION</th>
-                                <th>TIME OF DEPARTURE</th>
+                                <th>SCHEDULE TIME OF DEPARTURE</th>
                                 <th>DURATION (Minutes)</th>
                                 <th></th>
                             </tr>

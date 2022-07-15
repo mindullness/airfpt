@@ -23,6 +23,9 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
+                if($guard === 'guard_admin'){
+                    return redirect()->route('airfpt.index');
+                }
                 return redirect(RouteServiceProvider::HOME);
             }
         }

@@ -15,11 +15,5 @@ class UserHomepageController extends Controller
         return view('airfpt.index', ['news'=>$news, 'airports'=>$airports]);
     }
 
-    public function faqs(){
-        return view('airfpt.faqs');
-    }
-
-   
-
 
 }

@@ -34,7 +34,7 @@
                                 <input type="date" class="form-control" id="txt-date" name="date">
                             </div>
                             <div class="form-group">
-                                <label for="txt-etd">ETD</label>
+                                <label for="txt-etd">Estimated Time of Departure (ETD)</label>
                                 <input type="text" class="form-control" id="txt-etd" name="etd" placeholder="hh:mm">
                             </div>
                             <div class="form-group">
