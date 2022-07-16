@@ -102,6 +102,9 @@ Route::group(['prefix' => 'airfpt'], function () {
 });
 // End of group airfpt - userpage
 
+
+// ADMIN PAGE
+
 Route::prefix('admin')->middleware('auth', 'isAdmin')->group(function () {
 
     // ------------------------------ //
@@ -110,13 +113,8 @@ Route::prefix('admin')->middleware('auth', 'isAdmin')->group(function () {
 
     Route::get('/', [AdminController::class, 'index'])->name('admin.index');
 
-    // Member list controller
-    Route::get('/member', [MemberListController::class, 'index'])->name('admin.member.index');
-    Route::get('/member/create', [MemberListController::class, 'create'])->name('admin.member.create');
-    Route::post('/member/postCreate', [MemberListController::class, 'postCreate'])->name('admin.member.postCreate');
-    Route::any('/member/{id}update', [MemberListController::class, 'update'])->name('admin.member.update');
-    Route::post('{id}/member/postUpdate', [MemberListController::class, 'postUpdate'])->name('admin.member.postUpdate');
-    Route::get('{id}/member/delete', [MemberListController::class, 'delete'])->name('admin.member.delete');
+    // Passenger Bookings
+    Route::get('/passenger/index', [AdminController::class, 'display_pax_booking'])->name('admin.passenger.index');
 
     // Flight Controller
     Route::get('/flights', [FlightsController::class, 'index'])->name('admin.flights.index');
@@ -154,8 +152,7 @@ Route::prefix('admin')->middleware('auth', 'isAdmin')->group(function () {
     // ------------------------------ //
     // ***     NGUYEN PHUC DUY    *** //
     // ------------------------------ //
-
-    // member list controller
+    // Member list controller
     Route::get('/member', [MemberListController::class, 'index'])->name('admin.member.index');
     Route::get('/member/create', [MemberListController::class, 'create'])->name('admin.member.create');
     Route::post('/member/postCreate', [MemberListController::class, 'postCreate'])->name('admin.member.postCreate');
