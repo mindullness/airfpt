@@ -210,7 +210,7 @@
 
     <div class="col-lg-6 mx-0 mb-2 p-2 eachIndexNews">
         <a href="{{  route('airfpt.user.details',$n->id) }}">
-            <img src="{{ url('./img/trucduy/'.$n->image) }}" width="96%" class="z-depth-0 " alt="">
+            <img src="{{ url('./img/trucduy/'.$n->image) }}" width="98%" class="z-depth-0 " alt="">
             <h3 class="newsTitle" style="height: 60px;">{{$n->topic}}</h3>
             <div class="newsJumpArrow text-light font-weight-bold">
                 <a href="{{  route('airfpt.user.details',$n->id) }}">

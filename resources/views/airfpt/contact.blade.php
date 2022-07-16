@@ -1,7 +1,7 @@
 @extends('airfpt.layout.layout')
 @section('title', 'Term & Conditions')
 @section('content')
-<div class="container">
+<div class="container" style="margin-top: 90px;">
         <div class="panel panel-success">
             <div class="panel-heading" style="padding-top: 1rem; width: 100%;">
             <center>

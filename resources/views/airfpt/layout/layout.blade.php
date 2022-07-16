@@ -30,17 +30,16 @@
     <!-- Header -->
     @include('airfpt.layout.header')
     <!-- /.header -->
-
+    <div class="mt-4"></div>
     <!-- Content Wrapper. Contains page content -->
     @yield('content')
     <!-- /.content -->
 
 
     <!-- /.content-wrapper -->
-    
     @include('airfpt.layout.footer')
    
-
+ 
 
     <!-- page script -->
 

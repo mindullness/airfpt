@@ -1,5 +1,5 @@
 <!-- Subcribe panel Modal -->
-<div class="container-fluid py-4 register-panel row">
+<div class="container-fluid py-4 register-panel row mt-5">
     <div class="container">
         <h3 class="d-block align-content-center text-left">
             Do not miss out best offers from <b>Air FPT</b>

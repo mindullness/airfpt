@@ -2,7 +2,7 @@
 @section('title', 'Member Update')
 @section('content')
 @auth
-<div class="container">
+<div class="container" style="margin-top: 90px;">
   <br>
   <center>
     <h2>Account Update</h2>

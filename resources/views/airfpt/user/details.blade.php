@@ -4,7 +4,7 @@
 
 
 
-<section class="content light-grey" style="padding-top: 70px; padding-bottom: 70px;"> 
+<section class="content container light-grey" style="padding-top: 70px; padding-bottom: 70px;"> 
 
 
     <!-- w3-content defines a container for fixed size centered content, 
@@ -61,9 +61,4 @@ and is wrapped around the whole page content, except for the footer in this exam
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="{{ asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
 
-<script type="text/javascript">
-    $(document).ready(function() {
-        bsCustomFileInput.init();
-    });
-</script>
 @endsection

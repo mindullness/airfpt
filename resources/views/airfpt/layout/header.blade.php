@@ -9,7 +9,7 @@
         <div class="collapse navbar-collapse" id="header_menu">
             <ul class="headerlink nav navbar-nav text-light">
             <li class="nav-item"><a href="{{Route('airfpt.index')}}" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="{{Route('airfpt.user.pass_info')}}" class="nav-link">Booking information</a></li>
+                <li class="nav-item"><a href="{{Route('airfpt.user.pass_info')}}" class="nav-link">Travel Info</a></li>
                 <li class="nav-item"><a href="{{Route('airfpt.user.homeNews')}}" class="nav-link">News</a></li>
                 <li class="nav-item"><a href="{{Route('airfpt.faqs')}}" class="nav-link">FAQs</a></li>
                 @auth 

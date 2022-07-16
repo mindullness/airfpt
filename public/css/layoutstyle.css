@@ -38,6 +38,27 @@ body {
     border-radius: 10px;
 }
 
+#back-to-top {
+    z-index: 5;
+    position: fixed;
+    display: none;
+    width: 45px;
+    height: 45px;
+    bottom: 35px;
+    right: 35px;
+    opacity: 0.8;
+    border-radius: 50%;
+    background-color: rgb(23, 74, 146)!important;
+}
+
+#back-to-top:hover {
+    width: 48px;
+    height: 48px;
+    transition: 0.68s;
+    bottom: 40px;
+    opacity: 0.9;
+}
+
 
 /* Index page CSS */
 
@@ -149,11 +170,6 @@ body {
     justify-content: center;
 }
 
-.newsContainer>div:hover>a {
-    top: 5px;
-    transition: 1s;
-}
-
 .newsContainer>div>a {
     position: relative;
     text-align: center;
@@ -168,17 +184,19 @@ h3.newsTitle {
     left: 8px;
     color: white;
     font-size: larger;
-    font-weight: 800;
+    font-weight: 700;
     text-shadow: 0 1px 2px black;
     padding: 20px 20px 0px 10px;
-    background-color: #13609f58;
+    background-color: #13609f74;
 }
 
-.newsTitle:hover,
-.newsJumpArrow:hover {
-    background-color: #13609fb1;
-    transition: 0.3s;
-    color: rgb(255, 199, 9);
+.eachIndexNews:hover .newsTitle,
+.eachIndexNews:hover .newsJumpArrow {
+    color: rgb(255, 199, 9)!important;
+    font-weight: 900;
+    background-color: #13609fd3;
+    margin-bottom: 5px;
+    transition: 0.39s;
 }
 
 .newsJumpArrow {
@@ -245,13 +263,7 @@ h3.newsTitle {
 }
 
 
-/*  */
-
-
-/*  */
-
-
-/*  */
+/* Input passenger quantity */
 
 #genderPopup {
     height: 196px;

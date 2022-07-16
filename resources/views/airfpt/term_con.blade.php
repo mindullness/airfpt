@@ -1,7 +1,7 @@
 @extends('airfpt.layout.layout')
 @section('title', 'Term & Conditions')
 @section('content')
-<div class="container">
+<div class="container" style="margin-top: 90px;">
     <br>
     <center>
     <h2>Term & Conditions</h2>

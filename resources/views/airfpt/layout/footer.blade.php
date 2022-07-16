@@ -1,4 +1,3 @@
-
 <!-- Footer -->
 <footer class="container mt-5 border-0 sticky-bottom">
 
@@ -26,27 +25,31 @@
         <div class="col-md-6 col-lg-3"><br>
             <h4>AIR FPT</h4>
             <hr class="bg-primary w-25 ml-0">
-            <p><a href="">About Us</a></p>
-            <p><a href="">News</a></p>
-            <p><a href="">Destinations</a></p>
+            <p><a href="{{Route('airfpt.user.details', 1)}}">About Us</a></p>
+            <p><a href="{{Route('airfpt.user.homeNews')}}">News</a></p>
+            <p><a href="{{Route('airfpt.user.details', 4)}}">Destinations</a></p>
         </div>
         <div class="col-md-6 col-lg-3"><br>
             <h4>CONTACT</h4>
             <hr class="bg-primary w-25 ml-0">
-            <p><a href="#">Contact</a></p>
+            <p><a href="{{route('airfpt.contact')}}">Contact</a></p>
         </div>
         <div class="col-md-6 col-lg-3"><br>
             <h4>SUPPORT</h4>
             <hr class="bg-primary w-25 ml-0">
-            <p><a href="">Terms & Conditions</a></p>
-            <p><a href="#">FAQs</a></p>
-            <p><a href="#">Irregular Flight</a></p>
+            <p><a href="{{Route('airfpt.term_con')}}">Terms & Conditions</a></p>
+            <p><a href="{{Route('airfpt.faqs')}}">FAQs</a></p>
+            <p><a href="{{Route('airfpt.customer_service')}}">Customer Care</a></p>
         </div>
     </div>
     <hr class="bg-primary d-block w-25 mx-auto mb-4 mt-0">
 
     <!-- Footer -->
 </footer>
+
+<!-- Button Back to top -->
+<a id="back-to-top" href="#" class="btn btn-outline-primary btn-md " role="button"><i class="fas fa-chevron-up text-warning font-weight-bolder  align-bottom"></i></a>
+
 <!-- Footer Company Info -->
 <div class="py-3 sticky-bottom container-fluid bg-light mx-0 px-0">
     <div class="container d-md-flex">
@@ -68,3 +71,22 @@
         </div>
     </div>
 </div>
+
+<script>
+    // All pages: Button scroll Back-to-top
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 150) {
+            $('#back-to-top').css('display', 'block');
+            $('#back-to-top').fadeIn();
+        } else {
+            $('#back-to-top').css('display', 'none');
+            $('#back-to-top').fadeOut();
+        }
+    });
+    // scroll body to 0px on click
+    $('#back-to-top').click(function() {
+        $(document.body).animate({
+            scrollTop: 0
+        }, 8000);
+    });
+</script>
