@@ -34,7 +34,6 @@ class ManageMyBookingController extends Controller
                 'routes.destination',
                 'routes.depart_time',
                 'routes.duration',
-
             )
             ->get();
         return view('manageBooking.show', ['booking' => $booking, 'pnr' => $pnr]);
@@ -67,7 +66,9 @@ class ManageMyBookingController extends Controller
         $data = $_GET;
         $listId = [];
         foreach ($data as $key => $value) {
-            array_push($listId, $key);
+            if ($key !== "flightNum") {
+                array_push($listId, $key);
+            }
             DB::table('bookings')
                 ->where('id', intval($key))
                 ->update(['seat_no' => $value, 'status' => 'check-in']);
@@ -80,11 +81,38 @@ class ManageMyBookingController extends Controller
             }
         }
         file_put_contents('./sm/sm_flights/' . $fltD[0]->date . '-' . $flightNum . '-Y180.json', json_encode($seatmap));
-        return view('manageBooking.showseat', ['listId' => $listId]);
+        return view('manageBooking.showseat', ['listId' => $listId, 'flightNum' => $flightNum]);
     }
-    public function boardingpass()
+    public function boardingpass(Request $requests)
     {
-        $x = $_GET;
-        return view('manageBooking.boardingpass', ['x'=>$x]);
+        // $flightNum = $_GET['flightNum'];
+        $bookingIds = $requests->input('bookingId');
+        $bookings = [];
+        foreach ($bookingIds as $bookingId) {
+            array_push($bookings, DB::table('bookings')
+                ->join('flights', 'bookings.flight_id', '=', 'flights.id')
+                ->join('routes', 'flights.flight_number', '=', 'routes.id')
+                ->where('bookings.id', $bookingId)
+                ->select(
+                    'flights.flight_number',
+                    'flights.date',
+                    'flights.gate',
+                    'bookings.id',
+                    'bookings.PNR',
+                    'bookings.last_name',
+                    'bookings.first_name',
+                    'bookings.seat_no',
+                    'bookings.status',
+                    'routes.origin',
+                    'routes.destination',
+                    'routes.depart_time',
+                    'routes.duration',
+                )
+                ->get());
+        }
+        // $thisFlight = DB::table('routes')
+        //     ->where('id', $flightNum)
+        //     ->get();
+        return view('manageBooking.boardingpass', ['bookings' => $bookings]);
     }
 }

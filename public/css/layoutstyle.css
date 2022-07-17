@@ -886,4 +886,55 @@ h3.newsTitle {
     margin-right: 50px;
 }
 
+.agree-form_trung {
+    border: 1px solid #f37022;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    color: #2094f3;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px #f37022;
+}
+.boardingpass {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+.boardingpass-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+.boardingpass-left {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.boardingpass-left-item {
+}
+.boardingpass-right {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 30%;
+    padding: 20px 20px;
+    border: 1px solid #000;
+}
+.boardingpass-right-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.boardingpass-name {
+    font-size: 25px;
+    font-weight: bold;
+}
+.boardingpass-label {
+    font-size: 15px;
+}
+.boardingpass-detail {
+    font-size: 18px;
+    font-weight: bold;
+}
 /* SEAT MAP end*/
