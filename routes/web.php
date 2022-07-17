@@ -99,6 +99,7 @@ Route::group(['prefix' => 'airfpt'], function () {
     Route::get('manageBooking/flightStatusShow', [ManageMyBookingController::class, 'flightStatusShow'])->name('manageBooking.flightStatusShow');
     Route::get('manageBooking/seat', [ManageMyBookingController::class, 'seat'])->name('manageBooking.seat');
     Route::get('manageBooking/showseat', [ManageMyBookingController::class, 'showseat'])->name('manageBooking.showseat');
+    Route::get('manageBooking/boardingpass', [ManageMyBookingController::class, 'boardingpass'])->name('manageBooking.boardingpass');
 });
 // End of group airfpt - userpage
 

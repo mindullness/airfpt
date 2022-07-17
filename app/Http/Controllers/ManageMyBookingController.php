@@ -65,7 +65,9 @@ class ManageMyBookingController extends Controller
         $seatmap_file = file_get_contents(asset('./sm/sm_flights/' . $fltD[0]->date . '-' . $flightNum . '-Y180.json'));
         $seatmap = json_decode($seatmap_file);
         $data = $_GET;
+        $listId = [];
         foreach ($data as $key => $value) {
+            array_push($listId, $key);
             DB::table('bookings')
                 ->where('id', intval($key))
                 ->update(['seat_no' => $value, 'status' => 'check-in']);
@@ -78,6 +80,11 @@ class ManageMyBookingController extends Controller
             }
         }
         file_put_contents('./sm/sm_flights/' . $fltD[0]->date . '-' . $flightNum . '-Y180.json', json_encode($seatmap));
-        return view('manageBooking.showseat');
+        return view('manageBooking.showseat', ['listId' => $listId]);
+    }
+    public function boardingpass()
+    {
+        $x = $_GET;
+        return view('manageBooking.boardingpass', ['x'=>$x]);
     }
 }
