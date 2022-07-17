@@ -35,6 +35,18 @@
                                 @enderror
                             </div>
                             <div class="form-group">
+                                <label for="image">Aircraft Seatmap</label>
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="seatmap" name="seatmap">
+                                        <label class="custom-file-label" for="seatmap">Choose Seatmap</label>
+                                    </div>
+                                </div>
+                                @error('image')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="form-group">
                                 <label for="image">Aircraft Image</label>
                                 <div class="input-group">
                                     <div class="custom-file">

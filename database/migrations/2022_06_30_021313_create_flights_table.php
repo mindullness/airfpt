@@ -32,18 +32,18 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        DB::table('flights')->insert(['flight_number' => 120, 'date' => '2022-07-28', 'gate' => 10, 'flight_status'=>'open', 'ac_id'=>1, 'base_price'=>'600000']);
-        DB::table('flights')->insert(['flight_number' => 121, 'date' => '2022-07-28', 'gate' => 12, 'flight_status'=>'open', 'ac_id'=>1, 'base_price'=>'800000']);
-        DB::table('flights')->insert(['flight_number' => 206, 'date' => '2022-07-28', 'gate' => 15, 'flight_status'=>'open', 'ac_id'=>1, 'base_price'=>'600680']);
-        DB::table('flights')->insert(['flight_number' => 207, 'date' => '2022-07-28', 'gate' => 16, 'flight_status'=>'open', 'ac_id'=>1, 'base_price'=>'800860']);
-        DB::table('flights')->insert(['flight_number' => 120, 'date' => '2022-07-29', 'gate' => 10, 'flight_status'=>'open', 'ac_id'=>1, 'base_price'=>'600000']);
-        DB::table('flights')->insert(['flight_number' => 121, 'date' => '2022-07-29', 'gate' => 12, 'flight_status'=>'open', 'ac_id'=>1, 'base_price'=>'800000']);
-        DB::table('flights')->insert(['flight_number' => 206, 'date' => '2022-07-29', 'gate' => 15, 'flight_status'=>'open', 'ac_id'=>1, 'base_price'=>'600680']);
-        DB::table('flights')->insert(['flight_number' => 207, 'date' => '2022-07-29', 'gate' => 16, 'flight_status'=>'open', 'ac_id'=>1, 'base_price'=>'800860']);
-        DB::table('flights')->insert(['flight_number' => 120, 'date' => '2022-07-30', 'gate' => 10, 'flight_status'=>'open', 'ac_id'=>1, 'base_price'=>'600000']);
-        DB::table('flights')->insert(['flight_number' => 121, 'date' => '2022-07-30', 'gate' => 12, 'flight_status'=>'open', 'ac_id'=>1, 'base_price'=>'800000']);
-        DB::table('flights')->insert(['flight_number' => 206, 'date' => '2022-07-30', 'gate' => 15, 'flight_status'=>'open', 'ac_id'=>1, 'base_price'=>'600680']);
-        DB::table('flights')->insert(['flight_number' => 207, 'date' => '2022-07-30', 'gate' => 16, 'flight_status'=>'open', 'ac_id'=>1, 'base_price'=>'800860']);
+        DB::table('flights')->insert(['flight_number' => 120, 'date' => '2022-07-28', 'gate' => 10, 'flight_status'=>'open', 'ac_id'=>1, 'current_seatmap'=>'2022-07-28-120-Y180.json' ,'base_price'=>'600000']);
+        DB::table('flights')->insert(['flight_number' => 121, 'date' => '2022-07-28', 'gate' => 12, 'flight_status'=>'open', 'ac_id'=>1,  'current_seatmap'=>'2022-07-28-121-Y180.json','base_price'=>'800000']);
+        DB::table('flights')->insert(['flight_number' => 206, 'date' => '2022-07-28', 'gate' => 15, 'flight_status'=>'open', 'ac_id'=>1,  'current_seatmap'=>'2022-07-28-206-Y180.json','base_price'=>'600680']);
+        DB::table('flights')->insert(['flight_number' => 207, 'date' => '2022-07-28', 'gate' => 16, 'flight_status'=>'open', 'ac_id'=>1,  'current_seatmap'=>'2022-07-28-207-Y180.json','base_price'=>'800860']);
+        DB::table('flights')->insert(['flight_number' => 120, 'date' => '2022-07-29', 'gate' => 10, 'flight_status'=>'open', 'ac_id'=>1,'current_seatmap'=>'2022-07-29-120-Y180.json', 'base_price'=>'600000']);
+        DB::table('flights')->insert(['flight_number' => 121, 'date' => '2022-07-29', 'gate' => 12, 'flight_status'=>'open', 'ac_id'=>1,'current_seatmap'=>'2022-07-29-121-Y180.json', 'base_price'=>'800000']);
+        DB::table('flights')->insert(['flight_number' => 206, 'date' => '2022-07-29', 'gate' => 15, 'flight_status'=>'open', 'ac_id'=>1,'current_seatmap'=>'2022-07-29-206-Y180.json', 'base_price'=>'600680']);
+        DB::table('flights')->insert(['flight_number' => 207, 'date' => '2022-07-29', 'gate' => 16, 'flight_status'=>'open', 'ac_id'=>1,'current_seatmap'=>'2022-07-29-207-Y180.json', 'base_price'=>'800860']);
+        DB::table('flights')->insert(['flight_number' => 120, 'date' => '2022-07-30', 'gate' => 10, 'flight_status'=>'open', 'ac_id'=>1,'current_seatmap'=>'2022-07-30-120-Y180.json', 'base_price'=>'600000']);
+        DB::table('flights')->insert(['flight_number' => 121, 'date' => '2022-07-30', 'gate' => 12, 'flight_status'=>'open', 'ac_id'=>1,'current_seatmap'=>'2022-07-30-121-Y180.json', 'base_price'=>'800000']);
+        DB::table('flights')->insert(['flight_number' => 206, 'date' => '2022-07-30', 'gate' => 15, 'flight_status'=>'open', 'ac_id'=>1,'current_seatmap'=>'2022-07-30-206-Y180.json', 'base_price'=>'600680']);
+        DB::table('flights')->insert(['flight_number' => 207, 'date' => '2022-07-30', 'gate' => 16, 'flight_status'=>'open', 'ac_id'=>1,'current_seatmap'=>'2022-07-30-207-Y180.json', 'base_price'=>'800860']);
     }
 
     /**

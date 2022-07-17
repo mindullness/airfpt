@@ -42,12 +42,33 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="image">A/C TYPE</label>
-                                <input value="{{$acrt->image}}" type="text" class="form-control" id="image" name="image" placeholder="Aircraft Image">
+                                <label for="image">A/C IMAGE</label>
+                                
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="image" name="image"  value="{{$acrt->image}}" >
+                                        <label class="custom-file-label" for="image">Choose Image</label>
+                                    </div>
+                                </div>
                                 @error('image')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
+
+
+                            <div class="form-group">
+                                <label for="image">A/C SEATMAP</label>
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input value="{{$acrt->seatmap}}" type="file" class="custom-file-input" id="seatmap" name="seatmap">
+                                        <label class="custom-file-label" for="seatmap">Choose Seatmap</label>
+                                    </div>
+                                </div>
+                                @error('image')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                           
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer">

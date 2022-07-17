@@ -18,6 +18,7 @@ class AircraftsController extends Controller
     }
 
     public function postCreate(Request $request){
+
         $aircrafts = $request->all();
 
         if($request->hasFile('image')){
@@ -33,10 +34,19 @@ class AircraftsController extends Controller
         }
 
         // Seatmap
-            
+        if($request->hasFile('seatmap')){
+            $seatmapfile = $request->file('seatmap');
+            $extension = $seatmapfile->getClientOriginalExtension();
+
+            $seatmap = $seatmapfile->getClientOriginalName();
+            $seatmapfile->move('./sm/sm_aircrafts', $seatmap);
+        } else{
+            $seatmap = null;
+        }
 
         $acrt = new Aircrafts($aircrafts);
         $acrt->image = $imageName;
+        $acrt->seatmap = $seatmap;
         $acrt->save();
 
         return redirect()->route('admin.aircrafts.index');
@@ -50,11 +60,33 @@ class AircraftsController extends Controller
     public function postUpdate(Request $request, $id){
 
         $acrt = $request->all();
-
         $r = Aircrafts::find($id);
+
+        if($request->hasFile('image')){
+            $file = $request->file('image');
+            $extension = $file->getClientOriginalExtension();
+            if($extension != 'jpg' && $extension != 'png' && $extension != 'jpeg'){
+                return redirect()->route('admin.aircrafts.update', ['id'=>$id]);
+             }
+            $imageName = $file->getClientOriginalName();
+            $file->move('./img/acrt', $imageName);
+        } else{
+            $imageName = $r->image;
+        }
+        if($request->hasFile('seatmap')){
+            $seatmapfile = $request->file('seatmap');
+
+            $seatmap = $seatmapfile->getClientOriginalName();
+            $seatmapfile->move('./sm/sm_aircrafts', $seatmap);
+        } else{
+            $seatmap = $r->seatmap;
+        }
+        
         $r->reg = $acrt['reg'];
         $r->config = $acrt['config'];
         $r->type = $acrt['type'];
+        $r->image = $imageName;
+        $r->seatmap = $seatmap;
         $r->touch();
         $r->save();
         return redirect()->route('admin.aircrafts.index');

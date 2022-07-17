@@ -13,7 +13,7 @@
     </nav>
     <!-- End breadcrumb -->
     <form id="booking_form" role="form" action="{{Route('airfpt.booking.postBooking')}}" method="POST" enctype="multipart/form-data">
-    {{ csrf_field() }}
+        {{ csrf_field() }}
         <div class="w-75 pr-2">
             <!-- One "booking_tab" for each booking_step in the form: -->
 
@@ -43,7 +43,7 @@
                         <li class="	fas fa-chevron-circle-left"></li> Previous
                     </button>
 
-                    <button  onclick="nextPrev(1)" class="btn btn-primary font-weight-bolder" type="button" id="booking_nextBtn">
+                    <button onclick="nextPrev(1)" class="btn btn-primary font-weight-bolder" type="button" id="booking_nextBtn">
                         Next <li class="fa fa-chevron-circle-right"></li>
                     </button>
                 </div>
@@ -59,10 +59,10 @@
 
 <script>
     $(document).ready(function() {
+        var adl = sessionStorage.getItem("adl");
+        var chd = sessionStorage.getItem("chd");
+        var inf = sessionStorage.getItem("inf");
 
-        let adl = sessionStorage.getItem("adl");
-        let chd = sessionStorage.getItem("chd");
-        let inf = sessionStorage.getItem("inf");
         $("#paxs").text((adl > 1 ? (adl + " Adults") : (adl + " Adult")) + (chd > 1 ? (", " + chd + " Children") : (chd == 1 ? (", " + chd + " Child") : "")) + (inf != 0 ? (", " + inf + " Infant" + (inf > 1 ? "s" : "")) : ""));
 
         for (let i = 1; i <= adl + chd + inf; i++) {
@@ -70,12 +70,17 @@
         }
     });
 
+    // MINIMUM AGE TO SET OF INFANT AND CHILDREN
+    var inf_min_yr = new Date().getFullYear() - 2;
+    var chd_min_yr = new Date().getFullYear() - 12;
+
+
     var currentTab = 0;
     showTab(currentTab);
 
-    function linkTabBackward(tab){
+    function linkTabBackward(tab) {
         let i = currentTab - tab;
-        while(i-- > 0 ){
+        while (i-- > 0) {
             nextPrev(-1);
         }
     }
@@ -88,13 +93,14 @@
         //     $('#booking_nextBtn').prop( "disabled", false );
         // }
         let tabs_arr = $(".booking_tab");
+        if (n > 0) {
+            if (!checkInputRequired(currentTab)) {
+                // function alert
 
-        if(!checkInputRequired(currentTab)){
-            // function alert
-            
-            return false;
+                return false;
+            }
         }
-
+        
         $(tabs_arr[currentTab]).css({
             'display': 'none'
         });
@@ -122,36 +128,142 @@
         n == (tabs_arr.length - 1) ? ($('#booking_nextBtn').html('Confirmed & Pay Now')) : ($('#booking_nextBtn').html('Next <li class="fa fa-chevron-circle-right"></li>'));
 
         fixStepIndicator(n);
-        if(n == 3){
+        if (n == 3) {
             show_payment_tab();
         }
     }
 
     function checkInputRequired(n) {
+
         switch (n) {
             case 0:
-                if(!$("input:radio[name='txt_ob_flight']").is(':checked')){
+                if (!$("input:radio[name='txt_ob_flight']").is(':checked')) {
                     alert('Please choose your outbound flight!');
                     return false;
-                }  
-                if($("input:radio[name='txt_ib_flight']").length ){
-                    if(!$("input:radio[name='txt_ib_flight']").is(':checked')){
+                }
+                if ($("input:radio[name='txt_ib_flight']").length) {
+                    if (!$("input:radio[name='txt_ib_flight']").is(':checked')) {
                         alert('Please choose your inbound flight!');
                         return false;
                     }
                 }
                 break;
             case 1:
-
+                if (!valid_details()) {
+                    return false;
+                }
                 break;
             case 2:
 
                 break;
             case 3:
-               
+
                 break;
-            
+
         }
+        return true;
+    }
+
+    function valid_details() {
+        const specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+
+        for (let i = 1; i <= adl + chd + inf; i++) {
+            // Check Last name
+            let last_name = $("#last_name" + i).val().trim();
+            if (last_name == '') {
+                $(".invalid-last_name" + i).html(
+                    '<small >Last name required*</small>'
+                );
+                $("#last_name" + i).focus();
+                return false;
+            } else {
+                $(".invalid-last_name" + i).empty();
+            }
+            if (specialChars.test(last_name)) {
+                $(".invalid-last_name" + i).html(
+                    '<small >Special character not allowed*</small>'
+                );
+                $("#last_name" + i).focus();
+                return false;
+            } else {
+                $(".invalid-last_name" + i).empty();
+            }
+            // Check First name
+            let first_name = $("#first_name" + i).val().trim();
+            if (first_name == '') {
+                $(".invalid-first_name" + i).html(
+                    '<small >First name required*</small>'
+                );
+                $("#first_name" + i).focus();
+                return false;
+            } else {
+                $(".invalid-first_name" + i).empty();
+            }
+            if (specialChars.test(last_name)) {
+                $(".invalid-first_name" + i).html(
+                    '<small >Special character not allowed*</small>'
+                );
+                $("#first_name" + i).focus();
+                return false;
+            } else {
+                $(".invalid-first_name" + i).empty();
+            }
+
+            // Check Phone
+            // Check DOB CHD
+            if (i > adl) {
+                let depart_date = new Date($("#ob_date").html());
+                let dob = new Date();
+                let y = parseInt($("#year" + i).val());
+                // JavaScript counts months from 0 to 11. Month 10 is November
+                let m = parseInt($("#month" + i).val());
+                let d = parseInt($("#day" + i).val());
+                if (isNaN(y) || isNaN(m) || isNaN(d)) {
+                    $(".invalid-dob" + i).html('<small >Pls input Children DOB*</small>');
+                    $(".invalid-dob" + i).focus();
+                    return false;
+                }
+
+                dob.setFullYear(y + 12, m - 1, d - 1);
+                dob.setHours(0);
+                dob.setMinutes(0);
+                dob.setSeconds(0);
+                if (dob < depart_date) {
+                    $(".invalid-dob" + i).html('<small >Children must be less than 12 yrs old on departure date*</small>');
+                    $(".invalid-dob" + i).focus();
+                    return false;
+                } else {
+                    $(".invalid-dob" + i).empty();
+                }
+            }
+            // Check DOB INF
+            if (i > adl + chd) {
+                let depart_date = new Date($("#ob_date").html());
+                let dob = new Date();
+                let y = parseInt($("#year" + i).val());
+                // JavaScript counts months from 0 to 11. Month 10 is November
+                let m = parseInt($("#month" + i).val());
+                let d = parseInt($("#day" + i).val());
+                if (isNaN(y) || isNaN(m) || isNaN(d)) {
+                    $(".invalid-dob" + i).html('<small >Pls input infant DOB*</small>');
+                    $(".invalid-dob" + i).focus();
+                    return false;
+                }
+                dob.setFullYear(y + 2, m - 1, d - 1);
+                dob.setHours(0);
+                dob.setMinutes(0);
+                dob.setSeconds(0);
+                if (dob < depart_date) {
+                    $(".invalid-dob" + i).html('<small >Infant must be less than 02 yrs old on departure date*</small>');
+                    $(".invalid-dob" + i).focus();
+                    return false;
+                } else {
+                    $(".invalid-dob" + i).empty();
+                }
+            }
+
+        }
+
         return true;
     }
     // This function removes the "active" class of all steps...
@@ -184,7 +296,6 @@
 
     $("select[id*='year']").change(function() {
         let id = $(this).attr('id').replace(/year/g, '');
-
         checkDay(id);
     });
 
@@ -192,6 +303,7 @@
         let id = $(this).attr('id').replace(/month/g, '');
         checkDay(id);
     });
+    // Display Month in short-form
     $("select[id*='month']").blur(function() {
         let id = $(this).attr('id').replace(/month/g, '');
         let month = $("#month" + id).val();
@@ -237,11 +349,14 @@
                 setDay(id);
             }
         }
+
+
     }
 
     function setDay(id) { // Set the day to the first day of the month
         let isLeap = false;
         var year = $("#year" + id).val();
+
         if (year % 4 == 0) {
             if (year % 100 == 0) {
                 if (year % 400 == 0)
@@ -258,6 +373,7 @@
 
         let month = $("#month" + id).val();
         let maxDay = 31;
+
         if (month == 2) {
             if (isLeap) {
                 maxDay = 29;
@@ -300,7 +416,19 @@
         for (let i = new Date().getFullYear(); i >= 1920; i--) {
             $("select[id*='year']").append("<option value='" + i + "'>" + i + "</option>");
         }
+        $("select[id*='year']").filter(".inf_year").html("<option value=''>Year</option>");
+        $("select[id*='year']").filter(".chd_year").html("<option value=''>Year</option>");
+        for (let i = new Date().getFullYear(); i >= chd_min_yr; i--) {
+
+            $("select[id*='year']").filter(".chd_year").append("<option value='" + i + "'>" + i + "</option>");
+        }
+        for (let i = new Date().getFullYear(); i >= inf_min_yr; i--) {
+
+            $("select[id*='year']").filter(".inf_year").append("<option value='" + i + "'>" + i + "</option>");
+        }
     }
+
+
 
     // function checkLeapYear(id) {
 
@@ -327,7 +455,7 @@
     var seatNOT = document.querySelectorAll('.seat-disabled_trung')
     seatNOT.forEach(item => {
         item.addEventListener("click", () => {
-            alert("Cannot select this seat")
+            alert("Cannot select this seat");
         })
     })
     var seatOK = document.querySelectorAll('.seat-available_trung')
