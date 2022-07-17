@@ -35,7 +35,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="txt-etd">Estimated Time of Departure (ETD)</label>
-                                <input type="text" class="form-control" id="txt-etd" name="etd" placeholder="hh:mm">
+                                <input type="time" class="form-control" id="txt-etd" name="etd" placeholder="hh:mm">
                             </div>
                             <div class="form-group">
                                 <label for="txt-gate">Gate</label>

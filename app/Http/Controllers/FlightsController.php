@@ -32,9 +32,9 @@ class FlightsController extends Controller
         $f->gate = $flights['gate'];
         $f->ac_id = $flights['acid'];
         print_r($f->id);
-        
-        File::copy(public_path('./sm/sm_aircrafts/'.$flt->seatmap), public_path('./sm/sm_flights/'.$flights['date'].'-'.$flights['number'].$flt->seatmap));
-        $f->current_seatmap = $flights['date'].'-'.$flights['number'].'-'.$flt->seatmap;
+
+        File::copy(public_path('./sm/sm_aircrafts/' . $flt->seatmap), public_path('./sm/sm_flights/' . $flights['date'] . '-' . $flights['number'] . '-' . $flt->seatmap));
+        $f->current_seatmap = $flights['date'] . '-' . $flights['number'] . '-' . $flt->seatmap;
 
         $f->flight_status = $flights['status'];
         $f->base_price = $flights['price'];
@@ -45,14 +45,14 @@ class FlightsController extends Controller
     {
         $f = Flights::find($id);
         $flight_num = DB::table('routes')->get();
-        return view('admin.flight.update', ['f' => $f, 'flight_num' => $flight_num]);
+        return view('admin.flights.update', ['f' => $f, 'flight_num' => $flight_num]);
     }
     public function postUpdate(Request $request, $id)
     {
         $flights = $request->all();
         $f = Flights::find($id);
         $f->id = $flights['id'];
-        $f->flight_num = $flights['number'];
+        $f->flight_number = $flights['number1'];
         $f->date = $flights['date'];
         $f->ETD = $flights['etd'];
         $f->gate = $flights['gate'];
@@ -64,8 +64,8 @@ class FlightsController extends Controller
     }
     public function delete($id)
     {
-
         $f = Flights::find($id);
+        File::delete(public_path('./sm/sm_flights/' . $f->current_seatmap));
         $f->delete();
         return redirect()->route('admin.flights.index');
     }

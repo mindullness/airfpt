@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title')</title>
+    <title><?php echo $__env->yieldContent('title'); ?></title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initialscale=1">
     <!-- awesome icons - fonts -->
@@ -19,7 +19,7 @@
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('./css/layoutstyle.css')}}">
+    <link rel="stylesheet" href="<?php echo e(asset('./css/layoutstyle.css')); ?>">
 
 </head>
 
@@ -28,23 +28,24 @@
 <body>
 
     <!-- Header -->
-    @include('airfpt.layout.header')
+    <?php echo $__env->make('airfpt.layout.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <!-- /.header -->
     <div class="mt-4"></div>
     <!-- Content Wrapper. Contains page content -->
-    @yield('content')
+    <?php echo $__env->yieldContent('content'); ?>
     <!-- /.content -->
 
 
     <!-- /.content-wrapper -->
-    @include('airfpt.layout.footer')
+    <?php echo $__env->make('airfpt.layout.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 
 
     <!-- page script -->
 
 </body>
-<script src="{{asset('js/userIndex.js')}}" type="text/javascript"></script>
-<script src="{{asset('js/trung.js')}}" type="text/javascript"></script>
+<script src="<?php echo e(asset('js/userIndex.js')); ?>" type="text/javascript"></script>
+<script src="<?php echo e(asset('js/trung.js')); ?>" type="text/javascript"></script>
 
 </html>
+<?php /**PATH E:\xampp\htdocs\AirFPT\resources\views/airfpt/layout/layout.blade.php ENDPATH**/ ?>

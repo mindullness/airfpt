@@ -51,7 +51,7 @@
                                 <td>{{ $f->id }}</td>
                                 <td>{{ $f->flight_number }}</td>
                                 <td>{{ $f->date }}</td>
-                                <td>{{ $f->ETD }}</td>
+                                <td>{{ $f->etd }}</td>
                                 <td>{{ $f->gate }}</td>
                                 <td>{{ $f->ac_id }}</td>
                                 <td>{{ $f->flight_status }}</td>
@@ -63,7 +63,7 @@
                                     <a class="btn btn-info btn-sm" href="{{Route('admin.flights.update', $f->id)}}">
                                         <i class="fas fa-pencil-alt"></i> Edit
                                     </a>
-                                    <a class="btn btn-danger btn-sm" href="{{Route('admin.flights.delete', $f->id)}}">
+                                    <a class="btn btn-danger btn-sm" id="deleteBtn{{$f->id}}" onclick="myFunc(this.id)">
                                         <i class="fas fa-trash"></i> Delete
                                     </a>
                                 </td>
@@ -77,6 +77,7 @@
                                 <th>DEPARTURE DATE</th>
                                 <th>ESTIMATED TIME OF DEPARTURE (ETD)</th>
                                 <th>GATE</th>
+                                <th>A/C ID</th>
                                 <th>FLIGHT STATUS</th>
                                 <th>BASE PRICE</th>
                                 <th></th>
@@ -105,5 +106,17 @@
             "autoWidth": true,
         });
     });
+    myFunc = (id) => {
+        console.log(id);
+        var href = ''
+        const deleteBtn = document.getElementById(id)
+        if (confirm("Are you sure")) {
+            href = "{{Route('admin.flights.delete', $f->id)}}"
+            console.log(href);
+        } else {
+            href = ''
+        }
+        deleteBtn.setAttribute('href', href)
+    }
 </script>
 @endsection

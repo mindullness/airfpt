@@ -22,20 +22,20 @@
                             </div>
                             <div class="form-group">
                                 <label for="txt-number">Flight number</label>
-                                <select name="number" id="number" class="form-control ">
-                                    <option value="{{ $f->flight_num }}">{{ $f->flight_num }}</option>
-                                    @foreach($flight_num as $num)
-                                    <option value="{{$num->id}}">{{$num->id}}</option>
-                                    @endforeach
+                                <select name="number1" id="number" class="form-control" readonly>
+                                    <!-- <option value="{{ $f->flight_num }}">{{ $f->flight_num }}</option> -->
+                                    <!-- @foreach($flight_num as $num) -->
+                                    <option value="{{$f->flight_number}}">{{$f->flight_number}}</option>
+                                    <!-- @endforeach -->
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="txt-date">Date</label>
-                                <input type="date" class="form-control" id="txt-date" name="date" value="{{ $f->date }}">
+                                <input type="date" class="form-control" id="txt-date" name="date" value="{{ $f->date }}" readonly>
                             </div>
                             <div class="form-group">
                                 <label for="txt-etd">ETD</label>
-                                <input type="text" class="form-control" id="txt-etd" name="etd" value="{{ $f->ETD }}">
+                                <input type="time" class="form-control" id="txt-etd" name="etd" value="{{ $f->etd }}">
                             </div>
                             <div class="form-group">
                                 <label for="txt-gate">Gate</label>
@@ -43,15 +43,15 @@
                             </div>
                             <div class="form-group">
                                 <label for="txt-acid">AC ID</label>
-                                <input type="text" class="form-control" id="txt-acid" name="acid" value="{{ $f->ac_id }}">
+                                <input type="text" class="form-control" id="txt-acid" name="acid" value="{{ $f->ac_id }}" readonly>
                             </div>
                             <div class="form-group">
                                 <label for="txt-status">Flight status</label>
-                                <input type="text" class="form-control" id="txt-status" name="status" value="{{ $f->flight_status }}">
+                                <input type="text" class="form-control" id="txt-status" name="status" value="{{ $f->flight_status }}" readonly>
                             </div>
                             <div class="form-group">
                                 <label for="txt-price">Base Price</label>
-                                <input type="text" class="form-control" id="txt-price" name="price" value="{{ $f->base_price }}">
+                                <input type="text" class="form-control" id="txt-price" name="price" value="{{ $f->base_price }}" readonly>
                             </div>
                         </div>
                         <!-- /.card-body -->
