@@ -54,8 +54,8 @@
                 <!-- News -->
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>
+                    <img class="align-text-top mt-0 pt-0" src="{{asset('img/news-icon.jpg')}}"width="26" height="25" alt="" style="border-radius:  5px; padding-left: 1px; opacity:0.9;">
+                        <p>&nbsp;
                             News
                             <i class="right fas fa-angle-left"></i>
                         </p>

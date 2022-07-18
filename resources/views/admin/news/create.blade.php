@@ -24,7 +24,7 @@
                         </div>
                     @endif
                     <!-- form start -->
-                    <form role="form" action="{{ Route('admin.news.postCreate') }}" method="post" enctype="multipart/form-data">
+                    <form class="mt-3" role="form" action="{{ Route('admin.news.postCreate') }}" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div class="card-body">
                            

@@ -68,10 +68,10 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th>#</th>
+                            <th>#</th>
                                 <th>A/C ID</th>
                                 <th>A/C REGISTRATION</th>
-                                <th>CONFIGURATION</th>
+                                <th>A/C CONFIGURATION</th>
                                 <th>A/C TYPE</th>
                                 <th>A/C IMAGE</th>
                                 <th>A/C SEATMAP</th>

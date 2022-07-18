@@ -2,14 +2,14 @@
 
 <?php $__env->startSection('title', 'AirFpt News'); ?>
 <?php $__env->startSection('content'); ?>
-<section class="content">
-    <div class="container-fluid">
-        <div class="row">
+<section class="content ">
+    <div class="container-fluid ">
+        <div class="row ">
             <div class="offset-md-3 col-md-6">
                 <!-- general form elements -->
                 <div class="card card-primary">
-                    <div class="card-header">
-                        <h3 class="card-title">Reply Feedback</h3>
+                    <div class="card-header mt-3">
+                        <h3 class="card-title ">Reply Feedback</h3>
                     </div>
                     <!-- /.card-header -->
                     <?php if($errors->any()): ?>

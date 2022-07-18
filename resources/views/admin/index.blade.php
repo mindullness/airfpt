@@ -35,17 +35,16 @@
                 <!-- small box -->
                 <div class="small-box bg-success">
                     <div class="inner">
-                        <h3>Flights</h3>
-
-                        <p>View Flights</p>
+                        <h3>Routes</h3>
+                        <p>View Routes</p>
                     </div>
                     <div class="icon">
-                        <i class="nav-icon"><img class="align-text-top mt-0 pt-0" src="{{asset('img/flight-icon.png')}}" width="63" alt="" style="border-radius: 15px; opacity:0.8;"></i>
+                        <i class="nav-icon"><img class="align-text-top mt-0 pt-0" src="{{asset('img/route-icon.jpg')}}" width="63" height="60" alt="" style="border-radius: 12px; opacity:0.6;"></i>
                     </div>
-                    <a href="{{Route('admin.flights.index')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="{{Route('admin.routes.index')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
-            <!-- ./col -->
+            
             <div class="col-lg-3 col-6">
                 <!-- small box -->
                 <div class="small-box bg-warning">
@@ -80,19 +79,22 @@
         <!-- /.row -->
         <!-- Small boxes (Stat box) -->
         <div class="row">
-            <div class="col-lg-3 col-6">
+        <div class="col-lg-3 col-6">        
                 <!-- small box -->
-                <div class="small-box bg-info">
+                <div class="small-box bg-primary">
                     <div class="inner">
-                        <h3>Routes</h3>
-                        <p>View Routes</p>
+                        <h3>Flights</h3>
+
+                        <p>View Flights</p>
                     </div>
                     <div class="icon">
-                        <i class="nav-icon"><img class="align-text-top mt-0 pt-0" src="{{asset('img/route-icon.jpg')}}" width="63" height="60" alt="" style="border-radius: 12px; opacity:0.6;"></i>
+                        <i class="nav-icon"><img class="align-text-top mt-0 pt-0" src="{{asset('img/flight-icon.png')}}" width="63" alt="" style="border-radius: 15px; opacity:0.8;"></i>
                     </div>
-                    <a href="{{Route('admin.routes.index')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="{{Route('admin.flights.index')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
+            <!-- ./col -->
+
             <!-- ./col -->
             <div class="col-lg-3 col-6">
                 <!-- small box -->
@@ -102,7 +104,7 @@
                         <p>View News</p>
                     </div>
                     <div class="icon">
-                        <i class="nav-icon"><img class="align-text-top mt-0 pt-0" src="{{asset('img/news-icon.jpg')}}" width="63" height="60" alt="" style="border-radius: 12px; opacity:0.9;"></i>
+                        <i class="nav-icon"><img class="align-text-top mt-0 pt-0" src="{{asset('img/news-icon.jpg')}}" width="66" height="64" alt="" style="border-radius: 12px; opacity:0.9;"></i>
                     </div>
                     <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>

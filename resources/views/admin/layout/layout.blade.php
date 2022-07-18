@@ -36,7 +36,7 @@
         <!-- /.header -->
         @include('admin.layout.main-sidebar')
         <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper" style="background-image: url('./img/bg-admin.jpg') ;">
+        <div class="content-wrapper" style="background-image: url('./img/bg-admin.jpg'); background-repeat:no-repeat;background-size: cover;">
             @yield('content')
             <!-- /.content -->
         </div>

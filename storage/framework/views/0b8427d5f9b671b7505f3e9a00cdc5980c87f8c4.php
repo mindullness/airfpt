@@ -24,7 +24,7 @@
                         </div>
                     <?php endif; ?>
                     <!-- form start -->
-                    <form role="form" action="<?php echo e(Route('admin.news.postCreate')); ?>" method="post" enctype="multipart/form-data">
+                    <form class="mt-3" role="form" action="<?php echo e(Route('admin.news.postCreate')); ?>" method="post" enctype="multipart/form-data">
                         <?php echo e(csrf_field()); ?>
 
                         <div class="card-body">

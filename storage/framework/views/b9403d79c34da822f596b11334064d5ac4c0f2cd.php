@@ -36,7 +36,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="txt-etd">Estimated Time of Departure (ETD)</label>
-                                <input type="text" class="form-control" id="txt-etd" name="etd" placeholder="hh:mm">
+                                <input type="time" class="form-control" id="txt-etd" name="etd" placeholder="hh:mm">
                             </div>
                             <div class="form-group">
                                 <label for="txt-gate">Gate</label>
@@ -75,4 +75,5 @@
     });
 </script>
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('admin.layout.layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Myself\xampp\htdocs\airfpt\resources\views/admin/flights/create.blade.php ENDPATH**/ ?>

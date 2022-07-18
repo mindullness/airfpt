@@ -20,7 +20,7 @@
 </section>
 
 <!-- Main content -->
-<section class="content">
+<section class="content mt-3">
     <div class="row">
         <div class="col-12">
             <div class="card">

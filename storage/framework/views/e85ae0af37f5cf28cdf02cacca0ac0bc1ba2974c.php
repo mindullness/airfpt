@@ -36,7 +36,7 @@
         <!-- /.header -->
         <?php echo $__env->make('admin.layout.main-sidebar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper" style="background-image: url('./img/bg-admin.jpg') ;">
+        <div class="content-wrapper" style="background-image: url('./img/bg-admin.jpg'); background-repeat:no-repeat;background-size: cover;">
             <?php echo $__env->yieldContent('content'); ?>
             <!-- /.content -->
         </div>
