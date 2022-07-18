@@ -1,0 +1,1 @@
+<?php /**PATH C:\Myself\xampp\htdocs\airfpt\resources\views/admin/layout/nav-bar.blade.php ENDPATH**/ ?>
