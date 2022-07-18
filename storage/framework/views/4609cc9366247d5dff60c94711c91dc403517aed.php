@@ -1,6 +1,6 @@
-@extends('airfpt.layout.layout')
-@section('title', 'select seat')
-@section('content')
+
+<?php $__env->startSection('title', 'select seat'); ?>
+<?php $__env->startSection('content'); ?>
 <div class="container" style="margin-top: 7rem;">
     <div class="row mt-5">
         <div class="col-md-4 seatmap-container_trung">
@@ -75,10 +75,10 @@
                     <div style="width: 30px; height: 30px; font-weight: bold;">E</div>
                     <div style="width: 30px; height: 30px; font-weight: bold;">F</div>
                 </div>
-                @foreach ($seatmap as $key => $value)
+                <?php $__currentLoopData = $seatmap; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <div class="seat-row_trung">
-                    @foreach ($value as $row => $stt)
-                    <div class="seat-unit-{{$row}} <?php if ($stt === 1) {
+                    <?php $__currentLoopData = $value; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $row => $stt): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <div class="seat-unit-<?php echo e($row); ?> <?php if ($stt === 1) {
                                                         echo "seat-available_trung";
                                                     } else if ($stt === 0) {
                                                         echo "seat-disabled_trung";
@@ -87,19 +87,19 @@
                                                     }
                                                     ?>">
                         <div>
-                            <span style="display: none;">{{$key.$row}}</span>
+                            <span style="display: none;"><?php echo e($key.$row); ?></span>
                         </div>
                     </div>
-                    @endforeach
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </div>
-                @endforeach
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
             <div data-v-003b1ae4="" class="plane-tail-wrapper_trung">
                 <div data-v-003b1ae4="" class="plane-tail_trung"></div>
             </div>
         </div>
         <div class="col-md-7 offset-md-1">
-            <form action="{{Route('manageBooking.showseat')}}">
+            <form action="<?php echo e(Route('manageBooking.showseat')); ?>">
                 <table class="table table_trung table-bordered seatmap-table-bordered_trung">
                     <thead class="table-header_trung">
                         <tr class="text-center">
@@ -108,22 +108,24 @@
                         </tr>
                     </thead>
                     <tbody class="table-body_trung">
-                        @foreach($booking as $booking)
+                        <?php $__currentLoopData = $booking; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $booking): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <tr>
-                            @foreach($booking as $booking)
+                            <?php $__currentLoopData = $booking; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $booking): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <td style="padding-left: 30px;">
-                                {{$booking -> title}}.
-                                {{$booking -> first_name}}
-                                {{$booking -> last_name}}
+                                <?php echo e($booking -> title); ?>.
+                                <?php echo e($booking -> first_name); ?>
+
+                                <?php echo e($booking -> last_name); ?>
+
                             </td>
-                            <td id="{{$booking -> id}}" class="seatno_trung text-center" style=" border: 1px solid #4db748 !important;box-shadow: 0px 0px 10px 3px #4db748">
-                                <input class="seatInput_trung" type="text" name="{{$booking->id}}">
+                            <td id="<?php echo e($booking -> id); ?>" class="seatno_trung text-center" style=" border: 1px solid #4db748 !important;box-shadow: 0px 0px 10px 3px #4db748">
+                                <input class="seatInput_trung" type="text" name="<?php echo e($booking->id); ?>">
                                 <button class="btn btn-sm btn-outline-success remove-seat-btn" style="display: none;"><span>x</span></button>
-                                <input style="display: none;" type="text" name="flightNum" value="{{$flightNum}}">
+                                <input style="display: none;" type="text" name="flightNum" value="<?php echo e($flightNum); ?>">
                             </td>
-                            @endforeach
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </tr>
-                        @endforeach
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </tbody>
                 </table>
                 <button id="confirmBtn" type="submit" class="btn btn-primary">Confirm</button>
@@ -131,4 +133,6 @@
         </div>
     </div>
 </div>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('airfpt.layout.layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\xampp\htdocs\AirFPT\resources\views/manageBooking/seat.blade.php ENDPATH**/ ?>
