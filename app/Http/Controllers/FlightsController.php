@@ -18,7 +18,8 @@ class FlightsController extends Controller
     public function create()
     {
         $flight_num = DB::table('routes')->get();
-        return view('admin.flights.create')->with(['flight_num' => $flight_num]);
+        $aircrafts = DB::table('aircrafts')->get();
+        return view('admin.flights.create')->with(['flight_num' => $flight_num, 'aircrafts'=>$aircrafts]);
     }
     public function postCreate(Request $request)
     {
@@ -31,7 +32,6 @@ class FlightsController extends Controller
         $f->etd = $flights['etd'];
         $f->gate = $flights['gate'];
         $f->ac_id = $flights['acid'];
-        print_r($f->id);
 
         File::copy(public_path('./sm/sm_aircrafts/' . $flt->seatmap), public_path('./sm/sm_flights/' . $flights['date'] . '-' . $flights['number'] . '-' . $flt->seatmap));
         $f->current_seatmap = $flights['date'] . '-' . $flights['number'] . '-' . $flt->seatmap;

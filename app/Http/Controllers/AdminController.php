@@ -13,7 +13,15 @@ class AdminController extends Controller
     }
 
     public function display_pax_booking(){
-        $bookings = Bookings::orderBy('created_at', 'desc')->get();
+        $bookings = Bookings::leftjoin('infants', 'bookings.inf_id', '=', 'infants.id')
+            ->orderBy('bookings.created_at', 'desc')
+            ->select(
+                'bookings.*',
+                'infants.last_name as inf_last_name',
+                'infants.first_name as inf_first_name',
+                'infants.dob as inf_dob'
+            )
+            ->get();
         
         return view('admin.passenger.index', ['bookings'=>$bookings]);
     }

@@ -36,6 +36,7 @@
                                 <th>PNR</th>
                                 <th>LAST NAME</th>
                                 <th>MID/FIRST NAME</th>
+                                <th>INFANT ACCOMPANIED</th>
                                 <th>GENDER</th>
                                 <th>PRICE</th>
                             </tr>
@@ -47,6 +48,11 @@
                                 <td>{{ $b->PNR }}</td>
                                 <td>{{ $b->last_name }}</td>
                                 <td>{{ $b->first_name }}</td>
+                                <td>
+                                @if($b->inf_last_name!= '')
+                                    {{$b->inf_last_name}} {{$b->inf_first_name}} <br> <small>DOB: {{date("dMY", strtotime("$b->inf_dob"))}}</small>
+                                @endif
+                                </td>
                                 <td>{{ strtoupper($b->gender) }}</td>
                                 <td>{{ number_format("$b->price", 0, "," , ".") }}</td>
 
@@ -59,6 +65,7 @@
                                 <th>PNR</th>
                                 <th>LAST NAME</th>
                                 <th>MID/FIRST NAME</th>
+                                <th>INFANT ACCOMPANIED</th>
                                 <th>GENDER</th>
                                 <th>PRICE</th>
                             </tr>

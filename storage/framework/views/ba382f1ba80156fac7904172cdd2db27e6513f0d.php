@@ -36,6 +36,7 @@
                                 <th>PNR</th>
                                 <th>LAST NAME</th>
                                 <th>MID/FIRST NAME</th>
+                                <th>INFANT ACCOMPANIED</th>
                                 <th>GENDER</th>
                                 <th>PRICE</th>
                             </tr>
@@ -47,6 +48,11 @@
                                 <td><?php echo e($b->PNR); ?></td>
                                 <td><?php echo e($b->last_name); ?></td>
                                 <td><?php echo e($b->first_name); ?></td>
+                                <td>
+                                <?php if($b->inf_last_name!= ''): ?>
+                                    <?php echo e($b->inf_last_name); ?> <?php echo e($b->inf_first_name); ?> <br> <small>DOB: <?php echo e(date("dMY", strtotime("$b->inf_dob"))); ?></small>
+                                <?php endif; ?>
+                                </td>
                                 <td><?php echo e(strtoupper($b->gender)); ?></td>
                                 <td><?php echo e(number_format("$b->price", 0, "," , ".")); ?></td>
 
@@ -59,6 +65,7 @@
                                 <th>PNR</th>
                                 <th>LAST NAME</th>
                                 <th>MID/FIRST NAME</th>
+                                <th>INFANT ACCOMPANIED</th>
                                 <th>GENDER</th>
                                 <th>PRICE</th>
                             </tr>

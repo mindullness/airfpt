@@ -199,30 +199,58 @@
                 <!-- END of TRUNG -->
             </div>
             <!-- End other tab -->
-        </div>
-    </div>
+            <!-- PHUC DUY -->
+            <div class="tab-pane fade" id="flight_status" role="tabpanel" aria-labelledby="manage_my_booking-tab">
+                <div class="container d-flex justify-content-center form-wrapper">
+                    <div class="form-container col-md-5">
+                        <form role="form" action="{{ Route('manageBooking.flightStatusShow') }}" method="" enctype="multipart/form-data">
+                            {{ csrf_field() }}
+                            <div class="form-box d-flex flex-column">
+                                <label for="" class="form-label">Flight Number</label>
+                                <input type="text" name="flightNum" id="flightNum" class="form-input">
+                                @if($errors->has('flightNum'))
+                                <p class="form-error text-danger">{{$errors->first('flightNum')}}</p>
+                                @endif
+                            </div>
+                            <div class="form-box d-flex flex-column">
+                                <label for="" class="form-label">Departure Date</label>
+                                <input type="date" name="date" id="date" class="form-input">
+                                @if($errors->has('date'))
+                                <p class="form-error text-danger">{{$errors->first('date')}}</p>
+                                @endif
+                            </div>
+                            <div>
+                                <button type="submit" name="submit" class="btn btn-primary btn-md btn-block">Show booking</button>
+                            </div>
+                        </form>
 
-</div>
+                    </div>
+                </div>
 
-<div class="row container newsContainer">
-
-    @foreach($news as $n)
-
-    <div class="col-lg-6 mx-0 mb-2 p-2 eachIndexNews">
-        <a href="{{  route('airfpt.user.details',$n->id) }}">
-            <img src="{{ url('./img/trucduy/'.$n->image) }}" width="98%" class="z-depth-0 " alt="">
-            <h3 class="newsTitle" style="height: 60px;">{{$n->topic}}</h3>
-            <div class="newsJumpArrow text-light font-weight-bold">
-                <a href="{{  route('airfpt.user.details',$n->id) }}">
-                    <span class="d-block pb-2 text-light">Let's Go</span>
-                    <li class="far fa-arrow-alt-circle-right d-block m-1 p-0 text-warning font-weight-bold"></li>
-                </a>
             </div>
-        </a>
+        </div>
+
     </div>
-    @endforeach
-</div>
+
+    <div class="row container newsContainer">
+
+        @foreach($news as $n)
+
+        <div class="col-lg-6 mx-0 mb-2 p-2 eachIndexNews">
+            <a href="{{  route('airfpt.user.details',$n->id) }}">
+                <img src="{{ url('./img/trucduy/'.$n->image) }}" width="98%" class="z-depth-0 " alt="">
+                <h3 class="newsTitle" style="height: 60px;">{{$n->topic}}</h3>
+                <div class="newsJumpArrow text-light font-weight-bold">
+                    <a href="{{  route('airfpt.user.details',$n->id) }}">
+                        <span class="d-block pb-2 text-light">Let's Go</span>
+                        <li class="far fa-arrow-alt-circle-right d-block m-1 p-0 text-warning font-weight-bold"></li>
+                    </a>
+                </div>
+            </a>
+        </div>
+        @endforeach
+    </div>
 
 
-@include('airfpt.subcribe_panel')
-@endsection
+    @include('airfpt.subcribe_panel')
+    @endsection

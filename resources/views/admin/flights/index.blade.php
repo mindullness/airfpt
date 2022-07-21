@@ -37,7 +37,7 @@
                                 <th>ID</th>
                                 <th>FLIGHT NUMBER</th>
                                 <th>DEPARTURE DATE</th>
-                                <th>ESTIMATED TIME OF DEPARTURE (ETD)</th>
+                                <th>ETD</th>
                                 <th>GATE</th>
                                 <th>A/C ID</th>
                                 <th>FLIGHT STATUS</th>
@@ -75,7 +75,7 @@
                                 <th>ID</th>
                                 <th>FLIGHT NUMBER</th>
                                 <th>DEPARTURE DATE</th>
-                                <th>ESTIMATED TIME OF DEPARTURE (ETD)</th>
+                                <th>ETD</th>
                                 <th>GATE</th>
                                 <th>A/C ID</th>
                                 <th>FLIGHT STATUS</th>

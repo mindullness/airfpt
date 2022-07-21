@@ -200,31 +200,60 @@
                 <!-- END of TRUNG -->
             </div>
             <!-- End other tab -->
-        </div>
-    </div>
+            <!-- PHUC DUY -->
+            <div class="tab-pane fade" id="flight_status" role="tabpanel" aria-labelledby="manage_my_booking-tab">
+                <div class="container d-flex justify-content-center form-wrapper">
+                    <div class="form-container col-md-5">
+                        <form role="form" action="<?php echo e(Route('manageBooking.flightStatusShow')); ?>" method="" enctype="multipart/form-data">
+                            <?php echo e(csrf_field()); ?>
 
-</div>
+                            <div class="form-box d-flex flex-column">
+                                <label for="" class="form-label">Flight Number</label>
+                                <input type="text" name="flightNum" id="flightNum" class="form-input">
+                                <?php if($errors->has('flightNum')): ?>
+                                <p class="form-error text-danger"><?php echo e($errors->first('flightNum')); ?></p>
+                                <?php endif; ?>
+                            </div>
+                            <div class="form-box d-flex flex-column">
+                                <label for="" class="form-label">Departure Date</label>
+                                <input type="date" name="date" id="date" class="form-input">
+                                <?php if($errors->has('date')): ?>
+                                <p class="form-error text-danger"><?php echo e($errors->first('date')); ?></p>
+                                <?php endif; ?>
+                            </div>
+                            <div>
+                                <button type="submit" name="submit" class="btn btn-primary btn-md btn-block">Show booking</button>
+                            </div>
+                        </form>
 
-<div class="row container newsContainer">
+                    </div>
+                </div>
 
-    <?php $__currentLoopData = $news; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $n): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-
-    <div class="col-lg-6 mx-0 mb-2 p-2 eachIndexNews">
-        <a href="<?php echo e(route('airfpt.user.details',$n->id)); ?>">
-            <img src="<?php echo e(url('./img/trucduy/'.$n->image)); ?>" width="98%" class="z-depth-0 " alt="">
-            <h3 class="newsTitle" style="height: 60px;"><?php echo e($n->topic); ?></h3>
-            <div class="newsJumpArrow text-light font-weight-bold">
-                <a href="<?php echo e(route('airfpt.user.details',$n->id)); ?>">
-                    <span class="d-block pb-2 text-light">Let's Go</span>
-                    <li class="far fa-arrow-alt-circle-right d-block m-1 p-0 text-warning font-weight-bold"></li>
-                </a>
             </div>
-        </a>
+        </div>
+
     </div>
-    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-</div>
+
+    <div class="row container newsContainer">
+
+        <?php $__currentLoopData = $news; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $n): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
+        <div class="col-lg-6 mx-0 mb-2 p-2 eachIndexNews">
+            <a href="<?php echo e(route('airfpt.user.details',$n->id)); ?>">
+                <img src="<?php echo e(url('./img/trucduy/'.$n->image)); ?>" width="98%" class="z-depth-0 " alt="">
+                <h3 class="newsTitle" style="height: 60px;"><?php echo e($n->topic); ?></h3>
+                <div class="newsJumpArrow text-light font-weight-bold">
+                    <a href="<?php echo e(route('airfpt.user.details',$n->id)); ?>">
+                        <span class="d-block pb-2 text-light">Let's Go</span>
+                        <li class="far fa-arrow-alt-circle-right d-block m-1 p-0 text-warning font-weight-bold"></li>
+                    </a>
+                </div>
+            </a>
+        </div>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+    </div>
 
 
-<?php echo $__env->make('airfpt.subcribe_panel', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-<?php $__env->stopSection(); ?>
+    <?php echo $__env->make('airfpt.subcribe_panel', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <?php $__env->stopSection(); ?>
 <?php echo $__env->make('airfpt.layout.layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Myself\xampp\htdocs\airfpt\resources\views/airfpt/index.blade.php ENDPATH**/ ?>

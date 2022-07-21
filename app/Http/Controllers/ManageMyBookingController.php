@@ -21,7 +21,7 @@ class ManageMyBookingController extends Controller
             ->join('flights', 'bookings.flight_id', '=', 'flights.id')
             ->join('routes', 'flights.flight_number', '=', 'routes.id')
             ->where('PNR', $pnr)
-            ->where('last_name', $lastname)
+            // ->where('last_name', $lastname)
             ->select(
                 'flights.flight_number',
                 'flights.date',

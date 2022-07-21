@@ -7,12 +7,15 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>DataTables</h1>
+                <h1>
+                    <img class="align-text-top mt-0 pt-0" src="<?php echo e(asset('img/news-icon.jpg')); ?>" width="50" height="48" alt="" style="border-radius:  5px; padding-left: 1px;">
+                    News
+                </h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="<?php echo e(Route('admin.index')); ?>">Home</a></li>
-                    <li class="breadcrumb-item active">DataTables</li>
+                    <li class="breadcrumb-item active">News</li>
                 </ol>
             </div>
         </div>
@@ -45,7 +48,7 @@
                         <tbody>
                             <?php $__currentLoopData = $news; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $n): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <tr>
-                            <td><?php echo e($n->id); ?></td>
+                                <td><?php echo e($n->id); ?></td>
                                 <td><?php echo e($n->topic); ?></td>
                                 <td><?php echo e($n->title); ?></td>
                                 <td> <?php echo e(Str::limit($n->content, 200)); ?></td>
@@ -71,7 +74,7 @@
                 </div>
 
 
-   
+
                 <!-- /.card-body -->
             </div>
             <!-- /.card -->

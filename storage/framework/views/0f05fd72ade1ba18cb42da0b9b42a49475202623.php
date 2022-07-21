@@ -97,12 +97,12 @@
             '<div class="col-md mb-3">' +
             '<label for="invalidationCustom02">Last name</label>' +
             '<input required type="text" class="form-control adl_last_name" name="last_name' + p + '" id="last_name' + p + '" placeholder="As given in passport/ID" value="" autocomplete="on">' +
-            '<i class="invalid-last_name'+p+'"></i>' +
+            '<i style="color:red;" class="invalid-last_name'+p+'"></i>' +
             '</div>' +
             '<div class="col-md mb-3">' +
             '<label for="invalidationCustom02">Middle & First name</label>' +
             '  <input required type="text" class="form-control adl_first_name" name="first_name' + p + '" id="first_name' + p + '" placeholder="As given in passport/ID" value="" autocomplete="on">' +
-            '<i class="invalid-first_name'+p+'"></i>' +
+            '<i style="color:red;" class="invalid-first_name'+p+'"></i>' +
             ' </div>' +
             ' </div>' +
             ' <div class="form-row d-flex justify-content-between">' +
@@ -116,7 +116,7 @@
             '    <label for="month" class="input-group-prepend"><i class="fa fa-calendar-alt input-group-text"></i></label>' +
             '    <select required name="month' + p + '" id="month' + p + '" class="form-control" onfocus="setMonth(' + p + ');"></select>' +
             '     <label for="year" class="input-group-prepend"><i class="fa fa-calendar-alt input-group-text"></i></label>' +
-            '    <select required name="year' + p + '" id="year' + p + '" class="form-control chd_year">' +
+            '    <select required name="year' + p + '" id="year' + p + '" class="form-control">' +
             '        <option value="">Year</option>' +
             '    </select>' +
             '  </div>' +
@@ -147,12 +147,12 @@
             '<div class="col-md mb-3">' +
             '<label for="invalidationCustom02">Last name</label>' +
             '<input required type="text" class="form-control" name="last_name' + p + '" id="last_name' + p + '" placeholder="As given in passport/ID" value="" required>' +
-            '<div class="invalid-last_name'+p+'"></div>' +
+            '<div style="color:red;" class="invalid-last_name'+p+'"></div>' +
             '</div>' +
             '<div class="col-md mb-3">' +
             '<label for="invalidationCustom02">Middle & First name</label>' +
             '  <input required type="text" class="form-control" name="first_name' + p + '" id="first_name' + p + '" placeholder="As given in passport/ID" value="" required>' +
-            '<div class="invalid-first_name'+p+'"></div>' +
+            '<div style="color:red;" class="invalid-first_name'+p+'"></div>' +
             ' </div>' +
             ' </div>' +
             ' <div class="form-row d-flex justify-content-between">' +
@@ -197,12 +197,12 @@
             '<div class="col-md mb-3">' +
             '<label for="invalidationCustom02">Last name</label>' +
             '<input required type="text" class="form-control" name="last_name' + p + '" id="last_name' + p + '" placeholder="As given in passport/ID" value="" required>' +
-            '<div class="invalid-last_name'+p+'"></div>' +
+            '<div style="color:red;" class="invalid-last_name'+p+'"></div>' +
             '</div>' +
             '<div class="col-md mb-3">' +
             '<label for="invalidationCustom02">Middle & First name</label>' +
             '  <input required type="text" class="form-control" name="first_name' + p + '" id="first_name' + p + '" placeholder="As given in passport/ID" value="" required>' +
-            '<div class="invalid-first_name'+p+'"></div>' +
+            '<div style="color:red;" class="invalid-first_name'+p+'"></div>' +
             ' </div>' +
             ' </div>' +
             ' <div class="form-row d-flex justify-content-between">' +

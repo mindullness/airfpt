@@ -42,12 +42,19 @@
                                 <input type="text" class="form-control" id="txt-gate" name="gate">
                             </div>
                             <div class="form-group">
-                                <label for="txt-acid">AC ID</label>
-                                <input type="text" class="form-control" id="txt-acid" name="acid">
+                                <label for="txt-acid">Aircraft</label>
+                                <select name="acid" id="txt-acid"  class="form-control">
+                                    @foreach($aircrafts as $a)
+                                        <option value="{{$a->id}}">ID: {{$a->id}} - {{$a->reg}} - {{$a->config}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="txt-status">Flight status</label>
-                                <input type="text" class="form-control" id="txt-status" name="status">
+                                <select name="status" id="txt-status" class="form-control">
+                                    <option value="open" selected>Open</option>
+                                    <option value="closed">Closed</option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="txt-price">Price</label>

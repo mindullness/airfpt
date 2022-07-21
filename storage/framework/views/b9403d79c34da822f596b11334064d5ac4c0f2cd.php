@@ -43,12 +43,19 @@
                                 <input type="text" class="form-control" id="txt-gate" name="gate">
                             </div>
                             <div class="form-group">
-                                <label for="txt-acid">AC ID</label>
-                                <input type="text" class="form-control" id="txt-acid" name="acid">
+                                <label for="txt-acid">Aircraft</label>
+                                <select name="acid" id="txt-acid"  class="form-control">
+                                    <?php $__currentLoopData = $aircrafts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $a): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($a->id); ?>">ID: <?php echo e($a->id); ?> - <?php echo e($a->reg); ?> - <?php echo e($a->config); ?></option>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="txt-status">Flight status</label>
-                                <input type="text" class="form-control" id="txt-status" name="status">
+                                <select name="status" id="txt-status" class="form-control">
+                                    <option value="open" selected>Open</option>
+                                    <option value="closed">Closed</option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="txt-price">Price</label>

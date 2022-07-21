@@ -33,8 +33,6 @@ and is wrapped around the whole page content, except for the footer in this exam
                             <div class="w3-container">
                                 <p style="text-align: left;">{!!$n->content!!}</p>
                                 <div class="w3-row">
-
-
                                 </div>
                             </div>
                         </div>
