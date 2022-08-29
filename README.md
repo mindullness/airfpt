@@ -11,3 +11,4 @@
 
 The final semester project simulates an online ticket booking and check-in web app. Passengers can book and check in for family's or ones' individual purpose.
 
+Check-out the projects' documents here https://docs.google.com/document/d/1z52pqrrLIU0tWOp2M96oY9WrepO8E_Hv/edit
